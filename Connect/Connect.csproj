@@ -141,6 +141,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\QR\codigo-qr.jpg" />
+    <Content Include="Assets\Social\fb-icon.fw.png" />
+    <Content Include="Assets\Social\li-icon.fw.png" />
+    <Content Include="Assets\Social\mail.png" />
     <Content Include="Assets\System\settings.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
