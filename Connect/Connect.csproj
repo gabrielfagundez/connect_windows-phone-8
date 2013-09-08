@@ -145,6 +145,7 @@
     <Content Include="Assets\Social\li-icon.fw.png" />
     <Content Include="Assets\Social\mail.png" />
     <Content Include="Assets\System\settings.png" />
+    <Content Include="Assets\System\tick.fw.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -16,5 +16,10 @@ namespace Connect.LoggedMainPages
         {
             InitializeComponent();
         }
+
+        private void SettingsImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+        }
     }
 }
