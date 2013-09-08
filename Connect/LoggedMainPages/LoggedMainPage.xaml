@@ -68,7 +68,14 @@
             </Grid.RowDefinitions>
             
             <Grid x:Name="LeerQR" Grid.Row="0">
-                
+                <Button x:Name="EnviarDatosLogin" 
+                        Content="Scan QR Code!" 
+                        HorizontalAlignment="Center" 
+                        Margin="0,0,20,0" 
+                        VerticalAlignment="Center"
+                        Width="300"
+                        Height="100"
+                        Background="#2C5F8C"/>
             </Grid>
 
             <Grid x:Name="GenerarQR" Grid.Row="1">
