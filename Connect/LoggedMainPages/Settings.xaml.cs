@@ -10,16 +10,11 @@ using Microsoft.Phone.Shell;
 
 namespace Connect.LoggedMainPages
 {
-    public partial class LoggedMainPage : PhoneApplicationPage
+    public partial class Settings : PhoneApplicationPage
     {
-        public LoggedMainPage()
+        public Settings()
         {
             InitializeComponent();
-        }
-
-        private void SettingsImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
         }
     }
 }
