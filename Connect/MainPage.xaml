@@ -48,12 +48,61 @@
                   Stretch="Fill"/>
         </StackPanel>
 
-        <!--ContentPanel - place additional content here-->
+        <!--StackPanel - place additional content here-->
         <Grid x:Name="SocialGrid" Grid.Row="2" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!-- La grilla tiene 5 lugares
+                    Label Mail
+                    Input Mail
+                    Label Pass
+                    Input Pass
+                    Boton
+            -->
+            <!-- #1 -->
+            <Grid x:Name="LabelMail" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Mail:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0" 
+                       Foreground="#000"
+                       Style="{StaticResource PhoneTextTitle2Style}"/>
+            </Grid>
+
+            <!-- #2 -->
+            <Grid x:Name="InputMail" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
+
+            </Grid>
+
+            <!-- #3 -->
+            <Grid x:Name="LabelPass" Grid.Row="2" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Password:"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="20,0,0,0" 
+                       Foreground="#000"
+                       Style="{StaticResource PhoneTextTitle2Style}"/>
+            </Grid>
+
+            <!-- #4 -->
+            <Grid x:Name="InputPass" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
+
+            </Grid>
+
+            <!-- #5 -->
+            <Grid x:Name="Button" Grid.Row="4" Margin="0,0,0,0" Background="#FFF">
+
+            </Grid>
 
         </Grid>
 
-        <Grid x:Name="SettingsPanel" Grid.Row="3" Margin="0,0,0,0" Background="#EEE">
+        <Grid x:Name="SettingsPanel" Grid.Row="3" Margin="0,0,0,0" Background="#2C5F8C">
             
         </Grid>
     </Grid>
