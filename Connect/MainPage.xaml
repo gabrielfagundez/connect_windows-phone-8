@@ -77,7 +77,14 @@
 
             <!-- #2 -->
             <Grid x:Name="InputMail" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
-
+                <TextBox x:Name="MailIngresado" 
+                         TextWrapping="Wrap" 
+                         Text="" 
+                         VerticalAlignment="Center" 
+                         HorizontalAlignment="Left" 
+                         Width="400" 
+                         SelectionBackground="#CCC" 
+                         BorderBrush="#DDD"/>
             </Grid>
 
             <!-- #3 -->
@@ -92,12 +99,25 @@
 
             <!-- #4 -->
             <Grid x:Name="InputPass" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
-
+                <TextBox x:Name="PassIngresado" 
+                         TextWrapping="Wrap" 
+                         Text="" 
+                         VerticalAlignment="Center" 
+                         HorizontalAlignment="Left" 
+                         Width="400" 
+                         SelectionBackground="#CCC" 
+                         BorderBrush="#DDD"/>
             </Grid>
 
             <!-- #5 -->
             <Grid x:Name="Button" Grid.Row="4" Margin="0,0,0,0" Background="#FFF">
-
+                <Button x:Name="EnviarDatosLogin" 
+                        Content="Create New Account!" 
+                        HorizontalAlignment="Left" 
+                        Margin="0,0,20,0" 
+                        VerticalAlignment="Center"
+                        Width="300"
+                        Background="#2C5F8C"/>
             </Grid>
 
         </Grid>
