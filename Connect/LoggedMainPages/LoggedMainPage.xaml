@@ -60,12 +60,31 @@
                   Stretch="Fill"/>
         </StackPanel>
 
-        <!--StackPanel - place additional content here-->
+        <!--Aca esta el contenido principal -->
         <Grid x:Name="ZonaQR" Grid.Row="1" Margin="0,0,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="2*"/>
+            </Grid.RowDefinitions>
+            
+            <Grid x:Name="LeerQR" Grid.Row="0">
+                
+            </Grid>
+
+            <Grid x:Name="GenerarQR" Grid.Row="1">
+                <Image HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Height="350" 
+                   Margin="0,0,0,0" 
+                   Width="350"
+                   Source="/Assets/QR/codigo-qr.jpg"/>
+
+            </Grid>
+
 
         </Grid>
 
-        <Grid x:Name="BarraInferior" Grid.Row="3" Margin="0,0,0,0" Background="#2C5F8C">
+        <Grid x:Name="BarraInferior" Grid.Row="2" Margin="0,0,0,0" Background="#2C5F8C">
 
         </Grid>
     </Grid>
