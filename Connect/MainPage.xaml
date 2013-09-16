@@ -136,10 +136,9 @@
             </Grid>
 
         </Grid>
-
-        <Grid x:Name="SettingsPanel" Grid.Row="3" Margin="0,0,0,0" Background="#FF00B4F1">
-
-        </Grid>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#FF00B4F1">
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

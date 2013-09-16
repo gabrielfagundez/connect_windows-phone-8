@@ -8,6 +8,7 @@
     <!--Application Resources-->
     <Application.Resources>
         <local:LocalizedStrings xmlns:local="clr-namespace:Connect" x:Key="LocalizedStrings"/>
+        
     </Application.Resources>
 
     <Application.ApplicationLifetimeObjects>

@@ -21,5 +21,15 @@ namespace Connect.LoggedMainPages
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
         }
+
+        private void EnviarDatosLogin_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Browser.xaml", UriKind.Relative));
+        }
+
+        private void Click_Settings(object sender, EventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
+        }
     }
 }

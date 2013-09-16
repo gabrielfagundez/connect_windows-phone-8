@@ -6,13 +6,16 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:facebookControls="clr-namespace:Facebook.Client.Controls;assembly=Facebook.Client"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
-    Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.Foreground>
+        <SolidColorBrush Color="{StaticResource PhoneForegroundColor}"/>
+    </phone:PhoneApplicationPage.Foreground>
 
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
@@ -45,16 +48,16 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
-            <TextBlock Text="Settings"
+            <TextBlock Text="settings"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Margin="20,0,0,0" 
                        Foreground="#FF00B4F1"
-                       Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe WP Light"/>
+                       Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe WP Light" Height="144" Width="320" FontSize="90"/>
         </StackPanel>
 
         <!--StackPanel - place additional content here-->
-        <Grid x:Name="SocialGrid" Grid.Row="1" Margin="0,0,0,0">
+        <Grid x:Name="SocialGrid" Grid.Row="1" Margin="0,0,0,0" Grid.RowSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
@@ -71,91 +74,20 @@
                     Integracion con el Mail
             -->
             <!-- #1 -->
-            <Grid x:Name="Mail" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock Text="Mail:"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="20,0,0,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
-            </Grid>
 
             <!-- #2 -->
-            <Grid x:Name="Password" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock Text="Password:"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="20,0,0,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
-            </Grid>
 
             <!-- #3 -->
-            <Grid x:Name="Facebook" Grid.Row="2" Margin="0,0,0,0" Background="#FFF">
-                <Image x:Name="FacebookImage" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Height="Auto"
-                   Width="Auto"
-                   Margin="20,20,0,20" 
-                   Source="/Assets/Social/fb-icon.fw.png" />
-
-                <TextBlock Text="Iniciar Sesión"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="20,0,40,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
-            </Grid>
 
             <!-- #4 -->
-            <Grid x:Name="LinkedIn" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
-                <Image x:Name="LinkedInImage" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Height="Auto"
-                   Width="Auto"
-                   Margin="20,20,0,20" 
-                   Source="/Assets/Social/li-icon.fw.png" />
-
-                <TextBlock Text="Iniciar Sesión"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="20,0,40,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
-
-            </Grid>
 
             <!-- #5 -->
-            <Grid x:Name="IntegracionMail" Grid.Row="4" Margin="0,0,0,0" Background="#FFF">
-                <Image x:Name="MailImage" 
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   Height="Auto"
-                   Width="Auto"
-                   Margin="20,20,0,20" 
-                   Source="/Assets/Social/mail.png" />
 
-                <TextBlock Text="Iniciar Sesión"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Margin="20,0,40,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
-            </Grid>
-
-        </Grid>
-
-        <Grid x:Name="SettingsPanel" Grid.Row="3" Margin="0,0,0,0" Background="#FF00B4F1">
-            <Image x:Name="SettingsImage"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Height="60" 
-                   Margin="0,0,0,0" 
-                   Width="60"
-                   Source="/Assets/System/tick.fw.png" Tap="SettingsImage_Tap"/>
         </Grid>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="True" IsVisible="True" BackgroundColor="#FF00B4F1">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Check" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

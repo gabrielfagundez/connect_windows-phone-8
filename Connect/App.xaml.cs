@@ -7,6 +7,7 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Connect.Resources;
+using System.Windows.Media;
 
 namespace Connect
 {
@@ -34,6 +35,8 @@ namespace Connect
 
             // Language display initialization
             InitializeLanguage();
+
+            
 
             // Show graphics profiling information while debugging.
             if (Debugger.IsAttached)
@@ -116,6 +119,8 @@ namespace Connect
             // screen to remain active until the application is ready to render.
             // RootFrame = new PhoneApplicationFrame();
             RootFrame = new TransitionFrame();
+            RootFrame.Background = new SolidColorBrush(Colors.White);
+           
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures

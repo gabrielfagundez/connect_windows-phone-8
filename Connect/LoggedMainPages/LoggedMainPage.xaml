@@ -60,7 +60,7 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
 
-            <Grid x:Name="LeerQR" Grid.Row="0" Margin="-10,-64,0,0" Grid.RowSpan="2">
+            <Grid x:Name="LeerQR" Grid.Row="0" Margin="-10,-64,0,-78" Grid.RowSpan="2">
                 <Image HorizontalAlignment="Center"
             		VerticalAlignment="Center"
             		Height="306" 
@@ -82,7 +82,7 @@
                 	VerticalAlignment="Center"
                 	Width="312"
                 	Height="100"
-                	Background="#FF00B4F1"/>
+                	Background="#FF00B4F1" Click="EnviarDatosLogin_Copy_Click"/>
                 <Image HorizontalAlignment="Center"
                 	VerticalAlignment="Center"
                 	Height="306" 
@@ -93,17 +93,11 @@
 
 
         </Grid>
-
-        <Grid x:Name="BarraInferior" Grid.Row="2" Margin="0,0,0,0" Background="#FF00B4F1">
-            <Image x:Name="SettingsImage"
-                   HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
-                   Height="60" 
-                   Margin="0,0,0,0" 
-                   Width="60"
-                   Source="/Assets/System/settings.png" Tap="SettingsImage_Tap"/>
-        </Grid>
     </Grid>
-
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#FF00B4F1">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Images/feature.settings.png" Click="Click_Settings" Text="save" />
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
 </phone:PhoneApplicationPage>
