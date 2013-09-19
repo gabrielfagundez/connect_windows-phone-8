@@ -24,11 +24,21 @@ namespace Connect
 
         private void EnviarDatosLogin_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Register.xaml", UriKind.Relative));
         }
 
-        private void EnviarDatosLogin_Click(object sender, RoutedEventArgs e)
+
+        private void Click_check(object sender, EventArgs e)
         {
+            if ((MailIngresado.Text == "guidufort@msn.com") && (PassIngresado.Password == "password"))
+            {
+                ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
+                NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                ErrorBlock.Visibility = System.Windows.Visibility.Visible;
+            }
 
         }
 

@@ -12,6 +12,8 @@ namespace Connect.LoggedMainPages
 {
     public partial class Page1 : PhoneApplicationPage
     {
+        private int i = 0;
+
         public Page1()
         {
             InitializeComponent();
@@ -36,7 +38,8 @@ namespace Connect.LoggedMainPages
         {
             string hola =e.Uri.Host + e.Uri.AbsolutePath;
             friendName.Text = hola;
-            if (e.Uri == e.Uri)
+
+            if (this.i == 2)
             {
                 e.Cancel = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));

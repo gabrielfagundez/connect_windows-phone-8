@@ -10,7 +10,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
+    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
 
@@ -83,11 +83,9 @@
                 	Width="312"
                 	Height="100"
                 	Background="#FF00B4F1" Click="EnviarDatosLogin_Copy_Click"/>
-                <Image HorizontalAlignment="Center"
-                	VerticalAlignment="Center"
-                	Height="306" 
-                	Margin="94,87,82,225" 
-                	Width="314"
+                <Image HorizontalAlignment="Left"
+                	VerticalAlignment="Top" 
+                	Margin="94,87,82,225"
                 	Source="/Assets/QR/codigo-qr.jpg"/>
             </Grid>
 
