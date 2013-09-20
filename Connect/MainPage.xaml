@@ -12,7 +12,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" >
 
     <toolkit:TransitionService.NavigationInTransition>
         <toolkit:NavigationInTransition>
@@ -36,41 +36,49 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#FFF">
+    <Grid x:Name="LayoutRoot" Background="#FFF" Margin="20,20,0,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="*"/>            
         </Grid.RowDefinitions>
 
         <!--AppTitlePanel contains the name of the application-->
-        <Grid x:Name="AppTitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+        
+        <Grid x:Name="AppTitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF" >
             <TextBlock Text="Connect!"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,12,0,0" 
-                       Foreground="#FF00B4F1" FontFamily="Segoe WP Light" FontSize="30"/>
+                       Margin="0,0,0,0" 
+                       Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30"/>
         </Grid>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
+        <Grid x:Name="TitlePanel" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
             <TextBlock Text="login"
         		HorizontalAlignment="Left"
         		VerticalAlignment="Center"
-        		Margin="20,0,0,0" 
-        		Foreground="#FF00B4F1"
-        		Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe UI Light" FontSize="100" FontStretch="UltraCondensed" FontWeight="Thin"/>
-        </StackPanel>
+                Height="Auto"
+                Width="Auto"
+        		Margin="0,0,0,0" 
+        		Foreground="#00aff0"
+                FontFamily="Segoe WP Light"
+                FontSize="100"
+                FontWeight="Thin"/>
+        </Grid>
 
         <!--StackPanel - place additional content here-->
         <Grid x:Name="SocialGrid" Grid.Row="2" Margin="0,0,0,0">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="3.5*"/>
+                <RowDefinition Height="3*"/>
             </Grid.RowDefinitions>
 
             <!-- La grilla tiene 5 lugares
@@ -81,55 +89,82 @@
                     Boton
             -->
             <!-- #1 -->
-            <Grid x:Name="LabelMail" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock Text="Mail:"
+            <Grid x:Name="LabelMail" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Mail"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,0,0,0" 
+                       Margin="0,0,0,0" 
                        Foreground="#000"
                        Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!-- #2 -->
-            <Grid x:Name="InputMail" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
+            <Grid x:Name="InputMail" Grid.Row="2" Margin="-10,0,20,0" Background="#FFF">
                 <TextBox x:Name="MailIngresado" 
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
                          TextWrapping="Wrap" 
                          Text="" 
-                         SelectionBackground="#CCC" 
-                         BorderBrush="#FFC6C6C6" Background="#FFEBEBEB"/>
+                         Height="Auto"
+                         Width="Auto"
+                         SelectionBackground="#FFEBEBEB" 
+                         BorderBrush="#FFC6C6C6"
+                         Background="#FFEBEBEB"/>
             </Grid>
 
             <!-- #3 -->
-            <Grid x:Name="LabelPass" Grid.Row="2" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock Text="Password:"
+            <Grid x:Name="LabelPass" Grid.Row="4" Margin="0,0,20,0" Background="#FFF">
+                <TextBlock Text="Password"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,0,0,0" 
+                       Margin="0,0,0,0" 
                        Foreground="#000"
                        Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!-- #4 -->
-            <Grid x:Name="InputPass" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
-                <PasswordBox x:Name="PassIngresado" RenderTransformOrigin="-4.196,2.474" Background="#FFEBEBEB" BorderBrush="#FFC6C6C6"/>
+            <Grid x:Name="InputPass" Grid.Row="5" Margin="-10,0,20,0" Background="#FFF">
+                <PasswordBox
+                    x:Name="PassIngresado"
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    Background="#FFEBEBEB"
+                    BorderBrush="#FFC6C6C6"
+                    Height="Auto"
+                    Width="Auto"
+                    Margin="0,0,0,0"/>
             </Grid>
 
-            <!-- #5 -->
-            <Grid x:Name="Button" Grid.Row="4" Margin="0,0,0,0" Background="#FFF">
+            <!-- #6 -->
+            <Grid x:Name="Error" Grid.Row="6" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock x:Name="ErrorBlock"
+                           HorizontalAlignment="Left"
+                           Height="36" Margin="0,0,0,0"
+                           Grid.Row="2" Visibility="Collapsed"
+                           TextWrapping="Wrap"
+                           Text="Invalid mail or password"
+                           VerticalAlignment="Top"
+                           Width="290"
+                           Foreground="#DEF30808"/>
+            </Grid>
+
+            <!-- #7 -->
+            <Grid x:Name="Button" Grid.Row="7" Margin="0,0,0,0" Background="#FFF">
                 <Button x:Name="EnviarDatosLogin" 
-                        Content="Create New Account!" 
+                        Content="Create new account" 
                         HorizontalAlignment="Right" 
                         Margin="0,0,20,0" 
-                        VerticalAlignment="Center"
+                        VerticalAlignment="Stretch"
                         Width="300"
-                        Background="#FF00B4F1" Tap="EnviarDatosLogin_Tap" />
+                        Background="#00aff0" Tap="EnviarDatosLogin_Tap" />
             </Grid>
 
+           
+
         </Grid>
-        <TextBlock x:Name="ErrorBlock" HorizontalAlignment="Left" Height="36" Margin="14,337,0,0" Grid.Row="2" Visibility="Collapsed"  TextWrapping="Wrap" Text="Invalid mail or password" VerticalAlignment="Top" Width="290" Foreground="#DEF30808"/>
-    </Grid>
+         </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#FF00B4F1">
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
             <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Login" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>

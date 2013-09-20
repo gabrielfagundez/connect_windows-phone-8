@@ -19,7 +19,7 @@ namespace Connect.LoggedMainPages
 
         private void Click_check(object sender, EventArgs e)
         {
-            if ((MailIngresadoReg.Text != "") && (PassIngresadoReg.Password == PassIngresadoReg_Copy.Password))
+            if ((MailIngresado.Text != "") && (PassIngresadoReg.Password == RePassIngresadoReg.Password))
             {
                 ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed; 
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
@@ -27,7 +27,7 @@ namespace Connect.LoggedMainPages
             }
             else
             {
-                if (MailIngresadoReg.Text == "")
+                if (MailIngresado.Text == "")
                 {
                     ErrorBlockReg.Text = "Please write a mail address";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;

@@ -17,19 +17,24 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
         }
 
-        private void SettingsImage_Tap(object sender, System.Windows.Input.GestureEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
-        }
-
-        private void EnviarDatosLogin_Copy_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Browser.xaml", UriKind.Relative));
-        }
-
         private void Click_Settings(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
+        }
+
+        private void Rectangle_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
+        private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
+        private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
     }
 }

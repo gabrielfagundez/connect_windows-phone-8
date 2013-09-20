@@ -30,7 +30,7 @@ namespace Connect
 
         private void Click_check(object sender, EventArgs e)
         {
-            if ((MailIngresado.Text == "guidufort@msn.com") && (PassIngresado.Password == "password"))
+            if (((MailIngresado.Text == "guille") && (PassIngresado.Password == "pass")) || ((MailIngresado.Text == "") && (PassIngresado.Password == "")))
             {
                 ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
@@ -41,6 +41,8 @@ namespace Connect
             }
 
         }
+
+      
 
         // Sample code for building a localized ApplicationBar
         //private void BuildLocalizedApplicationBar()

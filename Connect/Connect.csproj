@@ -155,6 +155,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\check.png" />
+    <Content Include="Assets\Images\feature.camera.png" />
     <Content Include="Assets\Images\feature.settings.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />
     <Content Include="Assets\Social\fb-icon.fw.png" />

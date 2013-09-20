@@ -36,65 +36,80 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#FFF">
+    <Grid x:Name="LayoutRoot" Background="#FFF" Margin="20,0,20,0">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+        <!--TitlePanel contains the name of frame-->
+        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
             <TextBlock Text="share"
         		HorizontalAlignment="Left"
-        		VerticalAlignment="Center"
-        		Margin="102,0,0,0" 
-        		Foreground="#FF00B4F1"
-        		Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe WP Light" FontSize="100" Width="314"/>
-        </StackPanel>
+        		VerticalAlignment="Stretch"
+        		Margin="50,0,0,0" 
+        		Foreground="#00aff0"
+        		Style="{StaticResource PhoneTextTitle1Style}" 
+                FontFamily="Segoe WP Light"
+                FontSize="100"
+                Width="Auto"/>
+        </Grid>
 
         <!--Aca esta el contenido principal -->
         <Grid x:Name="ZonaQR" Grid.Row="1" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="6*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
-
-            <Grid x:Name="LeerQR" Grid.Row="0" Margin="-10,-64,0,-78" Grid.RowSpan="2">
-                <Image HorizontalAlignment="Center"
+            <!--QR Image-->
+            <Grid x:Name="LeerQR" Grid.Row="0" Margin="0,0,0,0">
+                <Image
+                    HorizontalAlignment="Center"
             		VerticalAlignment="Center"
-            		Height="306" 
-            		Margin="94,87,82,225" 
-            		Width="314"
-            		Source="/Assets/QR/codigo-qr.jpg"/>
-                <Button x:Name="EnviarDatosLogin" 
-                	Content="Scan QR Code!" 
-                	HorizontalAlignment="Center" 
-                	Margin="94,450,84,68" 
-                	VerticalAlignment="Center"
-                	Width="312"
-                	Height="100"
-                	Background="#FF00B4F1"/>
-                <Button x:Name="EnviarDatosLogin_Copy" 
-                	Content="Scan QR Code!" 
-                	HorizontalAlignment="Center" 
-                	Margin="96,450,82,68" 
-                	VerticalAlignment="Center"
-                	Width="312"
-                	Height="100"
-                	Background="#FF00B4F1" Click="EnviarDatosLogin_Copy_Click"/>
-                <Image HorizontalAlignment="Left"
-                	VerticalAlignment="Top" 
-                	Margin="94,87,82,225"
-                	Source="/Assets/QR/codigo-qr.jpg"/>
+            		Height="Auto" 
+            		Margin="0,0,0,0" 
+            		Width="Auto"
+            		Source="/Assets/QR/codigo-qr.jpg"/>               
+            </Grid>
+
+            <!--Scann Button-->
+            <Grid x:Name="ScanQR" Grid.Row="1" Margin="0,0,0,0">
+                <Rectangle
+            		Fill="#00aff0"
+            		HorizontalAlignment="Stretch"                    
+            		Height="Auto"                    
+            		Margin="50,0,50,0"                  
+            		VerticalAlignment="Stretch"
+            		Width="Auto" Tap="Rectangle_Tap"/>
+                <Image
+                    HorizontalAlignment="Center"
+                    Height="Auto"
+                    Margin="0,0,0,0"
+                    VerticalAlignment="Center"
+                    Width="Auto"
+                    Source="/Assets/Images/feature.camera.png" Tap="Image_Tap"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Margin="70,0,0,10"
+                    TextWrapping="Wrap"
+                    Text="Scan"
+                    VerticalAlignment="Bottom"
+                    FontFamily="Segoe WP"
+                    FontSize="30" Foreground="#DEFFFFFF" Tap="TextBlock_Tap"/>
+                
+
             </Grid>
 
 
         </Grid>
     </Grid>
+    
+    <!--Application Bar-->
+    
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#FF00B4F1">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/feature.settings.png" Click="Click_Settings" Text="save" />
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Images/feature.settings.png" Click="Click_Settings" Text="Settings" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 

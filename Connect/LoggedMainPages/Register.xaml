@@ -36,34 +36,42 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot1" Background="#FFF">
+    <Grid x:Name="LayoutRoot1" Background="#FFF" Margin="20,0,20,0" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <!--AppTitlePanel contains the name of the application-->
-        <Grid x:Name="AppTitlePanel1" Grid.Row="0" Margin="0,0,0,0" Background="#FFF"/>
 
         <!--TitlePanel contains the name of the application and page title-->
-        <StackPanel x:Name="TitlePanel1" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
+        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
             <TextBlock Text="register"
         		HorizontalAlignment="Left"
         		VerticalAlignment="Center"
-        		Margin="20,0,0,0" 
-        		Foreground="#FF00B4F1"
-        		Style="{StaticResource PhoneTextTitle1Style}" FontFamily="Segoe UI Light" FontSize="100" FontStretch="UltraCondensed" FontWeight="Thin" Width="360" Height="145"/>
-        </StackPanel>
+        		Margin="0,0,0,0" 
+        		Foreground="#00aff0"
+        		Style="{StaticResource PhoneTextTitle1Style}"
+                FontFamily="Segoe UI Light"
+                FontSize="100"
+                FontStretch="UltraCondensed"
+                FontWeight="Thin"
+                Width="Auto"
+                Height="Auto"/>
+        </Grid>
 
         <!--StackPanel - place additional content here-->
-        <Grid x:Name="SocialGrid1" Grid.Row="2" Margin="0,0,0,0">
+        <Grid x:Name="SocialGrid1" Grid.Row="1" Margin="0,0,0,0" Width="450">
             <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
                 <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
+                <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
 
@@ -75,64 +83,100 @@
                     Boton
             -->
             <!-- #1 -->
-            <Grid x:Name="LabelMailReg" Grid.Row="0" Margin="0,0,0,31" Background="#FFF">
-                <TextBlock Text="Mail:"
+            <Grid x:Name="LabelMailReg" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Mail"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,0,0,0" 
+                       Margin="0,0,0,0" 
                        Foreground="#000"
                        Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!-- #2 -->
-            <Grid x:Name="InputMailReg" Margin="0,55,0,0" Background="#FFF" Grid.RowSpan="2">
-                <TextBox x:Name="MailIngresadoReg" 
+            <Grid x:Name="InputMailReg" Grid.Row="1" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2" Height="71">
+                <TextBox x:Name="MailIngresado" 
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch"
                          TextWrapping="Wrap" 
+                         Margin="-10,0,0,0" 
                          Text="" 
-                         SelectionBackground="#CCC" 
-                         BorderBrush="#FFC6C6C6" Background="#FFEBEBEB" Margin="0,0,0,39" Height="87"/>
+                         Height="Auto"
+                         Width="Auto"
+                         SelectionBackground="#FFEBEBEB" 
+                         BorderBrush="#FFC6C6C6"
+                         Background="#FFEBEBEB"/>
             </Grid>
 
             <!-- #3 -->
-            <Grid x:Name="LabelPassReg" Grid.Row="1" Margin="0,62,0,30" Background="#FFF" Grid.RowSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="89*"/>
-                    <ColumnDefinition Width="151*"/>
-                </Grid.ColumnDefinitions>
-                <TextBlock Text="Password:"
+            <Grid x:Name="LabelPasswordReg" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Password"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="20,22,0,21" 
+                       Margin="0,0,0,0" 
                        Foreground="#000"
                        Style="{StaticResource PhoneTextTitle2Style}"/>
-                <Grid x:Name="LabelPass_Copy" Margin="0,148,0,-148" Background="#FFF" Grid.ColumnSpan="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="89*"/>
-                        <ColumnDefinition Width="61*"/>
-                        <ColumnDefinition Width="90*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Re-type password:"
-                		HorizontalAlignment="Left"
-                		VerticalAlignment="Center"
-                		Margin="20,20,0,18" 
-                		Foreground="#000"
-                		Style="{StaticResource PhoneTextTitle2Style}" Grid.ColumnSpan="2" Width="280"/>
-                </Grid>
             </Grid>
 
+
+
             <!-- #4 -->
-            <Grid x:Name="InputPassReg" Grid.Row="2" Margin="0,61,0,0" Background="#FFF" Grid.RowSpan="2" Height="70" VerticalAlignment="Top">
-                <PasswordBox x:Name="PassIngresadoReg" RenderTransformOrigin="-4.196,2.474" Background="#FFEBEBEB" BorderBrush="#FFC6C6C6" Height="87" Margin="0,-6,0,-11"/>
-                <PasswordBox x:Name="PassIngresadoReg_Copy" RenderTransformOrigin="-4.196,2.474" Background="#FFEBEBEB" BorderBrush="#FFC6C6C6" Margin="0,135,0,-152" Height="87"/>
+            <Grid x:Name="InputPasswordReg" Grid.Row="4" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2">
+                <PasswordBox 
+                x:Name="PassIngresadoReg"
+                HorizontalAlignment="Stretch" 
+                Margin="-10,0,0,0"  
+                Grid.Row="7" 
+                VerticalAlignment="Center"
+                SelectionBackground="#CCC" 
+                BorderBrush="#FFC6C6C6"
+                Background="#FFEBEBEB"
+                Height="71"/>
             </Grid>
 
             <!-- #5 -->
 
+            <Grid x:Name="LabelRePasswordReg" Grid.Row="6" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock Text="Re-Type Password"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Center"
+                       Margin="0,0,0,0" 
+                       Foreground="#000"
+                       Style="{StaticResource PhoneTextTitle2Style}"/>
+            </Grid>
+
+
+
+            <!-- #4 -->
+            <Grid x:Name="InputRePassword" Grid.Row="7" Margin="0,0,0,0" Background="#FFF"/>
+            <PasswordBox 
+                x:Name="RePassIngresadoReg"
+                HorizontalAlignment="Stretch" 
+                Margin="-10,0,0,0" 
+                Grid.Row="7" 
+                VerticalAlignment="Center"
+                SelectionBackground="#CCC" 
+                BorderBrush="#FFC6C6C6"
+                Background="#FFEBEBEB"
+                Height="71"/>
+
+            <!-- #5 -->
+            <Grid x:Name="Error" Grid.Row="8" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock x:Name="ErrorBlockReg"
+                           HorizontalAlignment="Left"
+                           Height="36" Margin="0,0,0,0"
+                           Grid.Row="2" Visibility="Collapsed"
+                           TextWrapping="Wrap"
+                           Text="Passwords are not the same"
+                           VerticalAlignment="Top"
+                           Width="290"
+                           Foreground="#DEF30808"/>
+            </Grid>
+            
         </Grid>
-        <TextBlock x:Name="ErrorBlockReg" HorizontalAlignment="Left" Height="36" Margin="10,28,0,0" Grid.Row="3" Visibility="Collapsed"  TextWrapping="Wrap" Text="Passwords are not the same" VerticalAlignment="Top" Width="438" Foreground="#DEF30808"/>
+        
     </Grid>
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#FF00B4F1">
+        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
             <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Login" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
