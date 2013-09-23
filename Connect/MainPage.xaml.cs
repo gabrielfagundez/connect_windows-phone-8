@@ -17,9 +17,14 @@ namespace Connect
         public MainPage()
         {
             InitializeComponent();
-
+            Loaded += MainPage_Loaded;
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
+        }
+
+        void MainPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            NavigationService.RemoveBackEntry();
         }
 
         private void EnviarDatosLogin_Tap(object sender, System.Windows.Input.GestureEventArgs e)

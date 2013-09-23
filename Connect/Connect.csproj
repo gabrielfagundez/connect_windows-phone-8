@@ -94,17 +94,26 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="LoggedMainPages\Done.xaml.cs">
+      <DependentUpon>Done.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\LoggedMainPage.xaml.cs">
       <DependentUpon>LoggedMainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoggedMainPages\Browser.xaml.cs">
       <DependentUpon>Browser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\Scanning.xaml.cs">
+      <DependentUpon>Scanning.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoggedMainPages\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedMainPages\SplashPage.xaml.cs">
+      <DependentUpon>SplashPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -121,6 +130,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+    <Page Include="LoggedMainPages\Done.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoggedMainPages\LoggedMainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,11 +142,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoggedMainPages\Scanning.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoggedMainPages\Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoggedMainPages\Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\SplashPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -155,6 +176,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Assets\Images\check.png" />
+    <Content Include="Assets\Images\connectImage.png" />
+    <Content Include="Assets\Images\Cuadrado.png" />
     <Content Include="Assets\Images\feature.camera.png" />
     <Content Include="Assets\Images\feature.settings.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />

@@ -10,17 +10,16 @@ using Microsoft.Phone.Shell;
 
 namespace Connect.LoggedMainPages
 {
-    public partial class Settings : PhoneApplicationPage
+    public partial class Done : PhoneApplicationPage
     {
-        public Settings()
+        public Done()
         {
             InitializeComponent();
         }
 
         private void Click_check(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));            
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
-
-    }     
+    }
 }

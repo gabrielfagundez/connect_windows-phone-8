@@ -90,36 +90,39 @@
             -->
             <!-- #1 -->
             <Grid x:Name="LabelMail" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock Text="Mail"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="0,0,0,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
+                <TextBlock
+                    Text="Mail"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,0" 
+                    Foreground="#000"
+                    Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!-- #2 -->
             <Grid x:Name="InputMail" Grid.Row="2" Margin="-10,0,20,0" Background="#FFF">
-                <TextBox x:Name="MailIngresado" 
-                         HorizontalAlignment="Stretch"
-                         VerticalAlignment="Stretch"
-                         TextWrapping="Wrap" 
-                         Text="" 
-                         Height="Auto"
-                         Width="Auto"
-                         SelectionBackground="#FFEBEBEB" 
-                         BorderBrush="#FFC6C6C6"
-                         Background="#FFEBEBEB"/>
+                   <TextBox
+                    x:Name="MailIngresado" 
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    TextWrapping="Wrap" 
+                    Text="" 
+                    Height="Auto"
+                    Width="Auto"
+                    SelectionBackground="#FFEBEBEB" 
+                    BorderBrush="#FFC6C6C6"
+                    Background="#FFEBEBEB"/>
             </Grid>
 
             <!-- #3 -->
             <Grid x:Name="LabelPass" Grid.Row="4" Margin="0,0,20,0" Background="#FFF">
-                <TextBlock Text="Password"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="0,0,0,0" 
-                       Foreground="#000"
-                       Style="{StaticResource PhoneTextTitle2Style}"/>
+                <TextBlock
+                    Text="Password"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,0" 
+                    Foreground="#000"
+                    Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!-- #4 -->
@@ -137,26 +140,28 @@
 
             <!-- #6 -->
             <Grid x:Name="Error" Grid.Row="6" Margin="0,0,0,0" Background="#FFF">
-                <TextBlock x:Name="ErrorBlock"
-                           HorizontalAlignment="Left"
-                           Height="36" Margin="0,0,0,0"
-                           Grid.Row="2" Visibility="Collapsed"
-                           TextWrapping="Wrap"
-                           Text="Invalid mail or password"
-                           VerticalAlignment="Top"
-                           Width="290"
-                           Foreground="#DEF30808"/>
+                <TextBlock
+                    x:Name="ErrorBlock"
+                    HorizontalAlignment="Left"
+                    Height="36" Margin="0,0,0,0"
+                    Grid.Row="2" Visibility="Collapsed"
+                    TextWrapping="Wrap"
+                    Text="Invalid mail or password"
+                    VerticalAlignment="Top"
+                    Width="290"
+                    Foreground="#DEF30808"/>
             </Grid>
 
             <!-- #7 -->
             <Grid x:Name="Button" Grid.Row="7" Margin="0,0,0,0" Background="#FFF">
-                <Button x:Name="EnviarDatosLogin" 
-                        Content="Create new account" 
-                        HorizontalAlignment="Right" 
-                        Margin="0,0,20,0" 
-                        VerticalAlignment="Stretch"
-                        Width="300"
-                        Background="#00aff0" Tap="EnviarDatosLogin_Tap" />
+                <Button
+                    x:Name="EnviarDatosLogin" 
+                    Content="Create new account" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,0,20,0" 
+                    VerticalAlignment="Stretch"
+                    Width="300"
+                    Background="#00aff0" Tap="EnviarDatosLogin_Tap" />
             </Grid>
 
            

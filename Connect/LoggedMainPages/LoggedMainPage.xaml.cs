@@ -24,17 +24,17 @@ namespace Connect.LoggedMainPages
 
         private void Rectangle_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Scanning.xaml", UriKind.Relative));
         }
 
         private void Image_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Scanning.xaml", UriKind.Relative));
         }
 
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Scanning.xaml", UriKind.Relative));
         }
     }
 }
