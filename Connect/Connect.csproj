@@ -100,9 +100,6 @@
     <Compile Include="LoggedMainPages\LoggedMainPage.xaml.cs">
       <DependentUpon>LoggedMainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="LoggedMainPages\Browser.xaml.cs">
-      <DependentUpon>Browser.xaml</DependentUpon>
-    </Compile>
     <Compile Include="LoggedMainPages\Scanning.xaml.cs">
       <DependentUpon>Scanning.xaml</DependentUpon>
     </Compile>
@@ -135,10 +132,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoggedMainPages\LoggedMainPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="LoggedMainPages\Browser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,7 +174,11 @@
     <Content Include="Assets\Images\feature.camera.png" />
     <Content Include="Assets\Images\feature.settings.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />
+    <Resource Include="Assets\Social\facebook-iconCuadrado.gif" />
+    <Content Include="Assets\Social\FacebookCuadrado.png" />
     <Content Include="Assets\Social\fb-icon.fw.png" />
+    <Content Include="Assets\Social\iconoLinkedinCuadrado.png" />
+    <Content Include="Assets\Social\IconoMailCuadrado.png" />
     <Content Include="Assets\Social\li-icon.fw.png" />
     <Content Include="Assets\Social\mail.png" />
     <Content Include="Assets\System\settings.png" />

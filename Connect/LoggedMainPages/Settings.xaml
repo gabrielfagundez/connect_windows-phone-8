@@ -50,6 +50,7 @@
 
         <!--Este panel va a contener el titulo superior-->
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+            
             <!--Este es el titulo superior-->
             <TextBlock Text="settings"
                        HorizontalAlignment="Left"
@@ -77,27 +78,80 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
+            <!--Name Text-->
             <Grid x:Name="Name" Grid.Row="0" Grid.Column="0">
-                <TextBlock Foreground="#00aff0" Margin="0,0,0,0" Text="Name" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
-            </Grid>
-            <Grid x:Name="Mail" Grid.Row="1" Grid.Column="0">
-                <TextBlock Foreground="#00aff0" Margin="0,0,0,0" Text="Mail" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
-            </Grid>
-            <Grid x:Name="Paswword" Grid.Row="2" Grid.Column="0">
-                <TextBlock Foreground="#00aff0" Margin="0,0,-30,0" Text="Password" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
-            </Grid>
-            <Grid x:Name="NameInput" Grid.Row="0" Grid.Column="1">
-                <TextBox Foreground="Black" Margin="50,0,0,0" Text="John Smith" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
-            </Grid>
-            <Grid x:Name="MailInput" Grid.Row="1" Grid.Column="1">
-                <TextBox Foreground="Black" Margin="50,0,0,0" Text="johnSmith@." HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
-            </Grid>
-            <Grid x:Name="PasswordInput" Grid.Row="2" Grid.Column="1">
-                <PasswordBox Foreground="Black" Margin="50,0,0,0" Password="johnsmith" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="30" />
+                <TextBlock 
+                    Foreground="#00aff0" 
+                    Margin="0,0,0,0" 
+                    Text="Name" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
             </Grid>
 
+            <!--Mail Text-->
+            <Grid x:Name="Mail" Grid.Row="1" Grid.Column="0">
+                <TextBlock 
+                    Foreground="#00aff0" 
+                    Margin="0,0,0,0" Text="Mail" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
+            </Grid>
+
+            <!--Password Text-->
+            <Grid x:Name="Passwword" Grid.Row="2" Grid.Column="0">
+                <TextBlock 
+                    Foreground="#00aff0" 
+                    Margin="0,0,-30,0" 
+                    Text="Password" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
+            </Grid>
+
+            <!--Name Input-->
+            <Grid x:Name="NameInput" Grid.Row="0" Grid.Column="1">
+                <TextBox 
+                    Foreground="Black" 
+                    Margin="50,0,0,0" 
+                    Text="John Smith" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
+            </Grid>
+
+            <!--Mail Input-->
+            <Grid x:Name="MailInput" Grid.Row="1" Grid.Column="1">
+                <TextBox 
+                    Foreground="Black" 
+                    Margin="50,0,0,0" 
+                    Text="johnSmith@." 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
+            </Grid>
+
+            <!--Password Input-->
+            <Grid x:Name="PasswordInput" Grid.Row="2" Grid.Column="1">
+                <PasswordBox 
+                    Foreground="Black" 
+                    Margin="50,0,0,0" 
+                    Password="johnsmith" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Top" 
+                    FontSize="30" />
+            </Grid>
+
+            <!--Share Text-->
             <Grid x:Name="Share" Grid.Row="2" Grid.Column="2">
-                <TextBlock Foreground="#00aff0" Margin="0,0,0,0" Text="Share" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontSize="30" />
+                <TextBlock 
+                    Foreground="#00aff0" 
+                    Margin="0,0,0,-20" 
+                    Text="Share" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Bottom" 
+                    FontSize="30" />
             </Grid>
 
         </Grid>
@@ -116,7 +170,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!--Facebook-->
+            <!--Facebook Picture-->
             <Grid x:Name="Facebook" Grid.Row="0">
                 <Image 
                     HorizontalAlignment="Left" 
@@ -124,63 +178,115 @@
                     Margin="0,0,0,0"
                     VerticalAlignment="Center" 
                     Width="Auto"
-                    Source="/Assets/Social/fb-icon.fw.png"/>
+                    Source="/Assets/Social/FacebookCuadrado.png"/>
             </Grid>
 
-            <!--LinkedIn-->
-            <Grid x:Name="LinkedIn" Grid.Row="1">
+            <!--LinkedIn Picture-->
+            <Grid x:Name="LinkedInPicture" Grid.Row="1">
                 <Image 
                     HorizontalAlignment="Left" 
                     Height="Auto" 
                     Margin="0,0,0,0"
                     VerticalAlignment="Center" 
                     Width="Auto"
-                    Source="/Assets/Social/li-icon.fw.png"/>
+                    Source="/Assets/Social/iconoLinkedinCuadrado.png"/>
             </Grid>
 
-            <!--Mail-->
-            <Grid x:Name="MailCheck" Grid.Row="2">
+            <!--Mail Picture-->
+            <Grid x:Name="MailPicture" Grid.Row="2">
                 <Image 
                     HorizontalAlignment="Left" 
                     Height="Auto" 
                     Margin="0,0,0,0"
                     VerticalAlignment="Center" 
                     Width="Auto"
-                    Source="/Assets/Social/mail.png"/>
+                    Source="/Assets/Social/IconoMailCuadrado.png"/>
             </Grid>
 
+            <!--Account Mail-->
             <Grid x:Name="MailAccount" Grid.Row="2" Grid.Column="1">
-                <TextBlock Foreground="Black" Margin="50,0,0,0" Text="john Smith@..." HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
+                <TextBlock 
+                    Foreground="Black" 
+                    Margin="50,0,0,0" 
+                    Text="john Smith@..." 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
             </Grid>
 
+            <!--Account Linkedin-->
             <Grid x:Name="LinkedinAccount" Grid.Row="1" Grid.Column="1">
-                <TextBlock Foreground="Black" Margin="50,0,0,0" Text="John Smith" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30" />
+                <TextBlock 
+                    Foreground="Black" 
+                    Margin="50,0,0,0" 
+                    Text="John Smith" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30" />
             </Grid>
 
+            <!--Account Facebook-->
             <Grid x:Name="FacebookAccount" Grid.Row="0" Grid.Column="1">
-                <TextBlock Foreground="Black" Margin="50,0,0,0"  Text="John Smith" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="30"  />
+                <TextBlock 
+                    Foreground="Black" 
+                    Margin="50,0,0,0"  
+                    Text="John Smith" 
+                    HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" 
+                    FontSize="30"  />
             </Grid>
 
-
-
+            <!--Check Mail-->
             <Grid x:Name="CheckMail" Grid.Row="2" Grid.Column="3">
-                <CheckBox Foreground="Black" Content="" Height="Auto" Width="Auto"  HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" BorderBrush="#DE000000" Background="#FF00AFF0" IsChecked="True"/>
+                <CheckBox 
+                    Foreground="Black" 
+                    Content="" 
+                    Height="Auto" 
+                    Width="Auto"  
+                    HorizontalAlignment="Center" 
+                    Margin="0,0,0,0" 
+                    VerticalAlignment="Center" 
+                    BorderBrush="#DE000000" 
+                    Background="#FF00AFF0" 
+                    IsChecked="True"/>
 
             </Grid>
 
+            <!--Check Facebook-->
             <Grid x:Name="CheckFacebook" Grid.Row="1" Grid.Column="3">
-                <CheckBox Foreground="Black" Content="" Height="Auto" Width="Auto"  HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Background="#FF00AFF0" BorderBrush="#DE000000" IsChecked="True"/>
+                <CheckBox 
+                    Foreground="Black" 
+                    Content="" 
+                    Height="Auto" 
+                    Width="Auto"  
+                    HorizontalAlignment="Center" 
+                    Margin="0,0,0,0" 
+                    VerticalAlignment="Center" 
+                    Background="#FF00AFF0" 
+                    BorderBrush="#DE000000" 
+                    IsChecked="True"/>
 
             </Grid>
 
+            <!--Check Linkedin-->
             <Grid x:Name="CheckLinkedin" Grid.Row="0" Grid.Column="3">
-                <CheckBox Foreground="Black" Content="" Height="Auto" Width="Auto"  HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Background="#FF00AFF0" BorderBrush="#DE000000" IsChecked="True"/>
-
-            </Grid>
+                <CheckBox 
+                    Foreground="Black" 
+                    Content="" 
+                    Height="Auto" 
+                    Width="Auto"  
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,0" 
+                    VerticalAlignment="Center" 
+                    Background="#FF00AFF0" 
+                    BorderBrush="#DE000000" 
+                    IsChecked="True"/>
+            </Grid>            
+            
         </Grid>
 
-
     </Grid>
+    <!--Application Bar-->
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
             <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Check" />

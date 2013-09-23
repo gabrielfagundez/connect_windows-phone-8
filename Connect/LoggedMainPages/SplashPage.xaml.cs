@@ -8,17 +8,39 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO;
+using System.Threading;
+using Microsoft.Phone.Controls;
+using System.Windows.Threading; 
 
 namespace WindowsPhoneSample5
 {
     public partial class SplashPage : PhoneApplicationPage
     {
         private HttpWebRequest request;
+        private int i = 0;
 
         public SplashPage()
         {
             InitializeComponent();
-            Loaded += SplashPage_Loaded;
+            // creating timer instance
+            DispatcherTimer newTimer = new DispatcherTimer();
+            // timer interval specified as 1 second
+            newTimer.Interval = TimeSpan.FromSeconds(1);
+            // Sub-routine OnTimerTick will be called at every 1 second
+            newTimer.Tick += OnTimerTick;
+            // starting the timer
+            newTimer.Start();
+        }
+
+        void OnTimerTick(Object sender, EventArgs args)
+        {
+            // text box property is set to current system date.
+            // ToString() converts the datetime value into text
+            i += 1;
+            if (i == 1)
+            {
+                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            }
         }
 
         void SplashPage_Loaded(object sender, RoutedEventArgs e)

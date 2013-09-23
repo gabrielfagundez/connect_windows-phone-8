@@ -46,33 +46,35 @@
 
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="20,0,0,0" Background="#FFF">
             <!--Este es el titulo superior-->
-            <TextBlock Text="done!"
-                       HorizontalAlignment="Left"
-                       VerticalAlignment="Center"
-                       Margin="0,0,0,0" 
-                       Foreground="#00aff0"
-                       Style="{StaticResource PhoneTextTitle1Style}" 
-                       FontFamily="Segoe WP Light" 
-                       Height="144" 
-                       Width="320" 
-                       FontSize="90"/>
+            <TextBlock 
+                Text="done!"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                Margin="0,0,0,0" 
+                Foreground="#00aff0"
+                Style="{StaticResource PhoneTextTitle1Style}" 
+                FontFamily="Segoe WP Light" 
+                Height="144" 
+                Width="320" 
+                FontSize="90"/>
         </Grid>
 
         <Grid x:Name="TextPanel" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
             <!--Este es el titulo superior-->
-            <TextBlock Text="Tom Jones just shared with you his facebook and email address.
+            <TextBlock 
+                Text="Tom Jones just shared with you his facebook and email address.
                            You are now friends in facebook and we've sent him an email from you."
-                       HorizontalAlignment="Left"
-                       TextWrapping="Wrap"
-                       VerticalAlignment="Top"
+                HorizontalAlignment="Left"
+                TextWrapping="Wrap"
+                VerticalAlignment="Top"
                        
-                       Margin="20,0,20,0" 
-                       Foreground="Black"
-                       Style="{StaticResource PhoneTextTitle1Style}" 
-                       FontFamily="Segoe WP Light" 
-                       Height="Auto" 
-                       Width="Auto" 
-                       FontSize="33"/>
+                Margin="20,0,20,0" 
+                Foreground="Black"
+                Style="{StaticResource PhoneTextTitle1Style}" 
+                FontFamily="Segoe WP Light" 
+                Height="Auto" 
+                Width="Auto" 
+                FontSize="33"/>
         </Grid>
         <!--ContentPanel - place additional content here-->
         
