@@ -29,7 +29,7 @@ namespace Connect.LoggedMainPages
             {
                 if (MailIngresado.Text == "")
                 {
-                    ErrorBlockReg.Text = "Please write a mail address";
+                    ErrorBlockReg.Text = "Please write an email address";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else

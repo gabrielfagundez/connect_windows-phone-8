@@ -11,7 +11,7 @@
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="PortraitOrLandscape" Orientation="Portrait"
+    SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
 
     <toolkit:TransitionService.NavigationInTransition>
@@ -40,6 +40,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
         <!--AppTitlePanel contains the name of the application-->
@@ -173,7 +174,7 @@
                     TextWrapping="Wrap"
                     Text="Passwords are not the same"
                     VerticalAlignment="Top"
-                    Width="290"
+                    Width="Auto"
                     Foreground="#DEF30808"/>
             </Grid>
             
@@ -183,8 +184,8 @@
     
     <!--ApplicationBar-->
     <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="1.0" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Login" />
+        <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
+            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Register" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>
