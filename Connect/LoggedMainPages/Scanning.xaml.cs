@@ -44,26 +44,6 @@ namespace Connect.LoggedMainPages
         }
 
 
-        void SplashPage_Loaded(object sender, RoutedEventArgs e)
-        {
-            request = (HttpWebRequest)HttpWebRequest.Create(new Uri("http://www.developer.nokia.com/Community/Wiki/Portal:Windows_Phone_UI_Articles"));
-            request.BeginGetResponse(new AsyncCallback(ReceiveResponseCallBack), null);
-        }
-
-        private void ReceiveResponseCallBack(IAsyncResult result)
-        {
-            HttpWebResponse response = (HttpWebResponse)this.request.EndGetResponse(result);
-            using (var stream = response.GetResponseStream())
-            {
-                using (StreamReader reader = new StreamReader(stream))
-                {
-                    string str = reader.ReadToEnd();
-                    Deployment.Current.Dispatcher.BeginInvoke(() =>
-                    {
-                        NavigationService.Navigate(new Uri("/LoggedMainPages/Done.xaml", UriKind.Relative));
-                    });
-                }
-            }
-        }
+        
     }
 }
