@@ -101,8 +101,9 @@
             </Grid>
 
             <!--Password Text-->
-            <Grid x:Name="Passwword" Grid.Row="2" Grid.Column="0">
+            <Grid x:Name="Password" Grid.Row="2" Grid.Column="0">
                 <TextBlock 
+                    x:Name="PasswordLable"
                     Foreground="#00aff0" 
                     Margin="0,0,-30,0" 
                     Text="Password" 
@@ -114,6 +115,7 @@
             <!--Name Input-->
             <Grid x:Name="NameInput" Grid.Row="0" Grid.Column="1">
                 <TextBox 
+                    x:Name="NameInputLable"
                     Foreground="Black" 
                     Margin="50,0,0,0" 
                     Text="John Smith" 
@@ -125,6 +127,7 @@
             <!--Mail Input-->
             <Grid x:Name="MailInput" Grid.Row="1" Grid.Column="1">
                 <TextBox 
+                    x:Name="MailLable"
                     Foreground="Black" 
                     Margin="50,0,0,0" 
                     Text="johnSmith@." 
@@ -136,6 +139,7 @@
             <!--Password Input-->
             <Grid x:Name="PasswordInput" Grid.Row="2" Grid.Column="1">
                 <PasswordBox 
+                    x:Name="PasswordLableText"
                     Foreground="Black" 
                     Margin="50,0,0,0" 
                     Password="johnsmith" 

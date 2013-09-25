@@ -12,6 +12,7 @@ using System.IO;
 using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect.Classes;
+using Connect;
 
 
 
@@ -66,6 +67,7 @@ namespace Connect
                   
                 switch (response.StatusCode)
                 {
+                    
                     case HttpStatusCode.NotFound: // 404
                         System.Diagnostics.Debug.WriteLine("Not found!");
                         ErrorBlock.Text = "That email is not registered";
@@ -82,7 +84,8 @@ namespace Connect
             }
             else
             {
-                UsuarioLogin = JsonConvert.DeserializeObject<UserData>(e.Result);
+                LoggedUser user = LoggedUser.Instance;
+                user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
                 ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }

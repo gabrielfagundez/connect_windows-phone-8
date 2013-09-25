@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Connect.Classes
 {
-    class UserData
+    public class UserData
     {
         public string Id { get; set; }
         public string Name { get; set; }
