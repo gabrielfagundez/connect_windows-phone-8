@@ -34,5 +34,12 @@ namespace Connect.LoggedMainPages
             NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));            
         }
 
+        private void Click_Logout(object sender, EventArgs e)
+        {
+            LoggedUser l = LoggedUser.Instance;
+            l.LogOut();
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
+
     }     
 }

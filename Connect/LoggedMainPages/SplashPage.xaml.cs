@@ -10,7 +10,8 @@ using Microsoft.Phone.Shell;
 using System.IO;
 using System.Threading;
 using Microsoft.Phone.Controls;
-using System.Windows.Threading; 
+using System.Windows.Threading;
+using Connect.Classes;
 
 namespace WindowsPhoneSample5
 {
@@ -18,12 +19,23 @@ namespace WindowsPhoneSample5
     {
         private HttpWebRequest request;
         private int i = 0;
+        private Uri a;
 
         public SplashPage()
         {
             InitializeComponent();
             // creating timer instance
             DispatcherTimer newTimer = new DispatcherTimer();
+
+            UserData user = LoggedUser.Instance.GetLoggedUser();
+            if (user == null)
+            {
+                a = new Uri("/MainPage.xaml", UriKind.Relative);
+            }
+            else
+            {
+                a = new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative);
+            }
             // timer interval specified as 1 second
             newTimer.Interval = TimeSpan.FromSeconds(1);
             // Sub-routine OnTimerTick will be called at every 1 second
@@ -39,7 +51,7 @@ namespace WindowsPhoneSample5
             i += 1;
             if (i == 1)
             {
-                NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+                NavigationService.Navigate(a);
             }
         }
 

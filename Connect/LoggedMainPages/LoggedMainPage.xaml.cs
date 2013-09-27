@@ -17,6 +17,14 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
         }
 
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            while ((this.NavigationService.BackStack != null) && (this.NavigationService.BackStack.Any()))
+            {
+                this.NavigationService.RemoveBackEntry();
+            }
+        }
+
         private void Click_Settings(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));

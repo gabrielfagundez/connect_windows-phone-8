@@ -14,34 +14,37 @@ using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
 
-
-
-
 namespace Connect
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        static private Uri usuario = new Uri("http://connectwp.azurewebsites.net/api/Users/10");       
+        static private Uri usuario = new Uri("http://connectwp.azurewebsites.net/api/Users/1");       
         private UserData UsuarioLogin;
         // Constructor
         public MainPage()
         {
             InitializeComponent();
-
+                
             Loaded += MainPage_Loaded;         
             WebClient webClient = new WebClient();
             webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            webClient.DownloadStringAsync(usuario); 
-            
+            webClient.DownloadStringAsync(usuario);
+                   
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
         }
 
-
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            while ((this.NavigationService.BackStack != null) && (this.NavigationService.BackStack.Any()))
+            {
+                this.NavigationService.RemoveBackEntry();
+            } 
+        }
 
         void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
-            UsuarioLogin = JsonConvert.DeserializeObject<UserData>(e.Result);        
+            UsuarioLogin = JsonConvert.DeserializeObject<UserData>(e.Result);
             MailIngresado.Text = UsuarioLogin.Email;
             PassIngresado.Password = UsuarioLogin.Password;
         }
@@ -57,8 +60,38 @@ namespace Connect
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Register.xaml", UriKind.Relative));
         }
+
+        private void Click_check(object sender, EventArgs e)
+        {
+            // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+            try
+            {
+                var webClient = new WebClient();
+                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                webClient.UploadStringCompleted += this.sendPostCompleted;
+
+                string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
+                                  "\"Password\":\"" + PassIngresado.Password + "\"}";
+
+                webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
+            }
+            catch (WebException webex)
+            {
+                HttpWebResponse webResp = (HttpWebResponse)webex.Response;
+
+                switch (webResp.StatusCode)
+                {
+                    case HttpStatusCode.NotFound: // 404
+                        break;
+                    case HttpStatusCode.InternalServerError: // 500
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         
-        private void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
+        private async void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             if ((e.Error!= null) && (e.Error.GetType().Name == "WebException"))
             {
@@ -86,63 +119,10 @@ namespace Connect
             {
                 LoggedUser user = LoggedUser.Instance;
                 user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
-                ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
+                ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;                
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }
         }
 
-
-        private void Click_check(object sender, EventArgs e)        
-        {
-            try
-            {
-                var webClient = new WebClient();
-                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-                webClient.UploadStringCompleted += this.sendPostCompleted;
-
-                string json = "{\"Email\":\"" + MailIngresado.Text +  "\"," +
-                                  "\"Password\":\"" + PassIngresado.Password + "\"}";
-
-                webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
-            }
-            catch (WebException webex)
-            {
-                HttpWebResponse webResp = (HttpWebResponse)webex.Response;
-
-                switch (webResp.StatusCode)
-                {
-                    case HttpStatusCode.NotFound: // 404
-                        break;
-                    case HttpStatusCode.InternalServerError: // 500
-                        break;
-                    default:
-                        break;
-                }
-            }
-
-
-        }
-
-   
-
-        
-
-      
-
-        // Sample code for building a localized ApplicationBar
-        //private void BuildLocalizedApplicationBar()
-        //{
-        //    // Set the page's ApplicationBar to a new instance of ApplicationBar.
-        //    ApplicationBar = new ApplicationBar();
-
-        //    // Create a new button and set the text value to the localized string from AppResources.
-        //    ApplicationBarIconButton appBarButton = new ApplicationBarIconButton(new Uri("/Assets/AppBar/appbar.add.rest.png", UriKind.Relative));
-        //    appBarButton.Text = AppResources.AppBarButtonText;
-        //    ApplicationBar.Buttons.Add(appBarButton);
-
-        //    // Create a new menu item with the localized string from AppResources.
-        //    ApplicationBarMenuItem appBarMenuItem = new ApplicationBarMenuItem(AppResources.AppBarMenuItemText);
-        //    ApplicationBar.MenuItems.Add(appBarMenuItem);
-        //}
     }
 }
