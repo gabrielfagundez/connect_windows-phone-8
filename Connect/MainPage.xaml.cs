@@ -25,10 +25,12 @@ namespace Connect
         {
             InitializeComponent();
                 
-            Loaded += MainPage_Loaded;         
-            WebClient webClient = new WebClient();
-            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            webClient.DownloadStringAsync(usuario);
+            Loaded += MainPage_Loaded;
+            MailIngresado.Text = "gabriel.fa07@gmail.com";
+            PassIngresado.Password = "pass";
+            //WebClient webClient = new WebClient();
+            //webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
+            //webClient.DownloadStringAsync(usuario);
                    
             // Sample code to localize the ApplicationBar
             //BuildLocalizedApplicationBar();
@@ -91,7 +93,7 @@ namespace Connect
             }
         }
         
-        private async void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
+        private void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             if ((e.Error!= null) && (e.Error.GetType().Name == "WebException"))
             {

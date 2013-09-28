@@ -15,15 +15,14 @@ namespace Connect.LoggedMainPages
 {
     public partial class Scanning : PhoneApplicationPage
     {
-        private HttpWebRequest request;
         private int i = 0;
+        DispatcherTimer newTimer = new DispatcherTimer();
 
         public Scanning()
         {
             InitializeComponent();
             //Loaded += SplashPage_Loaded; 
             // creating timer instance
-            DispatcherTimer newTimer = new DispatcherTimer();
             // timer interval specified as 1 second
             newTimer.Interval = TimeSpan.FromSeconds(1);
             // Sub-routine OnTimerTick will be called at every 1 second
@@ -39,6 +38,7 @@ namespace Connect.LoggedMainPages
             i += 1;
             if (i == 3)
             {
+                newTimer.Stop();
                 NavigationService.Navigate(new Uri("/LoggedMainPages/Done.xaml", UriKind.Relative));
             }
         }

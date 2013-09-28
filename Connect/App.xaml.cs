@@ -9,6 +9,7 @@ using Microsoft.Phone.Shell;
 using Connect.Resources;
 using System.Windows.Media;
 using Connect.Classes;
+using Facebook.Client;
 
 namespace Connect
 {
@@ -18,7 +19,11 @@ namespace Connect
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
         /// <returns>The root frame of the Phone Application.</returns>
-        public static PhoneApplicationFrame RootFrame { get; private set; }    
+        public static PhoneApplicationFrame RootFrame { get; private set; }
+        internal static string AccessToken = String.Empty;
+        internal static string FacebookId = String.Empty;
+        public static bool isAuthenticated = false;
+        public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
         
 
         /// <summary>

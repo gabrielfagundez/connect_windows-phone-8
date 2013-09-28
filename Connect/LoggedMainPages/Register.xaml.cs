@@ -7,6 +7,12 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Connect.Resources;
+using System.IO;
+using System.Windows.Threading;
+using Newtonsoft.Json;
+using Connect.Classes;
+using Connect;
 
 namespace Connect.LoggedMainPages
 {
@@ -19,27 +25,92 @@ namespace Connect.LoggedMainPages
 
         private void Click_check(object sender, EventArgs e)
         {
-            if ((MailIngresado.Text != "") && (PassIngresadoReg.Password == RePassIngresadoReg.Password))
+            // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+            try
             {
-                ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed; 
-                NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+                var webClient = new WebClient();
+                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                webClient.UploadStringCompleted += this.sendPostCompleted;
 
-            }
-            else
-            {
+                string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
+                                  "\"Password\":\"" + "est" + "\"}";
+
+                if (NombreIngresado.Text == "")
+                {
+                    ErrorBlockReg.Text = "Please write a name";
+                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
                 if (MailIngresado.Text == "")
                 {
                     ErrorBlockReg.Text = "Please write an email address";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
+                if (PassIngresadoReg.Password == "")
+                {
+                    ErrorBlockReg.Text = "Please write a password";
+                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                if (PassIngresadoReg.Password != RePassIngresadoReg.Password)
                 {
                     ErrorBlockReg.Text = "Written passwords are not the same";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
+                else
+                {
+                    webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
+                }
+            }
+            catch (WebException webex)
+            {
+                HttpWebResponse webResp = (HttpWebResponse)webex.Response;
 
-
+                switch (webResp.StatusCode)
+                {
+                    case HttpStatusCode.NotFound: // 404
+                        break;
+                    case HttpStatusCode.InternalServerError: // 500
+                        break;
+                    default:
+                        break;
+                }
             }
         }
+
+        private void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
+        {
+            if ((e.Error != null) && (e.Error.GetType().Name == "WebException"))
+            {
+                WebException we = (WebException)e.Error;
+                HttpWebResponse response = (System.Net.HttpWebResponse)we.Response;
+
+                switch (response.StatusCode)
+                {
+                    case HttpStatusCode.NotFound: // 404
+                        System.Diagnostics.Debug.WriteLine("no esta usado el mail!");                        
+                        ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
+                        LoggedUser u= LoggedUser.Instance;
+                        UserData user = u.RegisterUser();
+                        user.Name = NombreIngresado.Text;
+                        user.Email = MailIngresado.Text;
+                        user.Password = PassIngresadoReg.Password;
+                        user.FacebookId = "not connected";
+                        user.LinkedInId = "not connected";
+                        user.Id = "";
+                        u.SetLoggedUser(user);
+                        NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));          
+                        break;
+                    case HttpStatusCode.Unauthorized: // 401
+                        System.Diagnostics.Debug.WriteLine("ya fue usado el mail!");
+                        ErrorBlockReg.Text = "That mail has already been used";
+                        ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }        
     }
 }

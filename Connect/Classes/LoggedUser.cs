@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Connect.Classes;
+using Facebook;
+using Facebook.Client;
+using System.Windows.Threading;
+using System.Windows;
 
 namespace Connect.Classes
 {
@@ -24,13 +28,25 @@ namespace Connect.Classes
                     Session s = new Session();
                     if (s.Contains("Id"))
                     {
+                        FacebookSession f = FacebookSessionCacheProvider.Current.GetSessionData();
                         instance.user = new UserData();
-                        instance.user.Email = s.GetStringObject("Email");
-                        instance.user.Id = s.GetStringObject("Id");
-                        instance.user.FacebookId = s.GetStringObject("FacebookId");
-                        instance.user.LinkedInId = s.GetStringObject("LinkedInId");
-                        instance.user.Name = s.GetStringObject("Name");
-                        instance.user.Password = s.GetStringObject("Password");
+                        instance.user.Email = (string)s.GetStringObject("Email");
+                        instance.user.Id = (string)s.GetStringObject("Id");
+                        if (f == null)
+                        {
+                            instance.user.FacebookId = (string)s.GetStringObject("FacebookId");
+                            App.AccessToken = f.AccessToken;
+                            App.FacebookId = f.FacebookId;                         
+                        }
+                        else
+                        {
+                            instance.user.FacebookId = f.FacebookId;
+                        }
+                        instance.user.LinkedInId = (string)s.GetStringObject("LinkedInId");
+                        instance.user.Name = (string)s.GetStringObject("Name");
+                        instance.user.Password = (string)s.GetStringObject("Password");
+                        
+
                     }
                     else
                     {
@@ -40,6 +56,23 @@ namespace Connect.Classes
                 return instance;
             }
         }
+        private FacebookSession session;
+        public async Task Authenticate()
+        {
+            string message = String.Empty;
+            try
+            {
+                session = await App.FacebookSessionClient.LoginAsync("user_about_me,read_stream");
+                App.AccessToken = session.AccessToken;
+                App.FacebookId = session.FacebookId;     
+            }
+            catch (InvalidOperationException e)
+            {
+                message = "Login failed! Exception details: " + e.Message;
+                MessageBox.Show(message);
+            }
+        }
+                 
 
         public void SetLoggedUser(UserData u)
         {
@@ -58,6 +91,12 @@ namespace Connect.Classes
             return this.user;
         }
 
+        public UserData RegisterUser()
+        {
+            this.user = new UserData();
+            return this.user;
+        }
+
         public void LogOut()
         {            
             this.user = null;
@@ -67,7 +106,14 @@ namespace Connect.Classes
             session.RemoveStringObject("Id");
             session.RemoveStringObject("LinkedInId");
             session.RemoveStringObject("Name");
-            session.RemoveStringObject("Password");            
+            session.RemoveStringObject("Password");
+            session.RemoveStringObject("AccessToken");
+            session.RemoveStringObject("FacebookId");
+            FacebookSessionCacheProvider.Current.DeleteSessionData();          
+            
         }
+
+        
+       
     }
 }

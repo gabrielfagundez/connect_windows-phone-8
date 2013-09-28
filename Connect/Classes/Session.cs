@@ -14,7 +14,7 @@ namespace Connect.Classes
     class Session
     {
 
-        public string GetStringObject(string key)
+        public object GetStringObject(string key)
         {
             //Retrieve email Data
             var settings = IsolatedStorageSettings.ApplicationSettings;
@@ -32,18 +32,34 @@ namespace Connect.Classes
             }
         }
 
-        public void SaveStringObject(string key, string data)
+        public void SaveStringObject(string key, object data)
         {
             var settings = IsolatedStorageSettings.ApplicationSettings;
             if (settings.Contains(key))
             {
-                settings[key] = data;
+                if (data == null)
+                {
+                    settings[key] = "not_connected";
+                }
+                else
+                {
+                    settings[key] = data;
+                }
             }
             else
             {
-                settings.Add(key, data);
+                if (data == null)
+                {
+                    settings.Add(key, "not_connected");
+                }
+                else
+                {
+                    settings.Add(key, data);
+                }            
             }
         }
+
+
 
         public bool Contains(string key)
         {

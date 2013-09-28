@@ -72,8 +72,13 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="3.5*"/>
+                 <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="3.5*"/>
                 <RowDefinition Height="2*"/>
                 <RowDefinition Height="1*"/>
+                
+                
             </Grid.RowDefinitions>
 
             <!-- La grilla tiene 5 lugares
@@ -83,8 +88,33 @@
                     Input Pass
                     Boton
             -->
+            <Grid x:Name="LabelNameReg" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+                <TextBlock 
+                    Text="Name"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    Margin="0,0,0,0" 
+                    Foreground="#000"
+                    Style="{StaticResource PhoneTextTitle2Style}"/>
+            </Grid>
+
+            <Grid x:Name="InputNameReg" Grid.Row="1" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2" Height="71">
+                <TextBox 
+                    x:Name="NombreIngresado" 
+                    HorizontalAlignment="Stretch"
+                    VerticalAlignment="Stretch"
+                    TextWrapping="Wrap" 
+                    Margin="-10,0,0,0" 
+                    Text="" 
+                    Height="Auto"
+                    Width="Auto"
+                    SelectionBackground="#FFEBEBEB" 
+                    BorderBrush="#FFC6C6C6"
+                    Background="#FFEBEBEB"/>
+            </Grid>
+
             <!-- Mail Text -->
-            <Grid x:Name="LabelMailReg" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+            <Grid x:Name="LabelMailReg" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
                 <TextBlock 
                     Text="Mail"
                     HorizontalAlignment="Left"
@@ -95,7 +125,7 @@
             </Grid>
 
             <!-- Mail Input -->
-            <Grid x:Name="InputMailReg" Grid.Row="1" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2" Height="71">
+            <Grid x:Name="InputMailReg" Grid.Row="4" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2" Height="71">
                 <TextBox 
                     x:Name="MailIngresado" 
                     HorizontalAlignment="Stretch"
@@ -111,7 +141,7 @@
             </Grid>
 
             <!-- Password Text -->
-            <Grid x:Name="LabelPasswordReg" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
+            <Grid x:Name="LabelPasswordReg" Grid.Row="6" Margin="0,0,0,0" Background="#FFF">
                 <TextBlock 
                     Text="Password"
                     HorizontalAlignment="Left"
@@ -124,7 +154,7 @@
 
 
             <!-- Password Input -->
-            <Grid x:Name="InputPasswordReg" Grid.Row="4" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2">
+            <Grid x:Name="InputPasswordReg" Grid.Row="7" Margin="0,0,0,0" Background="#FFF" Grid.RowSpan="2">
                 <PasswordBox 
                     x:Name="PassIngresadoReg"
                     HorizontalAlignment="Stretch" 
@@ -139,7 +169,7 @@
 
             <!-- Re-type Password Text -->
 
-            <Grid x:Name="LabelRePasswordReg" Grid.Row="6" Margin="0,0,0,0" Background="#FFF">
+            <Grid x:Name="LabelRePasswordReg" Grid.Row="9" Margin="0,0,0,0" Background="#FFF">
                 <TextBlock 
                     Text="Re-Type Password"
                     HorizontalAlignment="Left"
@@ -152,7 +182,7 @@
 
 
             <!-- Re-type Password Input -->
-            <Grid x:Name="InputRePassword" Grid.Row="7" Margin="0,0,0,0" Background="#FFF"/>
+            <Grid x:Name="InputRePassword" Grid.Row="10" Margin="0,0,0,0" Background="#FFF">
                 <PasswordBox 
                     x:Name="RePassIngresadoReg"
                     HorizontalAlignment="Stretch" 
@@ -163,9 +193,10 @@
                     BorderBrush="#FFC6C6C6"
                     Background="#FFEBEBEB"
                     Height="71"/>
-
+            </Grid>
+            
             <!-- Error message-->
-            <Grid x:Name="Error" Grid.Row="8" Margin="0,0,0,0" Background="#FFF">
+            <Grid x:Name="Error" Grid.Row="11" Margin="0,0,0,0" Background="#FFF">
                 <TextBlock 
                     x:Name="ErrorBlockReg"
                     HorizontalAlignment="Left"
@@ -177,7 +208,14 @@
                     Width="Auto"
                     Foreground="#DEF30808"/>
             </Grid>
-            
+
+            <Grid x:Name="SocialGrid2" Grid.Row="11" Margin="0,0,0,0" Width="450">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>                    
+                </Grid.RowDefinitions>
+            </Grid>
+
         </Grid>
         
     </Grid>

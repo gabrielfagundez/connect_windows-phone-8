@@ -13,6 +13,7 @@ using System.IO;
 using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect;
+using Facebook;
 
 namespace Connect.LoggedMainPages
 {
@@ -26,8 +27,28 @@ namespace Connect.LoggedMainPages
             MailLable.Text = _userData.Email;
             NameInputLable.Text = _userData.Email;
             PasswordLableText.Password = _userData.Email;
+            MailAccountBlock.Text = _userData.Email;
+            if (_userData.FacebookId == "")
+            {
+                FacebookAccountBlock.Text = "Not connected";
+            }
+            else
+            {
+                FacebookAccountBlock.Text = _userData.FacebookId;
+            }
+
+            if ((_userData.LinkedInId == "") || (_userData.LinkedInId == null))
+            {
+                LinkedInAccountBlock.Text = "Not connected";
+            }
+            else
+            {
+                LinkedInAccountBlock.Text = _userData.LinkedInId;
+            }
             
         }
+
+        
 
         private void Click_check(object sender, EventArgs e)
         {

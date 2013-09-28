@@ -20,14 +20,14 @@ namespace WindowsPhoneSample5
         private HttpWebRequest request;
         private int i = 0;
         private Uri a;
+        DispatcherTimer newTimer = new DispatcherTimer();
 
-        public SplashPage()
+         public SplashPage()
         {
             InitializeComponent();
             // creating timer instance
-            DispatcherTimer newTimer = new DispatcherTimer();
 
-            UserData user = LoggedUser.Instance.GetLoggedUser();
+            UserData user = LoggedUser.Instance.GetLoggedUser(); 
             if (user == null)
             {
                 a = new Uri("/MainPage.xaml", UriKind.Relative);
@@ -51,11 +51,12 @@ namespace WindowsPhoneSample5
             i += 1;
             if (i == 1)
             {
-                NavigationService.Navigate(a);
+                newTimer.Stop();
+                NavigationService.Navigate(a);                
             }
         }
 
-        void SplashPage_Loaded(object sender, RoutedEventArgs e)
+        public void SplashPage_Loaded(object sender, RoutedEventArgs e)
         {
             request = (HttpWebRequest)HttpWebRequest.Create(new Uri("http://www.developer.nokia.com/Community/Wiki/Portal:Windows_Phone_UI_Articles"));
             request.BeginGetResponse(new AsyncCallback(ReceiveResponseCallBack), null);

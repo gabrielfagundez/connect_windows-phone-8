@@ -211,6 +211,7 @@
             <!--Account Mail-->
             <Grid x:Name="MailAccount" Grid.Row="2" Grid.Column="1">
                 <TextBlock 
+                    x:Name="MailAccountBlock"
                     Foreground="Black" 
                     Margin="50,0,0,0" 
                     Text="john Smith@..." 
@@ -222,6 +223,7 @@
             <!--Account Linkedin-->
             <Grid x:Name="LinkedinAccount" Grid.Row="1" Grid.Column="1">
                 <TextBlock 
+                    x:Name="LinkedInAccountBlock"
                     Foreground="Black" 
                     Margin="50,0,0,0" 
                     Text="John Smith" 
@@ -233,6 +235,7 @@
             <!--Account Facebook-->
             <Grid x:Name="FacebookAccount" Grid.Row="0" Grid.Column="1">
                 <TextBlock 
+                    x:Name="FacebookAccountBlock"
                     Foreground="Black" 
                     Margin="50,0,0,0"  
                     Text="John Smith" 
@@ -243,7 +246,7 @@
 
             <!--Check Mail-->
             <Grid x:Name="CheckMail" Grid.Row="2" Grid.Column="3">
-                <CheckBox 
+                <CheckBox                     
                     Foreground="Black" 
                     Content="" 
                     Height="Auto" 
@@ -295,7 +298,7 @@
     <phone:PhoneApplicationPage.ApplicationBar>
         <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
             <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Check" />
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_Logout" Text="Logout" />
+            <shell:ApplicationBarIconButton IconUri="/Assets/Images/Logout-32.png" Click="Click_Logout" Text="Logout" />
         </shell:ApplicationBar>
     </phone:PhoneApplicationPage.ApplicationBar>
 </phone:PhoneApplicationPage>

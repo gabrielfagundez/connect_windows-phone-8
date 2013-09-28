@@ -93,6 +93,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Classes\Constants.cs" />
+    <Compile Include="Classes\Controller.cs" />
     <Compile Include="Classes\Session.cs" />
     <Compile Include="Classes\LoggedUser.cs" />
     <Compile Include="Classes\UserData.cs" />
@@ -100,8 +102,14 @@
     <Compile Include="LoggedMainPages\Done.xaml.cs">
       <DependentUpon>Done.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\FacebookLoginPage.xaml.cs">
+      <DependentUpon>FacebookLoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\LoggedMainPage.xaml.cs">
       <DependentUpon>LoggedMainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedMainPages\Register2.xaml.cs">
+      <DependentUpon>Register2.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoggedMainPages\Scanning.xaml.cs">
       <DependentUpon>Scanning.xaml</DependentUpon>
@@ -134,7 +142,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoggedMainPages\FacebookLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoggedMainPages\LoggedMainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\Register2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -176,6 +192,7 @@
     <Content Include="Assets\Images\Cuadrado.png" />
     <Content Include="Assets\Images\feature.camera.png" />
     <Content Include="Assets\Images\feature.settings.png" />
+    <Content Include="Assets\Images\Logout-32.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />
     <Resource Include="Assets\Social\facebook-iconCuadrado.gif" />
     <Content Include="Assets\Social\FacebookCuadrado.png" />
