@@ -32,21 +32,10 @@ namespace Connect.Classes
                         instance.user = new UserData();
                         instance.user.Email = (string)s.GetStringObject("Email");
                         instance.user.Id = (string)s.GetStringObject("Id");
-                        if (f == null)
-                        {
-                            instance.user.FacebookId = (string)s.GetStringObject("FacebookId");
-                            App.AccessToken = f.AccessToken;
-                            App.FacebookId = f.FacebookId;                         
-                        }
-                        else
-                        {
-                            instance.user.FacebookId = f.FacebookId;
-                        }
+                        instance.user.FacebookId = (string)s.GetStringObject("FacebookId");
                         instance.user.LinkedInId = (string)s.GetStringObject("LinkedInId");
                         instance.user.Name = (string)s.GetStringObject("Name");
                         instance.user.Password = (string)s.GetStringObject("Password");
-                        
-
                     }
                     else
                     {

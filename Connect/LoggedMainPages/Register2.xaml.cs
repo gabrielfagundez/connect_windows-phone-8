@@ -51,6 +51,7 @@ namespace Connect.LoggedMainPages
                     LoggedUser user = LoggedUser.Instance;
                     UserData u = user.GetLoggedUser();
                     u.FacebookId = (string)result["username"];
+                    user.SetLoggedUser(u);
                 });
             };
 
