@@ -25,38 +25,16 @@ namespace Connect.LoggedMainPages
         public Register2()
         {
             InitializeComponent();
+            btnFacebookLogin.Visibility = System.Windows.Visibility.Visible;
         }
 
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
+            btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
             NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
         }
 
-        private void LoadUserInfo()
-        {
-            var fb = new FacebookClient(App.AccessToken);
 
-            fb.GetCompleted += (o, e) =>
-            {
-                if (e.Error != null)
-                {
-                    Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
-                    return;
-                }
-
-                var result = (IDictionary<string, object>)e.GetResultData();
-
-                Dispatcher.BeginInvoke(() =>
-                {
-                    LoggedUser user = LoggedUser.Instance;
-                    UserData u = user.GetLoggedUser();
-                    u.FacebookId = (string)result["username"];
-                    user.SetLoggedUser(u);
-                });
-            };
-
-            fb.GetTaskAsync("me");
-        }
 
 
 
@@ -77,7 +55,7 @@ namespace Connect.LoggedMainPages
                                   "\"Password\":\"" + u.Password + "\"}";
                 System.Diagnostics.Debug.WriteLine(json);
 
-                webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/SignUp/")), "POST", json);
+                webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/SignUp/")), "POST", json);
             }
             catch (WebException webex)
             {
@@ -116,11 +94,7 @@ namespace Connect.LoggedMainPages
                 }
             }
             else
-            {
-                if (App.AccessToken != "")
-                {
-                    LoadUserInfo();
-                }
+            {                
                 LoggedUser user = LoggedUser.Instance;
                 user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));

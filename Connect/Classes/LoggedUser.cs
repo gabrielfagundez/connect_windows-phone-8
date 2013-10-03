@@ -8,6 +8,7 @@ using Facebook;
 using Facebook.Client;
 using System.Windows.Threading;
 using System.Windows;
+using Microsoft.Phone.Controls;
 
 namespace Connect.Classes
 {
@@ -86,7 +87,7 @@ namespace Connect.Classes
             return this.user;
         }
 
-        public void LogOut()
+        public async Task LogOut()
         {            
             this.user = null;
             Session session = new Session();
@@ -98,7 +99,9 @@ namespace Connect.Classes
             session.RemoveStringObject("Password");
             session.RemoveStringObject("AccessToken");
             session.RemoveStringObject("FacebookId");
-            FacebookSessionCacheProvider.Current.DeleteSessionData();          
+            FacebookSessionCacheProvider.Current.DeleteSessionData();
+            await new WebBrowser().ClearCookiesAsync();
+            App.isAuthenticated = false;
             
         }
 

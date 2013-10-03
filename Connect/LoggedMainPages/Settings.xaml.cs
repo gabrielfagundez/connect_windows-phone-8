@@ -55,10 +55,10 @@ namespace Connect.LoggedMainPages
             NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));            
         }
 
-        private void Click_Logout(object sender, EventArgs e)
+        private async void Click_Logout(object sender, EventArgs e)
         {
             LoggedUser l = LoggedUser.Instance;
-            l.LogOut();
+            await l.LogOut();
             NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
         }
 

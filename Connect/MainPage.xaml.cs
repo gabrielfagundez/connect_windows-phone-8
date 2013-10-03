@@ -26,8 +26,6 @@ namespace Connect
             InitializeComponent();
                 
             Loaded += MainPage_Loaded;
-            MailIngresado.Text = "gabriel.fa07@gmail.com";
-            PassIngresado.Password = "pass";
             //WebClient webClient = new WebClient();
             //webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
             //webClient.DownloadStringAsync(usuario);
@@ -75,7 +73,7 @@ namespace Connect
                 string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
                                   "\"Password\":\"" + PassIngresado.Password + "\"}";
 
-                webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
+                webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/login/")), "POST", json);
             }
             catch (WebException webex)
             {

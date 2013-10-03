@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using Facebook.Client;
 using System.Threading.Tasks;
 using Connect.Classes;
+using Facebook;
 
 namespace Connect.LoggedMainPages
 {
@@ -30,7 +31,38 @@ namespace Connect.LoggedMainPages
             }
         }
 
+        private void LoadUserInfo()
+        {
+            var fb = new FacebookClient(App.AccessToken);
+
+            fb.GetCompleted += (o, e) =>
+            {
+                if (e.Error != null)
+                {
+                    Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
+                    return;
+                }
+
+                var result = (IDictionary<string, object>)e.GetResultData();
+
+                Dispatcher.BeginInvoke(() =>
+                {
+                    LoggedUser user = LoggedUser.Instance;
+                    UserData u = user.GetLoggedUser();
+                    Session s = new Session();
+                    s.RemoveStringObject("FacebookId");
+
+                    s.SaveStringObject("FacebookId", (string)result["username"]);
+                    u.FacebookId = (string)result["username"];
+                    user.SetLoggedUser(u);
+                });
+            };
+
+            fb.GetTaskAsync("me");
+        }
+
         private FacebookSession session;
+
         private async Task Authenticate()
         {
             string message = String.Empty;
@@ -41,7 +73,8 @@ namespace Connect.LoggedMainPages
                 App.FacebookId = session.FacebookId;
                 Session s = new Session();
                 s.SaveStringObject("AccessToken", App.AccessToken);
-                s.SaveStringObject("FacebookId", App.FacebookId);                
+                s.SaveStringObject("FacebookId", App.FacebookId);
+                LoadUserInfo();
                 Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative)));
             }
             catch (InvalidOperationException e)
