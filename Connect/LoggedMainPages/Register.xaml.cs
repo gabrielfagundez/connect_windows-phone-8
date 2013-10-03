@@ -13,6 +13,8 @@ using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
+using System;
+using System.Text.RegularExpressions;
 
 namespace Connect.LoggedMainPages
 {
@@ -28,6 +30,8 @@ namespace Connect.LoggedMainPages
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             try
             {
+                
+                ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
                 var webClient = new WebClient();
                 webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                 webClient.UploadStringCompleted += this.sendPostCompleted;
@@ -46,6 +50,11 @@ namespace Connect.LoggedMainPages
                     ErrorBlockReg.Text = "Please write an email address";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
+                if (!IsValidEmail(MailIngresado.Text))
+                {
+                    ErrorBlockReg.Text = "That email address is not valid";
+                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                }
                 else
                 if (PassIngresadoReg.Password == "")
                 {
@@ -60,6 +69,8 @@ namespace Connect.LoggedMainPages
                 }
                 else
                 {
+                    ProgressB.IsIndeterminate = true;
+                    Connecting.Visibility = System.Windows.Visibility.Visible;
                     webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
                 }
             }
@@ -79,6 +90,14 @@ namespace Connect.LoggedMainPages
             }
         }
 
+    public static bool IsValidEmail(string strIn)
+    {
+        // Return true if strIn is in valid e-mail format.
+        return Regex.IsMatch(strIn, 
+                @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + 
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$"); 
+    }
+
         private void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
         {
             if ((e.Error != null) && (e.Error.GetType().Name == "WebException"))
@@ -89,7 +108,9 @@ namespace Connect.LoggedMainPages
                 switch (response.StatusCode)
                 {
                     case HttpStatusCode.NotFound: // 404
-                        System.Diagnostics.Debug.WriteLine("no esta usado el mail!");                        
+                        System.Diagnostics.Debug.WriteLine("no esta usado el mail!");  
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
                         LoggedUser u= LoggedUser.Instance;
                         UserData user = u.RegisterUser();
@@ -105,6 +126,8 @@ namespace Connect.LoggedMainPages
                     case HttpStatusCode.Unauthorized: // 401
                         System.Diagnostics.Debug.WriteLine("ya fue usado el mail!");
                         ErrorBlockReg.Text = "That mail has already been used";
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                         break;
                     default:

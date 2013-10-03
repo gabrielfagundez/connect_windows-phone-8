@@ -75,8 +75,7 @@
                  <RowDefinition Height="1*"/>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="3.5*"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="3*"/>
                 
                 
             </Grid.RowDefinitions>
@@ -207,14 +206,30 @@
                     VerticalAlignment="Top"
                     Width="Auto"
                     Foreground="#DEF30808"/>
+
+                <ProgressBar
+                x:Name="ProgressB"
+                IsIndeterminate="False"
+                HorizontalAlignment="Stretch"
+                Height="Auto"
+                Margin="0,0,0,0"
+                VerticalAlignment="Stretch"
+                Width="Auto"
+                Foreground="#FF00AFF0"/>
+
+                <TextBlock
+                x:Name="Connecting"
+                HorizontalAlignment="Center"
+                Height="Auto" Margin="0,0,0,0"
+                Grid.Row="2" Visibility="Collapsed"
+                TextWrapping="Wrap"
+                Text="Connecting to server"
+                VerticalAlignment="Bottom"
+                Width="Auto"
+                Foreground="#FF00AFF0"/>
             </Grid>
 
-            <Grid x:Name="SocialGrid2" Grid.Row="11" Margin="0,0,0,0" Width="450">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>                    
-                </Grid.RowDefinitions>
-            </Grid>
+          
 
         </Grid>
         

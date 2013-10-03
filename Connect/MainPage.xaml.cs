@@ -13,25 +13,21 @@ using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
+using System.Net.NetworkInformation;
 
 namespace Connect
 {
     public partial class MainPage : PhoneApplicationPage
     {
         static private Uri usuario = new Uri("http://connectwp.azurewebsites.net/api/Users/1");       
-        private UserData UsuarioLogin;
+        private bool connected;
         // Constructor
+
+        public static readonly DependencyProperty NetProperty = DependencyProperty.Register("NetworkAvailability", typeof(string), typeof(MainPage), new PropertyMetadata(string.Empty));
+
         public MainPage()
         {
             InitializeComponent();
-                
-            Loaded += MainPage_Loaded;
-            //WebClient webClient = new WebClient();
-            //webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            //webClient.DownloadStringAsync(usuario);
-                   
-            // Sample code to localize the ApplicationBar
-            //BuildLocalizedApplicationBar();
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -40,16 +36,7 @@ namespace Connect
             {
                 this.NavigationService.RemoveBackEntry();
             } 
-        }
-
-        void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            UsuarioLogin = JsonConvert.DeserializeObject<UserData>(e.Result);
-            MailIngresado.Text = UsuarioLogin.Email;
-            PassIngresado.Password = UsuarioLogin.Password;
-        }
-
-       
+        }       
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
@@ -66,14 +53,33 @@ namespace Connect
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             try
             {
-                var webClient = new WebClient();
-                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-                webClient.UploadStringCompleted += this.sendPostCompleted;
+                if (MailIngresado.Text == "")
+                {
+                    ErrorBlock.Text = "Please write an email address";
+                    ErrorBlock.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
+                    if (PassIngresado.Password == "")
+                    {
+                        ErrorBlock.Text = "Please write a password";
+                        ErrorBlock.Visibility = System.Windows.Visibility.Visible;
+                    }
+                    else
+                    {
 
-                string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
-                                  "\"Password\":\"" + PassIngresado.Password + "\"}";
+                        ProgressB.IsIndeterminate = true;
+                        ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
+                        Connecting.Visibility = System.Windows.Visibility.Visible;
+                        var webClient = new WebClient();
+                        webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                        webClient.UploadStringCompleted += this.sendPostCompleted;
 
-                webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/login/")), "POST", json);
+                        string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
+                                            "\"Password\":\"" + PassIngresado.Password + "\"}";
+
+                        webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/login/")), "POST", json);
+                    }
+                
             }
             catch (WebException webex)
             {
@@ -104,11 +110,15 @@ namespace Connect
                     case HttpStatusCode.NotFound: // 404
                         System.Diagnostics.Debug.WriteLine("Not found!");
                         ErrorBlock.Text = "That email is not registered";
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case HttpStatusCode.Unauthorized: // 401
                         System.Diagnostics.Debug.WriteLine("Not authorized!");                        
                         ErrorBlock.Text = "The password is not correct";
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;
                         break;
                     default:
@@ -119,10 +129,14 @@ namespace Connect
             {
                 LoggedUser user = LoggedUser.Instance;
                 user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
+                ProgressB.IsIndeterminate = false;
+                Connecting.Visibility = System.Windows.Visibility.Collapsed;
                 ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;                
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }
         }
+
+
 
     }
 }

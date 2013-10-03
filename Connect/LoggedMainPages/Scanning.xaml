@@ -68,7 +68,7 @@
                 VerticalAlignment="Top" 
                 Width="Auto"/>
 
-             <Image 
+            <Image 
                 HorizontalAlignment="Center" 
                 Height="320" 
                 Margin="0,0,0,0" 
@@ -79,7 +79,7 @@
         </Grid>
 
         <Grid x:Name="ProgressBar" Grid.Row="2" Background="Transparent">
-            
+
             <ProgressBar
                 IsIndeterminate="True"
                 HorizontalAlignment="Stretch"
@@ -105,7 +105,7 @@
         </Grid>
 
         <!--ContentPanel - place additional content here-->
-        
+
     </Grid>
-    
+
 </phone:PhoneApplicationPage>
