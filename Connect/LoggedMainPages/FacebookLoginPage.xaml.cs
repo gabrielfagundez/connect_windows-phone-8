@@ -42,7 +42,7 @@ namespace Connect.LoggedMainPages
                     Dispatcher.BeginInvoke(() => MessageBox.Show(e.Error.Message));
                     return;
                 }
-
+                
                 var result = (IDictionary<string, object>)e.GetResultData();
 
                 Dispatcher.BeginInvoke(() =>

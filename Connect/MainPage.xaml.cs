@@ -19,9 +19,7 @@ namespace Connect
 {
     public partial class MainPage : PhoneApplicationPage
     {
-        static private Uri usuario = new Uri("http://connectwp.azurewebsites.net/api/Users/1");       
-        private bool connected;
-        // Constructor
+        
 
         public static readonly DependencyProperty NetProperty = DependencyProperty.Register("NetworkAvailability", typeof(string), typeof(MainPage), new PropertyMetadata(string.Empty));
 
@@ -77,7 +75,7 @@ namespace Connect
                         string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
                                             "\"Password\":\"" + PassIngresado.Password + "\"}";
 
-                        webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/login/")), "POST", json);
+                        webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/login/")), "POST", json);
                     }
                 
             }

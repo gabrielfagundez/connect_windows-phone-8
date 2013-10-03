@@ -55,7 +55,7 @@ namespace Connect.LoggedMainPages
                                   "\"Password\":\"" + u.Password + "\"}";
                 System.Diagnostics.Debug.WriteLine(json);
 
-                webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/SignUp/")), "POST", json);
+                webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/SignUp/")), "POST", json);
             }
             catch (WebException webex)
             {
