@@ -77,7 +77,7 @@ namespace Connect.LoggedMainPages
                 {
                     ProgressB.IsIndeterminate = true;
                     Connecting.Visibility = System.Windows.Visibility.Visible;
-                    webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/Users/Login/")), "POST", json);
+                    webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/Login/")), "POST", json);
                 }
             }
             catch (WebException webex)
