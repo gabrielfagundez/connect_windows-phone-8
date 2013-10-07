@@ -25,8 +25,8 @@ namespace Connect.LoggedMainPages
             LoggedUser user = LoggedUser.Instance;
             UserData _userData = user.GetLoggedUser();
             MailLable.Text = _userData.Email;
-            NameInputLable.Text = _userData.Email;
-            PasswordLableText.Password = _userData.Email;
+            NameInputLable.Text = _userData.Name;
+            PasswordLableText.Password = _userData.Password;
             MailAccountBlock.Text = _userData.Email;
             if (_userData.FacebookId == "")
             {
@@ -55,11 +55,9 @@ namespace Connect.LoggedMainPages
             NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));            
         }
 
-        private async void Click_Logout(object sender, EventArgs e)
+        private void Click_Logout(object sender, EventArgs e)
         {
-            LoggedUser l = LoggedUser.Instance;
-            await l.LogOut();
-            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutConfirmation.xaml", UriKind.Relative));
         }
 
     }     

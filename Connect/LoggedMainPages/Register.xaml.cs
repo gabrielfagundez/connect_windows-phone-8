@@ -13,7 +13,6 @@ using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
-using System;
 using System.Text.RegularExpressions;
 
 namespace Connect.LoggedMainPages
@@ -62,6 +61,12 @@ namespace Connect.LoggedMainPages
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
+                if (PassIngresadoReg.Password.Length < 6 )
+                {
+                    ErrorBlockReg.Text = "The password should at least be 6 characters long";
+                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                }
+                else
                 if (PassIngresadoReg.Password != RePassIngresadoReg.Password)
                 {
                     ErrorBlockReg.Text = "Written passwords are not the same";
@@ -71,7 +76,7 @@ namespace Connect.LoggedMainPages
                 {
                     ProgressB.IsIndeterminate = true;
                     Connecting.Visibility = System.Windows.Visibility.Visible;
-                    webClient.UploadStringAsync((new Uri("http://connectwp.azurewebsites.net/api/login/")), "POST", json);
+                    webClient.UploadStringAsync((new Uri("http://servidorpis.azurewebsites.net/api/login/")), "POST", json);
                 }
             }
             catch (WebException webex)
