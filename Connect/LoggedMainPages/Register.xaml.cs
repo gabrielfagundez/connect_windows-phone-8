@@ -49,6 +49,7 @@ namespace Connect.LoggedMainPages
                     ErrorBlockReg.Text = "Please write an email address";
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
+                else
                 if (!IsValidEmail(MailIngresado.Text))
                 {
                     ErrorBlockReg.Text = "That email address is not valid";
