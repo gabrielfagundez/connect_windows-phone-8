@@ -21,10 +21,7 @@
             <RowDefinition Height="2*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <phone:WebBrowser Grid.Row="0" Grid.RowSpan="2" Margin="-6,3,0,1" Name="loginBrowserControl" Visibility="Collapsed"
-                          Navigated="loginBrowserControl_Navigated" Navigating="loginBrowserControl_Navigating"
-                          IsScriptEnabled="True"/>
+        
         <!--TitlePanel contains the name of the application and page title-->
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
             <TextBlock Text="accounts"

@@ -12,7 +12,7 @@ using System.IO.IsolatedStorage;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SampleLinkedApp
+namespace Connect.Classes
 {
     public class MainUtil
     {

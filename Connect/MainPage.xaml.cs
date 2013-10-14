@@ -26,6 +26,7 @@ namespace Connect
         public MainPage()
         {
             InitializeComponent();
+            
       
         }
 

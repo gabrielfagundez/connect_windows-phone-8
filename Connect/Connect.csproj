@@ -109,6 +109,9 @@
     <Compile Include="LoggedMainPages\FacebookLoginPage.xaml.cs">
       <DependentUpon>FacebookLoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\Linkedin.xaml.cs">
+      <DependentUpon>Linkedin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\LoggedMainPage.xaml.cs">
       <DependentUpon>LoggedMainPage.xaml</DependentUpon>
     </Compile>
@@ -150,6 +153,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoggedMainPages\FacebookLoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\Linkedin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

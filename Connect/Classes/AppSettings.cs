@@ -9,7 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-namespace SampleLinkedApp
+namespace Connect.Classes
 {
     public class AppSettings
     {
@@ -19,7 +19,7 @@ namespace SampleLinkedApp
         public static string AuthorizeUri = "https://www.linkedin.com/uas/oauth/authorize";
         public static string AccessTokenUri = "https://api.linkedin.com/uas/oauth/accessToken";     
  
-        public static string CallbackUri = "http://www.google.com";
+        public static string CallbackUri = "http://localhost";
         public static string consumerKey = "ou9xvx3lni8k";
         public static string consumerKeySecret = "TkhemWQTIziYMAPZ";
 

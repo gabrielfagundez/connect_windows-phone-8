@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using Hammock.Authentication.OAuth;
 using Hammock.Web;
 
-namespace SampleLinkedApp
+namespace Connect.Classes
 {
     public class OAuthUtil
     {
