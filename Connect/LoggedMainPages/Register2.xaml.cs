@@ -61,13 +61,13 @@ namespace Connect.LoggedMainPages
                 LoggedUser user = LoggedUser.Instance;
                 UserData u = user.GetLoggedUser();
                 string json = "{\"Name\":\"" + u.Name + "\"," +
-                                "\"Email\":\"" + u.Email + "\"," +
+                                "\"Mail\":\"" + u.Mail + "\"," +
                                  "\"FacebookId\":\"" + u.FacebookId + "\"," +
                                   "\"LinkedInId\":\"" + u.LinkedInId + "\"," +
                                   "\"Password\":\"" + u.Password + "\"}";
                 System.Diagnostics.Debug.WriteLine(json);
 
-                webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/SignUp/")), "POST", json);
+                webClient.UploadStringAsync((new Uri("http://developmentpis.azurewebsites.net/api/Users/SignUp/")), "POST", json);
             }
             catch (WebException webex)
             {

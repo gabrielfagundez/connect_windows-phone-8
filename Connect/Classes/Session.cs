@@ -39,7 +39,7 @@ namespace Connect.Classes
             {
                 if (data == null)
                 {
-                    settings[key] = "not_connected";
+                    settings[key] = "not connected";
                 }
                 else
                 {
@@ -50,7 +50,7 @@ namespace Connect.Classes
             {
                 if (data == null)
                 {
-                    settings.Add(key, "not_connected");
+                    settings.Add(key, "not connected");
                 }
                 else
                 {

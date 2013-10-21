@@ -31,7 +31,7 @@ namespace Connect.Classes
                     {
                         FacebookSession f = FacebookSessionCacheProvider.Current.GetSessionData();
                         instance.user = new UserData();
-                        instance.user.Email = (string)s.GetStringObject("Email");
+                        instance.user.Mail = (string)s.GetStringObject("Mail");
                         instance.user.Id = (string)s.GetStringObject("Id");
                         instance.user.FacebookId = (string)s.GetStringObject("FacebookId");
                         instance.user.LinkedInId = (string)s.GetStringObject("LinkedInId");
@@ -68,7 +68,7 @@ namespace Connect.Classes
         {
             this.user = u;
             Session session = new Session();
-            session.SaveStringObject("Email", u.Email);
+            session.SaveStringObject("Mail", u.Mail);
             session.SaveStringObject("FacebookId", u.FacebookId);
             session.SaveStringObject("Id", u.Id);
             session.SaveStringObject("LinkedInId", u.LinkedInId);
@@ -91,7 +91,7 @@ namespace Connect.Classes
         {            
             this.user = null;
             Session session = new Session();
-            session.RemoveStringObject("Email");
+            session.RemoveStringObject("Mail");
             session.RemoveStringObject("FacebookId");
             session.RemoveStringObject("Id");
             session.RemoveStringObject("LinkedInId");

@@ -35,7 +35,7 @@ namespace Connect.LoggedMainPages
                 webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                 webClient.UploadStringCompleted += this.sendPostCompleted;
 
-                string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
+                string json = "{\"Mail\":\"" + MailIngresado.Text + "\"," +
                                   "\"Password\":\"" + "est" + "\"}";
 
                 if (NombreIngresado.Text == "")
@@ -77,7 +77,7 @@ namespace Connect.LoggedMainPages
                 {
                     ProgressB.IsIndeterminate = true;
                     Connecting.Visibility = System.Windows.Visibility.Visible;
-                    webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/Login/")), "POST", json);
+                    webClient.UploadStringAsync((new Uri("http://developmentpis.azurewebsites.net/api/Users/Login/")), "POST", json);
                 }
             }
             catch (WebException webex)
@@ -121,7 +121,7 @@ namespace Connect.LoggedMainPages
                         LoggedUser u= LoggedUser.Instance;
                         UserData user = u.RegisterUser();
                         user.Name = NombreIngresado.Text;
-                        user.Email = MailIngresado.Text;
+                        user.Mail = MailIngresado.Text;
                         user.Password = PassIngresadoReg.Password;
                         user.FacebookId = "not connected";
                         user.LinkedInId = "not connected";

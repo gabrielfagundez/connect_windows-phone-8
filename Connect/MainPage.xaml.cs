@@ -74,10 +74,10 @@ namespace Connect
                         webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                         webClient.UploadStringCompleted += this.sendPostCompleted;
 
-                        string json = "{\"Email\":\"" + MailIngresado.Text + "\"," +
+                        string json = "{\"Mail\":\"" + MailIngresado.Text + "\"," +
                                             "\"Password\":\"" + PassIngresado.Password + "\"}";
 
-                        webClient.UploadStringAsync((new Uri("http://testpis.azurewebsites.net/api/Login")), "POST", json);
+                        webClient.UploadStringAsync((new Uri("http://developmentpis.azurewebsites.net/api/Users/Login")), "POST", json);
                     }
                 
             }

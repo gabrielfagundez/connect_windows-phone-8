@@ -24,13 +24,13 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             LoggedUser user = LoggedUser.Instance;
             UserData _userData = user.GetLoggedUser();
-            MailLable.Text = _userData.Email;
+            MailLable.Text = _userData.Mail;
             NameInputLable.Text = _userData.Name;
-            PasswordLableText.Password = _userData.Password;
-            MailAccountBlock.Text = _userData.Email;
+            PasswordLableText.Password = "password";
+            MailAccountBlock.Text = _userData.Mail;
             if (_userData.FacebookId == "")
             {
-                FacebookAccountBlock.Text = "Not connected";
+                FacebookAccountBlock.Text = "not connected";
             }
             else
             {
@@ -39,7 +39,7 @@ namespace Connect.LoggedMainPages
 
             if ((_userData.LinkedInId == "") || (_userData.LinkedInId == null))
             {
-                LinkedInAccountBlock.Text = "Not connected";
+                LinkedInAccountBlock.Text = "not connected";
             }
             else
             {

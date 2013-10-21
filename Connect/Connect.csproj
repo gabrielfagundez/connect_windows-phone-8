@@ -121,6 +121,9 @@
     <Compile Include="LoggedMainPages\Register2.xaml.cs">
       <DependentUpon>Register2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\Scan.xaml.cs">
+      <DependentUpon>Scan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\Scanning.xaml.cs">
       <DependentUpon>Scanning.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,9 @@
     <Page Include="LoggedMainPages\Register2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\Scan.xaml">
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="LoggedMainPages\Scanning.xaml">
       <SubType>Designer</SubType>
