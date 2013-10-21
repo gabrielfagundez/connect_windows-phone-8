@@ -43,10 +43,23 @@ namespace Connect.LoggedMainPages
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
             btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
+            App.registrando = true;
             NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
         }
 
-
+        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            if (App.registrando == false)
+            {
+                LoggedUser user = LoggedUser.Instance;
+                await user.LogOut();
+            }
+            else
+            {
+                App.registrando = false;
+            }
+            
+        }
 
 
 
@@ -54,7 +67,7 @@ namespace Connect.LoggedMainPages
         {
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             try
-            {
+            {                
                 var webClient = new WebClient();
                 webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                 webClient.UploadStringCompleted += this.sendPostCompleted;
@@ -111,12 +124,14 @@ namespace Connect.LoggedMainPages
                 user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
                 MainUtil.SetKeyValue<string>("AccessToken", string.Empty);
                 MainUtil.SetKeyValue<string>("AccessTokenSecret", string.Empty);
+                App.registrando = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }
         }
 
         private void MenuItemSignIn_Click(object sender, EventArgs e)
         {
+            App.registrando = true;
             NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
         }
 

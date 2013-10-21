@@ -24,12 +24,25 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
         }
 
+        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            if (App.registrando == false)
+            {
+                LoggedUser user = LoggedUser.Instance;
+                await user.LogOut();
+            }
+            else
+            {
+                App.registrando = false;
+            }
+
+        }
+
         private void Click_check(object sender, EventArgs e)
         {
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             try
-            {
-                
+            {                
                 ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
                 var webClient = new WebClient();
                 webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
@@ -127,6 +140,7 @@ namespace Connect.LoggedMainPages
                         user.LinkedInId = "not connected";
                         user.Id = "";
                         u.SetLoggedUser(user);
+                        App.registrando = true;
                         NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));          
                         break;
                     case HttpStatusCode.Unauthorized: // 401

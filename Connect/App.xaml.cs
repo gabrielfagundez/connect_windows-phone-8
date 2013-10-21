@@ -24,7 +24,7 @@ namespace Connect
         internal static string FacebookId = String.Empty;
         public static bool isAuthenticated = false;
         public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
-        
+        public static bool registrando = false;
 
         /// <summary>
         /// Constructor for the Application object.
