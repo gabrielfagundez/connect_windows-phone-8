@@ -37,8 +37,8 @@
         </Canvas>
         <!--Used for debugging >-->
         <StackPanel Grid.Row="1" Margin="20, 0">
-            <TextBlock x:Name="tbBarcodeType" FontWeight="ExtraBold" Foreground="#DEB61D1D" />
-            <TextBlock x:Name="tbBarcodeData" FontWeight="ExtraBold" TextWrapping="Wrap" Foreground="#DEB90F0F" />
+            <TextBlock x:Name="tbBarcodeType" FontWeight="ExtraBold" Foreground="#DE831313" />
+            <TextBlock x:Name="tbBarcodeData" FontWeight="ExtraBold" TextWrapping="Wrap" Foreground="#DE850F0F" />
         </StackPanel>
     </Grid>
 

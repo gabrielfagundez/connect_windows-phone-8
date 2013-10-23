@@ -4,13 +4,9 @@
   <App xmlns="" ProductID="{1843feed-b8d4-461f-ba2b-357d0b848113}" Title="Connect" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Connect author" Description="Sample description" Publisher="Connect" PublisherID="{2de09ed2-e7fa-429c-bb0d-350489fc31c7}">
     <IconPath IsRelative="true" IsResource="false">Assets\ApplicationIcon.png</IconPath>
     <Capabilities>
-      <Capability Name="ID_CAP_NETWORKING" />
-      <Capability Name="ID_CAP_MEDIALIB_AUDIO" />
-      <Capability Name="ID_CAP_MEDIALIB_PLAYBACK" />
-      <Capability Name="ID_CAP_SENSORS" />
-      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
-      <Capability Name="ID_CAP_LOCATION" />
       <Capability Name="ID_CAP_ISV_CAMERA" />
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
     </Capabilities>
     <Tasks>
       <DefaultTask Name="_default" NavigationPage="/LoggedMainPages/SplashPage.xaml" />
@@ -42,7 +38,6 @@
     </ScreenResolutions>
     <Requirements>
       <Requirement Name="ID_REQ_REARCAMERA" />
-      <Requirement Name="ID_REQ_FRONTCAMERA" />
     </Requirements>
   </App>
 </Deployment>

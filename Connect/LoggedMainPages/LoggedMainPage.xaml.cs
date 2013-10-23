@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Connect.Classes;
 
 namespace Connect.LoggedMainPages
 {
@@ -15,6 +16,13 @@ namespace Connect.LoggedMainPages
         public LoggedMainPage()
         {
             InitializeComponent();
+            LoggedUser user = LoggedUser.Instance;
+            string codigo = user.GetLoggedUser().Id ; 
+            var writer = new ZXing.BarcodeWriter { Format = ZXing.BarcodeFormat.QR_CODE };
+            var writeableBitmap = writer.Write(codigo);
+            ImgQR.Stretch = System.Windows.Media.Stretch.Fill;
+            ImgQR.Source = writeableBitmap;
+            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

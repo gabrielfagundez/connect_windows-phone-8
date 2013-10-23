@@ -61,18 +61,18 @@
         <!--Aca esta el contenido principal -->
         <Grid x:Name="ZonaQR" Grid.Row="1" Margin="0,0,0,0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="6*"/>
+                <RowDefinition Height="9*"/>
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <!--QR Image-->
             <Grid x:Name="LeerQR" Grid.Row="0" Margin="0,0,0,0">
                 <Image
+                    x:Name="ImgQR"
                     HorizontalAlignment="Center"
             		VerticalAlignment="Center"
-            		Height="Auto" 
+            		Height="350" 
             		Margin="0,0,0,0" 
-            		Width="Auto"
-            		Source="/Assets/QR/codigo-qr.jpg"/>               
+            		Width="350"/>               
             </Grid>
 
             <!--Scann Button-->
