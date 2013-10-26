@@ -10,16 +10,17 @@ using Microsoft.Phone.Shell;
 
 namespace Connect.LoggedMainPages
 {
-    public partial class Done : PhoneApplicationPage
+    public partial class FriendInfo : PhoneApplicationPage
     {
-        public Done()
+        public FriendInfo()
         {
             InitializeComponent();
         }
 
-        private void Click_check(object sender, EventArgs e)
+        private void ApplicationBarIconButton_Click(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
+
     }
 }
