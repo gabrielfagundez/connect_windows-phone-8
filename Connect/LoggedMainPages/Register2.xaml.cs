@@ -80,7 +80,7 @@ namespace Connect.LoggedMainPages
                                   "\"Password\":\"" + u.Password + "\"}";
                 System.Diagnostics.Debug.WriteLine(json);
 
-                webClient.UploadStringAsync((new Uri("http://developmentpis.azurewebsites.net/api/Users/SignUp/")), "POST", json);
+                webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/SignUp/")), "POST", json);
             }
             catch (WebException webex)
             {

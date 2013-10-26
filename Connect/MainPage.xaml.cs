@@ -79,7 +79,7 @@ namespace Connect
                         string json = "{\"Mail\":\"" + MailIngresado.Text + "\"," +
                                             "\"Password\":\"" + PassIngresado.Password + "\"}";
 
-                        webClient.UploadStringAsync((new Uri("http://developmentpis.azurewebsites.net/api/Users/Login")), "POST", json);
+                        webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/Login")), "POST", json);
                     }
                 
             }
