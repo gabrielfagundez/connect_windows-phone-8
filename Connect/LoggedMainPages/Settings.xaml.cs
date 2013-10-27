@@ -24,9 +24,17 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             LoggedUser user = LoggedUser.Instance;
             UserData _userData = user.GetLoggedUser();
+
             MailLable.Text = _userData.Mail;
+            MailLable.IsReadOnly = true;
+
             NameInputLable.Text = _userData.Name;
-            PasswordLableText.Password = "password";
+            NameInputLable.IsReadOnly = true;
+
+            
+           // PasswordLableText.Password = "password";
+            
+
             MailAccountBlock.Text = _userData.Mail;
             if (_userData.FacebookId == "")
             {
