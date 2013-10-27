@@ -22,18 +22,19 @@ namespace Connect.LoggedMainPages
         public Settings()
         {
             InitializeComponent();
-            LoggedUser user = LoggedUser.Instance;
-            UserData _userData = user.GetLoggedUser();
 
-            MailLable.Text = _userData.Mail;
+           LoggedUser user = LoggedUser.Instance;
+           UserData _userData = user.GetLoggedUser();
+
+            MailLable.Text =  _userData.Mail;
             MailLable.IsReadOnly = true;
 
-            NameInputLable.Text = _userData.Name;
+            NameInputLable.Text =  _userData.Name;
             NameInputLable.IsReadOnly = true;
 
             
-           // PasswordLableText.Password = "password";
-            
+
+
 
             MailAccountBlock.Text = _userData.Mail;
             if (_userData.FacebookId == "")
@@ -66,6 +67,16 @@ namespace Connect.LoggedMainPages
         private void Click_Logout(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutConfirmation.xaml", UriKind.Relative));
+        }
+
+
+
+        private void TextBlock_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            if (Leng.Text == "Español")
+                Leng.Text = "English";
+            else
+                Leng.Text = "Español";
         }
 
     }     

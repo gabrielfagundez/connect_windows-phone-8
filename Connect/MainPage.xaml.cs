@@ -52,7 +52,7 @@ namespace Connect
 
         private void Click_check(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
+            //NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
             try
             {
                 if (MailIngresado.Text == "")
