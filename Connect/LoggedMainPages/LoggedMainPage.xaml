@@ -46,7 +46,7 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of frame-->
-        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,165,0" Background="#FFF">
             <TextBlock Text="share"
         		HorizontalAlignment="Left"
         		VerticalAlignment="Stretch"
@@ -105,6 +105,12 @@
 
 
         </Grid>
+        <TextBlock Text="User: Name user"
+                   x:Name="UsName"
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Center"
+        	Margin="162,110,0,0" 
+        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="268"/>
     </Grid>
     
     <!--Application Bar-->
