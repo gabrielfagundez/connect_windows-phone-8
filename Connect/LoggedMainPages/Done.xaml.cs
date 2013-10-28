@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Connect.Classes;
 
 namespace Connect.LoggedMainPages
 {
@@ -19,7 +20,15 @@ namespace Connect.LoggedMainPages
 
         private void Click_check(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+            //**esto es para testing***
+            LoggedUser lu = LoggedUser.Instance;
+            lu.friendInf = new UserData();
+            lu.friendInf.Name = "pepito";
+            lu.friendInf.Mail = "pepito@mail.com";
+            lu.friendInf.FacebookId = "";
+            lu.friendInf.LinkedInId = "";
+            //**************************
+            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
         }
     }
 }

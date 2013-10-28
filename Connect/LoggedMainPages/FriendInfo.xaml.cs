@@ -7,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using Connect.Classes;
 
 namespace Connect.LoggedMainPages
 {
@@ -15,6 +16,9 @@ namespace Connect.LoggedMainPages
         public FriendInfo()
         {
             InitializeComponent();
+            LoggedUser lu = LoggedUser.Instance;
+            NameInputLable.Text=lu.friendInf.Name;
+            MailLable.Text = lu.friendInf.Mail;
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
