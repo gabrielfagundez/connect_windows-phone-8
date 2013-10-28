@@ -19,7 +19,7 @@ namespace Connect.LoggedMainPages
 
         private void Click_check(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
     }
 }

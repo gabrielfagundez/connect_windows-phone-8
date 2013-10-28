@@ -26,8 +26,8 @@ namespace Connect
         public MainPage()
         {
             InitializeComponent();
-            MailIngresado.Text = "guilledufort@mail.com";
-                PassIngresado.Password = "password";
+            MailIngresado.Text = "qqq@qqq.com";
+                PassIngresado.Password = "qqqqqq";
             
       
         }
