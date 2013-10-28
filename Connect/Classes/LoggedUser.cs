@@ -18,6 +18,7 @@ namespace Connect.Classes
 
         private LoggedUser() { }
         private UserData user;
+        public UserData friendInf;
 
         public static LoggedUser Instance
         {
@@ -25,6 +26,7 @@ namespace Connect.Classes
             {
                 if (instance == null)
                 {
+                    
                     instance = new LoggedUser();
                     Session s = new Session();
                     if (s.Contains("Id"))

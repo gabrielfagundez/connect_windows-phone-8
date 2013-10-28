@@ -22,5 +22,17 @@ namespace Connect.LoggedMainPages
             NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
 
+        private void btnFacebook_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/LoggedMainPages/FaceFriend.xaml", UriKind.Relative));
+
+        }
+
+        private void btnLinkedin_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));
+
+        }
+
     }
 }

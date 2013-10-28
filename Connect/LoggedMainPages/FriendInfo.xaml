@@ -33,6 +33,7 @@
                     Margin="28,64,28,52" Name="btnFacebook"
                     VerticalAlignment="Center"
                     Width="400"
+                    Click="btnFacebook_Click"
                     
                     Background="#FF03B0F0" />
             <Grid x:Name="UserGrid" Margin="2,-155,-6,196">
@@ -115,6 +116,7 @@
                     Margin="28,141,28,108" Name="btnLinkedin"
                     VerticalAlignment="Center"
                     Width="400"
+                    Click="btnLinkedin_Click"
 
                     Background="#FF03B0F0" />
         </Grid>

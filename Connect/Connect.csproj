@@ -109,11 +109,17 @@
     <Compile Include="LoggedMainPages\FacebookLoginPage.xaml.cs">
       <DependentUpon>FacebookLoginPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\FaceFriend.xaml.cs">
+      <DependentUpon>FaceFriend.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\FriendInfo.xaml.cs">
       <DependentUpon>FriendInfo.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoggedMainPages\Linkedin.xaml.cs">
       <DependentUpon>Linkedin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedMainPages\LinkFriend.xaml.cs">
+      <DependentUpon>LinkFriend.xaml</DependentUpon>
     </Compile>
     <Compile Include="LoggedMainPages\LoggedMainPage.xaml.cs">
       <DependentUpon>LoggedMainPage.xaml</DependentUpon>
@@ -162,11 +168,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="LoggedMainPages\FaceFriend.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LoggedMainPages\FriendInfo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoggedMainPages\Linkedin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\LinkFriend.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

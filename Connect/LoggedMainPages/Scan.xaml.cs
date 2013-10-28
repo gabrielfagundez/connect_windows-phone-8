@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using ZXing;
 using System.Windows.Threading;
 using ZXing.QrCode;
+using Connect.Classes;
+using Newtonsoft.Json;
+using Connect;
 
 namespace ZXLib_Test_WP7
 {
@@ -110,6 +113,7 @@ namespace ZXLib_Test_WP7
                 VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
                 tbBarcodeType.Text = obj.BarcodeFormat.ToString();
                 tbBarcodeData.Text = obj.Text;
+                getFriendInfo(obj.Text);
             }
         }
 
@@ -122,6 +126,28 @@ namespace ZXLib_Test_WP7
             //scan the captured snapshot for barcodes
             //if a barcode is found, the ResultFound event will fire
             _barcodeReader.Decode(_previewBuffer);
+
+        }
+
+        private void getFriendInfo(string id)
+        {
+            WebClient webClient = new WebClient();
+            //webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
+            Uri usuario = new Uri(App.webService + "/api/Users/GetUser/"+id);//aca va id usuario leido en qr
+            webClient.DownloadStringAsync(usuario);
+        }
+
+        void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            UserData usuarioRecibido = JsonConvert.DeserializeObject<UserData>(e.Result);
+            LoggedUser lu = LoggedUser.Instance;
+            lu.friendInf = new UserData();
+            lu.friendInf.Name = usuarioRecibido.Name;
+            lu.friendInf.Mail = usuarioRecibido.Mail;
+            lu.friendInf.FacebookId = usuarioRecibido.FacebookId;
+            lu.friendInf.LinkedInId = usuarioRecibido.LinkedInId;
+            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
 
         }
 
