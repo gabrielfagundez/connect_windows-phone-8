@@ -122,7 +122,7 @@
     <comment>Controls the FlowDirection for all elements in the RootFrame. Set to the traditional direction of this resource file's language</comment>
   </data>
   <data name="ResourceLanguage" xml:space="preserve">
-    <value>en-US</value>
+    <value>es-ES</value>
     <comment>Controls the Language and ensures that the font for all elements in the RootFrame aligns with the app's language. Set to the language code of this resource file's language.</comment>
   </data>
   <data name="ApplicationTitle" xml:space="preserve">
@@ -135,114 +135,111 @@
     <value>Menu Item</value>
   </data>
   <data name="AccountsTitle" xml:space="preserve">
-    <value>accounts</value>
+    <value>mis cuentas</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
-    <value>add</value>
+    <value>agregar</value>
   </data>
   <data name="AddToFacebookTitle" xml:space="preserve">
-    <value>Add to Facebook</value>
+    <value>Agregar a facebook</value>
   </data>
   <data name="AddToLinkedinTitle" xml:space="preserve">
-    <value>Add to LinkedIn</value>
+    <value>Agregar a LinkedIn</value>
   </data>
   <data name="alreadyUsedEmail" xml:space="preserve">
-    <value>The email you entered is already being used</value>
+    <value>El mail ingresado ya esta siendo usado</value>
   </data>
   <data name="AppBarDoneButtonText" xml:space="preserve">
-    <value>done</value>
+    <value>hecho</value>
   </data>
   <data name="AppBarLoginButtonText" xml:space="preserve">
-    <value>login</value>
+    <value>iniciar sesión</value>
   </data>
   <data name="AppBarLogoutButtonText" xml:space="preserve">
-    <value>logout</value>
+    <value>cerrar sesión</value>
   </data>
   <data name="AppBarSettingsButtonText" xml:space="preserve">
-    <value>settings</value>
+    <value>configuración</value>
   </data>
   <data name="AreYouSureLogutTitle" xml:space="preserve">
-    <value>Are you sure you want to logout?</value>
+    <value>¿Esta seguro que desea cerrar sesión?</value>
   </data>
   <data name="ConnectingToServerTitle" xml:space="preserve">
-    <value>Connecting to server</value>
+    <value>Conectandose con el servidor</value>
   </data>
   <data name="CreateNewAccountTitle" xml:space="preserve">
-    <value>Create a new account</value>
+    <value>Crear una nueva cuenta</value>
   </data>
   <data name="DoneMessage" xml:space="preserve">
-    <value>Tom Jones just shared with you his facebook and email address.  You are now friends in facebook and we've sent him an email from you.</value>
+    <value>Tom Jones acaba de compartir contigo su facebook y su email. Le hemos mandado un mail de tu parte y se han hecho amigos de facebook.</value>
   </data>
   <data name="DoneTitle" xml:space="preserve">
-    <value>done!</value>
+    <value>hecho!</value>
   </data>
   <data name="invalidMail" xml:space="preserve">
-    <value>Enter your email</value>
+    <value>Ingrese su mail</value>
   </data>
   <data name="invalidName" xml:space="preserve">
-    <value>Enter your name</value>
+    <value>Ingrese su nombre</value>
   </data>
   <data name="invalidPassword" xml:space="preserve">
-    <value>Enter your password</value>
+    <value>Ingrese su contraseña</value>
   </data>
   <data name="invalidPassword1" xml:space="preserve">
-    <value>The password should be at least 6 characters long</value>
+    <value>La contraseña debe tener al menos 6 digitos</value>
   </data>
   <data name="invalidReType" xml:space="preserve">
-    <value>Written passwords are not the same</value>
+    <value>La contraseña no coincide con su confirmación</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
-    <value>login</value>
+    <value>iniciar sesión</value>
   </data>
   <data name="LoginToFacebookTitle" xml:space="preserve">
-    <value>Login to facebook</value>
+    <value>Inicia sesión en Facebook</value>
   </data>
   <data name="LoginToLinkedinTitle" xml:space="preserve">
-    <value>Login to LinkedIn</value>
+    <value>Inicia sesión en LinkedIn</value>
   </data>
   <data name="MailTitle" xml:space="preserve">
     <value>Mail</value>
   </data>
   <data name="NameTitle" xml:space="preserve">
-    <value>Name</value>
+    <value>Nombre</value>
   </data>
   <data name="NoTitle" xml:space="preserve">
     <value>No</value>
   </data>
   <data name="PasswordTitle" xml:space="preserve">
-    <value>Password</value>
+    <value>Contraseña</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
-    <value>register</value>
+    <value>registro</value>
   </data>
   <data name="ReTypePasswordTitle" xml:space="preserve">
-    <value>Re-Type Password</value>
+    <value>Confirma la contraseña</value>
   </data>
   <data name="Scan1Title" xml:space="preserve">
-    <value>Scan</value>
+    <value>Escanear</value>
   </data>
   <data name="ScanningTitle" xml:space="preserve">
-    <value>Scanning</value>
+    <value>Escaneando</value>
   </data>
   <data name="ScanTitle" xml:space="preserve">
-    <value>scan</value>
+    <value>escanear</value>
   </data>
   <data name="SettingsTitle" xml:space="preserve">
-    <value>settings</value>
-  </data>
-  <data name="Share1Title" xml:space="preserve">
-    <value>Share</value>
+    <value>configuración</value>
   </data>
   <data name="ShareTitle" xml:space="preserve">
-    <value>share</value>
+    <value>compartir</value>
   </data>
   <data name="WrongMailError" xml:space="preserve">
-    <value>The email you entered is not correct</value>
+    <value>El mail ingresado no es correcto</value>
   </data>
   <data name="WrongPasswordError" xml:space="preserve">
-    <value>The password you entered is not correct</value>
+    <value>La constraseña ingresada no es correcta</value>
   </data>
   <data name="YesTitle" xml:space="preserve">
-    <value>Yes</value>
+    <value>Si</value>
   </data>
 </root>

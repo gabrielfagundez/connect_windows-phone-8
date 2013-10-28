@@ -27,7 +27,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,130,12,126" Grid.RowSpan="2">
-            <Button Content="Add To Facebook"
+            <Button Content="{Binding Path=LocalizedResources.AddToFacebookTitle, Source={StaticResource LocalizedStrings}}"
                     Height="140"
                     HorizontalAlignment="Center"
                     Margin="28,64,28,52" Name="btnFacebook"
@@ -58,7 +58,7 @@
                     <TextBlock 
             			Foreground="#00aff0" 
             			Margin="0,34" 
-            			Text="Name" 
+            			Text="{Binding Path=LocalizedResources.NameTitle, Source={StaticResource LocalizedStrings}}" 
             			HorizontalAlignment="Left" 
             			VerticalAlignment="Center" 
             			FontSize="30" Grid.RowSpan="2" />
@@ -68,7 +68,8 @@
                 <Grid x:Name="Mail" Grid.Row="1" Grid.Column="0">
                     <TextBlock 
             			Foreground="#00aff0" 
-            			Margin="0,0,0,0" Text="Mail" 
+            			Margin="0,0,0,0" 
+                        Text="{Binding Path=LocalizedResources.MailTitle, Source={StaticResource LocalizedStrings}}"
             			HorizontalAlignment="Left" 
             			VerticalAlignment="Center" 
             			FontSize="30" />
@@ -110,7 +111,7 @@
         </Grid>
 
         <Grid x:Name="ContentPanel2" Grid.Row="2" Margin="12,29,12,42" Grid.RowSpan="2">
-            <Button Content="Add To LinkedIn"
+            <Button Content="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
                     Height="140"
                     HorizontalAlignment="Center"
                     Margin="28,141,28,108" Name="btnLinkedin"
@@ -120,7 +121,8 @@
 
                     Background="#FF03B0F0" />
         </Grid>
-        <TextBlock Text="add"
+        <TextBlock 
+            Text="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
         	HorizontalAlignment="Left"
         	VerticalAlignment="Center"
         	Margin="12,10,0,154" 
@@ -132,9 +134,5 @@
         	FontSize="90" Grid.RowSpan="2"/>
     </Grid>
     <!--ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="ApplicationBarIconButton_Click" Text="Ok" />
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+  
 </phone:PhoneApplicationPage>

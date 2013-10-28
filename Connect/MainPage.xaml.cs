@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
 using System.Net.NetworkInformation;
+using System.Windows.Media;
 
 namespace Connect
 {
@@ -26,8 +27,10 @@ namespace Connect
         public MainPage()
         {
             InitializeComponent();
-            MailIngresado.Text = "qqq@qqq.com";
-                PassIngresado.Password = "qqqqqq";
+            MailIngresado.Text = "prueba@mail.com";
+            PassIngresado.Password = "password";
+            // Código de ejemplo para traducir ApplicationBar
+             BuildLocalizedApplicationBar();
             
       
         }
@@ -57,13 +60,13 @@ namespace Connect
             {
                 if (MailIngresado.Text == "")
                 {
-                    ErrorBlock.Text = "Please write an email address";
+                    ErrorBlock.Text = AppResources.invalidMail;
                     ErrorBlock.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                     if (PassIngresado.Password == "")
                     {
-                        ErrorBlock.Text = "Please write a password";
+                        ErrorBlock.Text = AppResources.invalidPassword;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;
                     }
                     else
@@ -111,14 +114,14 @@ namespace Connect
                     
                     case HttpStatusCode.NotFound: // 404
                         System.Diagnostics.Debug.WriteLine("Not found!");
-                        ErrorBlock.Text = "That email is not registered";
+                        ErrorBlock.Text = AppResources.WrongMailError;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;
                         break;
                     case HttpStatusCode.Unauthorized: // 401
                         System.Diagnostics.Debug.WriteLine("Not authorized!");                        
-                        ErrorBlock.Text = "The password is not correct";
+                        ErrorBlock.Text = AppResources.WrongPasswordError;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;
@@ -136,7 +139,26 @@ namespace Connect
                 ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;                
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }
-        }       
+        }
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Toolkit.Content/ApplicationBar.Check.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarLoginButtonText;
+            appBarButton.Click += this.Click_check;
+            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
+            ApplicationBar.IsMenuEnabled = false;
+            ApplicationBar.IsVisible = true;
+            ApplicationBar.Opacity = (double)(.99);
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+
+        }
 
     }
 }

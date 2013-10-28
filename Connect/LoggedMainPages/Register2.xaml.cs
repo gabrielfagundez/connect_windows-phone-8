@@ -19,6 +19,8 @@ using System.Text;
 using Hammock.Web;
 using Hammock;
 using Hammock.Authentication.OAuth;
+using System.Windows.Media;
+using Connect.Resources;
 
 namespace Connect.LoggedMainPages
 {
@@ -37,6 +39,8 @@ namespace Connect.LoggedMainPages
         public Register2()
         {
             InitializeComponent();
+            // Código de ejemplo para traducir ApplicationBar
+            BuildLocalizedApplicationBar();
             btnFacebookLogin.Visibility = System.Windows.Visibility.Visible;
         }
 
@@ -133,6 +137,26 @@ namespace Connect.LoggedMainPages
         {
             App.registrando = true;
             NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
+        }
+
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Toolkit.Content/ApplicationBar.Check.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarDoneButtonText;
+            appBarButton.Click += this.Click_check;
+            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
+            ApplicationBar.IsMenuEnabled = false;
+            ApplicationBar.IsVisible = true;
+            ApplicationBar.Opacity = (double)(.99);
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+
         }
 
     }

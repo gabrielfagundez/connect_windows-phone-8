@@ -46,16 +46,13 @@
         </Grid.RowDefinitions>
 
         <!--TitlePanel contains the name of frame-->
-        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,165,0" Background="#FFF">
-            <TextBlock Text="share"
+        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
+            <TextBlock Text="{Binding Path=LocalizedResources.ShareTitle, Source={StaticResource LocalizedStrings}}"
         		HorizontalAlignment="Left"
         		VerticalAlignment="Stretch"
         		Margin="50,0,0,0" 
         		Foreground="#00aff0"
-        		Style="{StaticResource PhoneTextTitle1Style}" 
-                FontFamily="Segoe WP Light"
-                FontSize="100"
-                Width="Auto"/>
+        		Style="{StaticResource PhoneTextTitle1Style}"/>
         </Grid>
 
         <!--Aca esta el contenido principal -->
@@ -95,7 +92,7 @@
                     HorizontalAlignment="Left"
                     Margin="70,0,0,10"
                     TextWrapping="Wrap"
-                    Text="Scan"
+                    Text="{Binding Path=LocalizedResources.Scan1Title, Source={StaticResource LocalizedStrings}}"
                     VerticalAlignment="Bottom"
                     FontFamily="Segoe WP"
                     FontSize="30" Foreground="#DEFFFFFF" Tap="TextBlock_Tap"/>
@@ -115,10 +112,6 @@
     
     <!--Application Bar-->
     
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/feature.settings.png" Click="Click_Settings" Text="Settings" />
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+
 
 </phone:PhoneApplicationPage>

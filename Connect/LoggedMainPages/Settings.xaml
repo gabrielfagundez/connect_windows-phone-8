@@ -41,11 +41,11 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#FFF" HorizontalAlignment="Right" Width="460">
+    <Grid x:Name="LayoutRoot" Background="#FFF" Margin="10" HorizontalAlignment="Right" Width="460">
         <Grid.RowDefinitions>
             <RowDefinition Height="150"/>
-            <RowDefinition Height="110*"/>
-            <RowDefinition Height="159*"/>
+            <RowDefinition Height="120*"/>
+            <RowDefinition Height="190*"/>
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
@@ -55,29 +55,18 @@
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
 
             <!--Este es el titulo superior-->
-            <TextBlock Text="settings"
+            <TextBlock Text="{Binding Path=LocalizedResources.SettingsTitle, Source={StaticResource LocalizedStrings}}"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        Margin="0,0,0,0" 
                        Foreground="#00aff0"
-                       Style="{StaticResource PhoneTextTitle1Style}" 
-                       FontFamily="Segoe WP Light" 
-                       Height="144" 
-                       Width="320" 
-                       FontSize="90"/>
-            <TextBlock 
-            	Foreground="#00aff0" 
-            	Margin="372,0,14,-285" 
-            	Text="Share" 
-            	HorizontalAlignment="Center" 
-            	VerticalAlignment="Bottom" 
-            	FontSize="30" />
+                       Style="{StaticResource PhoneTextTitle1Style}"/>
+            
         </Grid>
 
         <!--Informacion del usuario-->
         <Grid x:Name="UserGrid" Grid.Row="1">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -93,32 +82,25 @@
                 <TextBlock 
                     Foreground="#00aff0" 
                     Margin="0,0,0,0" 
-                    Text="Name" 
+                    Text="{Binding Path=LocalizedResources.NameTitle, Source={StaticResource LocalizedStrings}}"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
-                    FontSize="30" />
+                    Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!--Mail Text-->
             <Grid x:Name="Mail" Grid.Row="1" Grid.Column="0">
                 <TextBlock 
                     Foreground="#00aff0" 
-                    Margin="0,0,0,0" Text="Mail" 
+                    Margin="0,0,0,0" 
+                    Text="{Binding Path=LocalizedResources.MailTitle, Source={StaticResource LocalizedStrings}}"
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
-                    FontSize="30" />
+                     Style="{StaticResource PhoneTextTitle2Style}"/>
             </Grid>
 
             <!--Password Text-->
-            <Grid x:Name="Password" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,293,0">
-                <TextBlock 
-            		Foreground="#00aff0" 
-            		Margin="0,10,0,23" Text="Language" 
-            		HorizontalAlignment="Left" 
-            		VerticalAlignment="Center" 
-            		FontSize="30" Width="147" 
-                    />
-            </Grid>
+            <Grid x:Name="Password" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,293,0"/>
 
             <!--Name Input-->
             <Grid x:Name="NameInput" Grid.Row="0" Grid.Column="1">
@@ -128,7 +110,7 @@
                     Margin="10,0,0,0" 
                     Text="John Smith" 
                     HorizontalAlignment="Left" 
-                    VerticalAlignment="Center" 
+                    VerticalAlignment="Center"
                     FontSize="30" Width="287"
                     />
             </Grid>
@@ -149,24 +131,14 @@
             <Grid x:Name="PasswordInput" Grid.Row="2" Grid.Column="1"/>
 
             <!--Share Text-->
-            <Grid x:Name="Share" Grid.Row="1" Margin="10,62,12,10" Grid.Column="1" Grid.RowSpan="2">
-                <TextBlock 
-                    x:Name="Leng"
-            		Foreground="Black" 
-            		Margin="20,25,0,10" Text="English" 
-            		HorizontalAlignment="Left" 
-            		VerticalAlignment="Center" 
-            		FontSize="30" Width="147"
-                    MouseEnter="TextBlock_MouseEnter"
-                    
-                    />
-            </Grid>
+        
 
         </Grid>
 
         <!--Informacion de las redes sociales-->
-        <Grid x:Name="SocialGrid" Grid.Row="2" Margin="2,42,-2,78" Grid.RowSpan="2">
+        <Grid x:Name="SocialGrid" Grid.Row="2" Margin="0,0,0,78" Grid.RowSpan="2">
             <Grid.RowDefinitions>
+                <RowDefinition Height="0.5*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -179,9 +151,19 @@
                 <ColumnDefinition Width="*"/>
 
             </Grid.ColumnDefinitions>
+            <Grid x:Name="SmallShare" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2">
+                <TextBlock 
+            	Foreground="#00aff0" 
+            	Margin="219,0,10,0" 
+                Text="{Binding Path=LocalizedResources.ShareTitle, Source={StaticResource LocalizedStrings}}"
+            	HorizontalAlignment="Center" 
+            	VerticalAlignment="Bottom" 
+            	FontSize="30" />  
+            </Grid>
+          
 
             <!--Facebook Picture-->
-            <Grid x:Name="Facebook" Grid.Row="0">
+            <Grid x:Name="Facebook" Grid.Row="1">
                 <Image 
                     HorizontalAlignment="Left" 
                     Height="Auto" 
@@ -192,7 +174,7 @@
             </Grid>
 
             <!--LinkedIn Picture-->
-            <Grid x:Name="LinkedInPicture" Grid.Row="1">
+            <Grid x:Name="LinkedInPicture" Grid.Row="2">
                 <Image 
                     HorizontalAlignment="Left" 
                     Height="Auto" 
@@ -203,7 +185,7 @@
             </Grid>
 
             <!--Mail Picture-->
-            <Grid x:Name="MailPicture" Grid.Row="2">
+            <Grid x:Name="MailPicture" Grid.Row="3">
                 <Image 
                     HorizontalAlignment="Left" 
                     Height="Auto" 
@@ -214,11 +196,11 @@
             </Grid>
 
             <!--Account Mail-->
-            <Grid x:Name="MailAccount" Grid.Row="2" Grid.Column="1">
+            <Grid x:Name="MailAccount" Grid.Row="3" Grid.Column="1">
                 <TextBlock 
                     x:Name="MailAccountBlock"
                     Foreground="Black" 
-                    Margin="50,0,0,0" 
+                    Margin="20,0,0,0" 
                     Text="john Smith@..." 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -226,11 +208,11 @@
             </Grid>
 
             <!--Account Linkedin-->
-            <Grid x:Name="LinkedinAccount" Grid.Row="1" Grid.Column="1">
+            <Grid x:Name="LinkedinAccount" Grid.Row="2" Grid.Column="1">
                 <TextBlock 
                     x:Name="LinkedInAccountBlock"
                     Foreground="Black" 
-                    Margin="50,0,0,0" 
+                    Margin="20,0,0,0" 
                     Text="John Smith" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -238,11 +220,11 @@
             </Grid>
 
             <!--Account Facebook-->
-            <Grid x:Name="FacebookAccount" Grid.Row="0" Grid.Column="1">
+            <Grid x:Name="FacebookAccount" Grid.Row="1" Grid.Column="1">
                 <TextBlock 
                     x:Name="FacebookAccountBlock"
                     Foreground="Black" 
-                    Margin="50,0,0,0"  
+                    Margin="20,0,0,0"  
                     Text="John Smith" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Center" 
@@ -250,14 +232,14 @@
             </Grid>
 
             <!--Check Mail-->
-            <Grid x:Name="CheckMail" Grid.Row="2" Grid.Column="3">
+            <Grid x:Name="CheckMail" Grid.Row="3" Grid.Column="3">
                 <CheckBox                     
                     Foreground="Black" 
                     Content="" 
                     Height="Auto" 
                     Width="Auto"  
                     HorizontalAlignment="Center" 
-                    Margin="0,0,0,0" 
+                    Margin="14,14,20,5" 
                     VerticalAlignment="Center" 
                     BorderBrush="#DE000000" 
                     Background="#FF00AFF0" 
@@ -266,14 +248,14 @@
             </Grid>
 
             <!--Check Facebook-->
-            <Grid x:Name="CheckFacebook" Grid.Row="1" Grid.Column="3">
+            <Grid x:Name="CheckFacebook" Grid.Row="2" Grid.Column="3">
                 <CheckBox 
                     Foreground="Black" 
                     Content="" 
                     Height="Auto" 
                     Width="Auto"  
                     HorizontalAlignment="Center" 
-                    Margin="0,0,0,0" 
+                    Margin="14,14,20,5" 
                     VerticalAlignment="Center" 
                     Background="#FF00AFF0" 
                     BorderBrush="#DE000000" 
@@ -282,14 +264,14 @@
             </Grid>
 
             <!--Check Linkedin-->
-            <Grid x:Name="CheckLinkedin" Grid.Row="0" Grid.Column="3">
+            <Grid x:Name="CheckLinkedin" Grid.Row="1" Grid.Column="3">
                 <CheckBox 
                     Foreground="Black" 
                     Content="" 
                     Height="Auto" 
                     Width="Auto"  
                     HorizontalAlignment="Center"
-                    Margin="0,0,0,0" 
+                    Margin="14,14,20,5" 
                     VerticalAlignment="Center" 
                     Background="#FF00AFF0" 
                     BorderBrush="#DE000000" 
@@ -299,10 +281,5 @@
         </Grid>
     </Grid>
     <!--Application Bar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Check" />
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/Logout-32.png" Click="Click_Logout" Text="Logout" />
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+  
 </phone:PhoneApplicationPage>

@@ -8,6 +8,8 @@ using System.Windows.Navigation;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Connect.Classes;
+using Connect.Resources;
+using System.Windows.Media;
 
 namespace Connect.LoggedMainPages
 {
@@ -16,6 +18,8 @@ namespace Connect.LoggedMainPages
         public LoggedMainPage()
         {
             InitializeComponent();
+            // Código de ejemplo para traducir ApplicationBar
+            BuildLocalizedApplicationBar();
             LoggedUser user = LoggedUser.Instance;
             string codigo = user.GetLoggedUser().Id ; 
             var writer = new ZXing.BarcodeWriter { Format = ZXing.BarcodeFormat.QR_CODE };
@@ -52,6 +56,25 @@ namespace Connect.LoggedMainPages
         private void TextBlock_Tap(object sender, System.Windows.Input.GestureEventArgs e)
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Scanning.xaml", UriKind.Relative));
+        }
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Assets/Images/feature.settings.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarSettingsButtonText;
+            appBarButton.Click += this.Click_Settings;
+            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
+            ApplicationBar.IsMenuEnabled = false;
+            ApplicationBar.IsVisible = true;
+            ApplicationBar.Opacity = (double)(.99);
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+
         }
     }
 }

@@ -47,7 +47,7 @@
 
         <Grid x:Name="Question" Grid.Row="2" Margin="0,0,0,0" Background="#FFF">
             <TextBlock 
-                Text="Are you sure you want to logout?"
+               Text="{Binding Path=LocalizedResources.AreYouSureLogutTitle, Source={StaticResource LocalizedStrings}}"
                 HorizontalAlignment="Center"
                 TextWrapping="Wrap"
                 VerticalAlignment="Center"
@@ -66,7 +66,8 @@
         <Grid x:Name="Button" Grid.Row="3" Margin="0,0,0,0" Background="#FFF">
             <Button
                     x:Name="No" 
-                    Content="No" 
+                    Content="{Binding Path=LocalizedResources.NoTitle, Source={StaticResource LocalizedStrings}}"
+ 
                     HorizontalAlignment="Right" 
                     Margin="0,0,30,20" 
                     VerticalAlignment="Stretch"
@@ -75,7 +76,8 @@
 
             <Button
                     x:Name="Yes" 
-                    Content="Yes" 
+                    Content="{Binding Path=LocalizedResources.YesTitle, Source={StaticResource LocalizedStrings}}"
+ 
                     HorizontalAlignment="Left" 
                     Margin="30,0,0,20" 
                     VerticalAlignment="Stretch"

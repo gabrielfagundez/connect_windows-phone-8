@@ -14,6 +14,8 @@ using System.Windows.Threading;
 using Newtonsoft.Json;
 using Connect;
 using Facebook;
+using Connect.Resources;
+using System.Windows.Media;
 
 namespace Connect.LoggedMainPages
 {
@@ -22,6 +24,8 @@ namespace Connect.LoggedMainPages
         public Settings()
         {
             InitializeComponent();
+            // Código de ejemplo para traducir ApplicationBar
+            BuildLocalizedApplicationBar();
 
            LoggedUser user = LoggedUser.Instance;
            UserData _userData = user.GetLoggedUser();
@@ -59,25 +63,34 @@ namespace Connect.LoggedMainPages
 
         
 
-        private void Click_check(object sender, EventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));            
-        }
+     
 
         private void Click_Logout(object sender, EventArgs e)
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutConfirmation.xaml", UriKind.Relative));
         }
 
-
-
-        private void TextBlock_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        private void BuildLocalizedApplicationBar()
         {
-            if (Leng.Text == "Español")
-                Leng.Text = "English";
-            else
-                Leng.Text = "Español";
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Assets/Images/Logout-32.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarLogoutButtonText;
+            appBarButton.Click += this.Click_Logout;
+            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
+            ApplicationBar.IsMenuEnabled = false;
+            ApplicationBar.IsVisible = true;
+            ApplicationBar.Opacity = (double)(.99);
+            ApplicationBar.Mode = ApplicationBarMode.Default;
         }
+
+
+      
 
     }     
 }

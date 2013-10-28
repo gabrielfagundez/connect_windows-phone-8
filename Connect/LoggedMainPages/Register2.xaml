@@ -24,7 +24,7 @@
         
         <!--TitlePanel contains the name of the application and page title-->
         <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
-            <TextBlock Text="accounts"
+            <TextBlock Text="{Binding Path=LocalizedResources.AccountsTitle, Source={StaticResource LocalizedStrings}}"
                 TextWrapping="Wrap"
         		HorizontalAlignment="Center"
         		VerticalAlignment="Center"
@@ -41,7 +41,7 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button Content="Login To Facebook"
+            <Button Content="{Binding Path=LocalizedResources.LoginToFacebookTitle, Source={StaticResource LocalizedStrings}}"
                     Height="140"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,0" Name="btnFacebookLogin"
@@ -52,7 +52,7 @@
         </Grid>
 
         <Grid x:Name="ContentPanel2" Grid.Row="2" Margin="12,0,12,0">
-            <Button Content="Login To LinkedIn"
+            <Button Content="{Binding Path=LocalizedResources.LoginToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
                     Height="140"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,0" Name="btnLinkedinLogin"
@@ -65,9 +65,5 @@
 
 
     <!--ApplicationBar-->
-    <phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar Mode="Default" Opacity="0.99" IsMenuEnabled="False" IsVisible="True" BackgroundColor="#00aff0">
-            <shell:ApplicationBarIconButton IconUri="/Assets/Images/check.png" Click="Click_check" Text="Register" />
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>
+  
 </phone:PhoneApplicationPage>

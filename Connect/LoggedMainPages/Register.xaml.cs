@@ -14,6 +14,7 @@ using Newtonsoft.Json;
 using Connect.Classes;
 using Connect;
 using System.Text.RegularExpressions;
+using System.Windows.Media;
 
 namespace Connect.LoggedMainPages
 {
@@ -22,6 +23,8 @@ namespace Connect.LoggedMainPages
         public Register()
         {
             InitializeComponent();
+            // Código de ejemplo para traducir ApplicationBar
+            BuildLocalizedApplicationBar();
         }
 
         protected override async void OnNavigatedFrom(NavigationEventArgs e)
@@ -53,37 +56,37 @@ namespace Connect.LoggedMainPages
 
                 if (NombreIngresado.Text == "")
                 {
-                    ErrorBlockReg.Text = "Please write a name";
+                    ErrorBlockReg.Text = AppResources.invalidName;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 if (MailIngresado.Text == "")
                 {
-                    ErrorBlockReg.Text = "Please write an email address";
+                    ErrorBlockReg.Text = AppResources.invalidMail;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 if (!IsValidEmail(MailIngresado.Text))
                 {
-                    ErrorBlockReg.Text = "That email address is not valid";
+                    ErrorBlockReg.Text = AppResources.WrongMailError;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 if (PassIngresadoReg.Password == "")
                 {
-                    ErrorBlockReg.Text = "Please write a password";
+                    ErrorBlockReg.Text = AppResources.invalidPassword;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 if (PassIngresadoReg.Password.Length < 6 )
                 {
-                    ErrorBlockReg.Text = "The password should at least be 6 characters long";
+                    ErrorBlockReg.Text = AppResources.invalidPassword1;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
                 if (PassIngresadoReg.Password != RePassIngresadoReg.Password)
                 {
-                    ErrorBlockReg.Text = "Written passwords are not the same";
+                    ErrorBlockReg.Text = AppResources.invalidReType;
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
                 }
                 else
@@ -145,7 +148,7 @@ namespace Connect.LoggedMainPages
                         break;
                     case HttpStatusCode.Unauthorized: // 401
                         System.Diagnostics.Debug.WriteLine("ya fue usado el mail!");
-                        ErrorBlockReg.Text = "That mail has already been used";
+                        ErrorBlockReg.Text = AppResources.alreadyUsedEmail;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
@@ -154,6 +157,26 @@ namespace Connect.LoggedMainPages
                         break;
                 }
             }
-        }        
+        }
+
+        private void BuildLocalizedApplicationBar()
+        {
+            // Set the page's ApplicationBar to a new instance of ApplicationBar.
+            ApplicationBar = new ApplicationBar();
+
+            // Create a new button and set the text value to the localized string from AppResources.
+            ApplicationBarIconButton appBarButton =
+                new ApplicationBarIconButton(new
+                Uri("/Toolkit.Content/ApplicationBar.Check.png", UriKind.Relative));
+            appBarButton.Text = AppResources.AppBarDoneButtonText;
+            appBarButton.Click += this.Click_check;
+            ApplicationBar.Buttons.Add(appBarButton);
+            ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
+            ApplicationBar.IsMenuEnabled = false;
+            ApplicationBar.IsVisible = true;
+            ApplicationBar.Opacity = (double)(.99);
+            ApplicationBar.Mode = ApplicationBarMode.Default;
+
+        }
     }
 }
