@@ -32,8 +32,8 @@ namespace ZXLib_Test_WP7
         public Scan()
         {
             InitializeComponent();
-            System.Diagnostics.Debug.WriteLine("Start scann:" + DateTime.Now.Second.ToString());
-            getInfo2("3");//sacar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            ProgressB.IsIndeterminate = false;
+            Connecting.Visibility = System.Windows.Visibility.Collapsed;
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -118,9 +118,22 @@ namespace ZXLib_Test_WP7
                 VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
                 //tbBarcodeType.Text = obj.BarcodeFormat.ToString();
                 //tbBarcodeData.Text = obj.Text;
+                
+                //apaga cam y scan******************************************
+                _scanTimer.Stop();
 
-                getInfo2(obj.BarcodeFormat.ToString());
+                ProgressB.IsIndeterminate = true;
+                Connecting.Visibility = System.Windows.Visibility.Visible;
 
+                if (_phoneCamera != null)
+                {
+                    // Cleanup
+                    _phoneCamera.Dispose();
+                    _phoneCamera.Initialized -= cam_Initialized;
+                    CameraButtons.ShutterKeyHalfPressed -= CameraButtons_ShutterKeyHalfPressed;
+                }
+                //*********************************************************************
+                getInfo2(obj.Text);
             }
         }
 
@@ -155,9 +168,7 @@ namespace ZXLib_Test_WP7
                     try
                     {
 
-                        //ProgressB.IsIndeterminate = true;
-                        //ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
-                        //Connecting.Visibility = System.Windows.Visibility.Visible;
+
                         var webClient = new WebClient();
                         webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                         webClient.UploadStringCompleted += this.sendPostCompleted;
@@ -228,21 +239,15 @@ namespace ZXLib_Test_WP7
                 {
 
                     case HttpStatusCode.NotFound: // 404
-                        System.Diagnostics.Debug.WriteLine("Not found!");
                         errorFunc(AppResources.notFound);
-                        /*ErrorBlock.Text = AppResources.WrongMailError;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
-                        ErrorBlock.Visibility = System.Windows.Visibility.Visible;*/
 
                         break;
                     case HttpStatusCode.Unauthorized: // 401
                         errorFunc(AppResources.notAuth);
-                        /*System.Diagnostics.Debug.WriteLine("Not authorized!");
-                        ErrorBlock.Text = AppResources.WrongPasswordError;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
-                        ErrorBlock.Visibility = System.Windows.Visibility.Visible;*/
                         break;
                     default:
                         break;
@@ -251,9 +256,8 @@ namespace ZXLib_Test_WP7
             else
             {
                 UserData usuarioRecibido = JsonConvert.DeserializeObject<UserData>(e.Result);
-                /*ProgressB.IsIndeterminate = false;
+                ProgressB.IsIndeterminate = false;
                 Connecting.Visibility = System.Windows.Visibility.Collapsed;
-                ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;*/
                 LoggedUser lu = LoggedUser.Instance;
 
                 lu.friendInf = new UserData();
