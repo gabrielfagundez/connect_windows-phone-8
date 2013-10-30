@@ -26,7 +26,7 @@ namespace Connect.LoggedMainPages
             var writeableBitmap = writer.Write(codigo);
             ImgQR.Stretch = System.Windows.Media.Stretch.Fill;
             ImgQR.Source = writeableBitmap;
-            UsName.Text = AppResources.user+": " + user.GetLoggedUser().Name;
+            UsName.Text = "Welcome " + user.GetLoggedUser().Name;
             
         }
 

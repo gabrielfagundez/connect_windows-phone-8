@@ -65,8 +65,6 @@
             <Grid x:Name="LeerQR" Grid.Row="0" Margin="0,0,0,0">
                 <Image
                     x:Name="ImgQR"
-                    HorizontalAlignment="Center"
-            		VerticalAlignment="Center"
             		Height="350" 
             		Margin="0,0,0,0" 
             		Width="350"/>
@@ -104,10 +102,10 @@
         </Grid>
         <TextBlock Text="User: Name user"
                    x:Name="UsName"
-        	HorizontalAlignment="Left"
-        	VerticalAlignment="Center"
-        	Margin="10,10,0,10" 
-        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="268" Grid.Row="2"/>
+        	HorizontalAlignment="Right"
+        	VerticalAlignment="Bottom"
+        	Margin="0,0,0,0" 
+        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="Auto" Grid.Row="2"/>
     </Grid>
 
     <!--Application Bar-->
