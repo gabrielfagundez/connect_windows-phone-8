@@ -24,14 +24,7 @@ namespace Connect.LoggedMainPages
 
         private void Click_check(object sender, EventArgs e)
         {
-            //**esto es para testing***
-            LoggedUser lu = LoggedUser.Instance;
-            lu.friendInf = new UserData();
-            lu.friendInf.Name = "pepito";
-            lu.friendInf.Mail = "pepito@mail.com";
-            lu.friendInf.FacebookId = "";
-            lu.friendInf.LinkedInId = "";
-            //**************************
+
             NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
         }
         private void BuildLocalizedApplicationBar()

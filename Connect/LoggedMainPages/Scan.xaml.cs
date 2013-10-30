@@ -29,6 +29,8 @@ namespace ZXLib_Test_WP7
         public Scan()
         {
             InitializeComponent();
+            System.Diagnostics.Debug.WriteLine("Start scann:" + DateTime.Now.Second.ToString());
+            getInfo2("6");//sacar!
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -113,7 +115,8 @@ namespace ZXLib_Test_WP7
                 VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
                 tbBarcodeType.Text = obj.BarcodeFormat.ToString();
                 tbBarcodeData.Text = obj.Text;
-                getFriendInfo(obj.Text);
+                //getFriendInfo(obj.Text);
+
             }
         }
 
@@ -129,27 +132,104 @@ namespace ZXLib_Test_WP7
 
         }
 
-        private void getFriendInfo(string id)
+        
+        
+        private void getInfo2(string id)
         {
-            WebClient webClient = new WebClient();
-            //webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-            webClient.DownloadStringCompleted += new DownloadStringCompletedEventHandler(webClient_DownloadStringCompleted);
-            Uri usuario = new Uri(App.webService + "/api/Users/GetUser/"+id);//aca va id usuario leido en qr
-            webClient.DownloadStringAsync(usuario);
-        }
+            {
+                //NavigationService.Navigate(new Uri("/LoggedMainPages/Scan.xaml", UriKind.Relative));
+                try
+                {
 
-        void webClient_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+                    //ProgressB.IsIndeterminate = true;
+                    //ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
+                    //Connecting.Visibility = System.Windows.Visibility.Visible;
+                    var webClient = new WebClient();
+                    webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                    webClient.UploadStringCompleted += this.sendPostCompleted;
+                    LoggedUser user = LoggedUser.Instance;
+                    UserData _userData = user.GetLoggedUser();
+                    string json = "{\"IdFrom\":\"" + _userData.Id + "\"," +
+                                        "\"IdTo\":\"" + id + "\"}";
+
+                    webClient.UploadStringAsync((new Uri(App.webService + "/api/Friends/AddFriendFromIds")), "POST", json);                        
+
+                }
+                catch (WebException webex)
+                {
+                    HttpWebResponse webResp = (HttpWebResponse)webex.Response;
+
+                    switch (webResp.StatusCode)
+                    {
+                        case HttpStatusCode.NotFound: // 404
+                            break;
+                        case HttpStatusCode.InternalServerError: // 500
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+        }
+        private void sendPostCompleted(object sender, UploadStringCompletedEventArgs e)
         {
-            UserData usuarioRecibido = JsonConvert.DeserializeObject<UserData>(e.Result);
-            LoggedUser lu = LoggedUser.Instance;
-            lu.friendInf = new UserData();
-            lu.friendInf.Name = usuarioRecibido.Name;
-            lu.friendInf.Mail = usuarioRecibido.Mail;
-            lu.friendInf.FacebookId = usuarioRecibido.FacebookId;
-            lu.friendInf.LinkedInId = usuarioRecibido.LinkedInId;
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
+            if ((e.Error != null) && (e.Error.GetType().Name == "WebException"))
+            {
+                WebException we = (WebException)e.Error;
+                HttpWebResponse response = (System.Net.HttpWebResponse)we.Response;
 
+                switch (response.StatusCode)
+                {
+
+                    case HttpStatusCode.NotFound: // 404
+                        System.Diagnostics.Debug.WriteLine("Not found!");
+                        /*ErrorBlock.Text = AppResources.WrongMailError;
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
+                        ErrorBlock.Visibility = System.Windows.Visibility.Visible;*/
+                        break;
+                    case HttpStatusCode.Unauthorized: // 401
+                        /*System.Diagnostics.Debug.WriteLine("Not authorized!");
+                        ErrorBlock.Text = AppResources.WrongPasswordError;
+                        ProgressB.IsIndeterminate = false;
+                        Connecting.Visibility = System.Windows.Visibility.Collapsed;
+                        ErrorBlock.Visibility = System.Windows.Visibility.Visible;*/
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                UserData usuarioRecibido = JsonConvert.DeserializeObject<UserData>(e.Result);
+                /*ProgressB.IsIndeterminate = false;
+                Connecting.Visibility = System.Windows.Visibility.Collapsed;
+                ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;*/
+                LoggedUser lu = LoggedUser.Instance;
+
+                lu.friendInf = new UserData();
+                lu.friendInf.Name = usuarioRecibido.Name;
+                lu.friendInf.Mail = usuarioRecibido.Mail;
+
+                lu.friendInf.FacebookId = usuarioRecibido.FacebookId;
+                lu.friendInf.LinkedInId = usuarioRecibido.LinkedInId;
+
+                if (usuarioRecibido.FacebookId == "not connected" || usuarioRecibido.FacebookId == null)
+                {
+                    lu.friendInf.FacebookId = "";
+                }
+
+                if (usuarioRecibido.LinkedInId == "not connected" || usuarioRecibido.FacebookId == null)
+                {
+                    lu.friendInf.LinkedInId = "";
+                }
+                System.Diagnostics.Debug.WriteLine("Finish scann:" + DateTime.Now.Second.ToString());
+                NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
+            }
         }
+        
+        
+
 
     }
 }

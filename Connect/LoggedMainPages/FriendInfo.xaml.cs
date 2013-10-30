@@ -32,14 +32,52 @@ namespace Connect.LoggedMainPages
 
         private void btnFacebook_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FaceFriend.xaml", UriKind.Relative));
+            LoggedUser lu = LoggedUser.Instance;
+            if(lu.friendInf.FacebookId!="")
+            {
+                NavigationService.Navigate(new Uri("/LoggedMainPages/FaceFriend.xaml", UriKind.Relative));
+            }
+            else
+            {
+
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));    
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = "",
+                    Message = "El usuario no tiene cuenta de Facebook ascociada",
+                    LeftButtonContent = "Aceptar",
+                    
+                    Background = mybrush,
+                    IsFullScreen = false
+                };
+                messageBox.Show();
+            }
+            
 
         }
 
         private void btnLinkedin_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));
+            LoggedUser lu = LoggedUser.Instance;
+            if (lu.friendInf.FacebookId != "")
+            {
+                NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));
+            }
+            else
+            {
 
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = "",
+                    Message = "El usuario no tiene cuenta de Linkedin ascociada",
+                    LeftButtonContent = "Aceptar",
+
+                    Background = mybrush,
+                    IsFullScreen = false
+                };
+                messageBox.Show();
+            }
         }
 
         private void BuildLocalizedApplicationBar()
