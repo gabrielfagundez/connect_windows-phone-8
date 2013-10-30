@@ -223,6 +223,17 @@ namespace Connect.LoggedMainPages
             // converting string to stream
             byte[] byteArray = Encoding.UTF8.GetBytes(aRespString);
             MemoryStream personXml = new MemoryStream(byteArray);
+            int startPos = aRespString.LastIndexOf("id=") + "id=".Length + 1;
+            int length = aRespString.IndexOf("&") - startPos;
+            string sub = aRespString.Substring(startPos, length);
+            LoggedUser user = LoggedUser.Instance;
+            UserData u = user.GetLoggedUser();
+            Session s = new Session();
+            s.RemoveStringObject("LinkedInId");
+
+            s.SaveStringObject("LinkedInId", sub);
+            u.LinkedInId = sub;
+            user.SetLoggedUser(u);
 
             if (personXml != null)
             {
@@ -239,14 +250,7 @@ namespace Connect.LoggedMainPages
            {
                if (currentPerson != null)
                {
-                   LoggedUser user = LoggedUser.Instance;
-                   UserData u = user.GetLoggedUser();
-                   Session s = new Session();
-                   s.RemoveStringObject("LinkedInId");
-
-                   s.SaveStringObject("LinkedInId", (string) currentPerson.FirstName + currentPerson.LastName);
-                   u.LinkedInId = currentPerson.FirstName + currentPerson.LastName;
-                   user.SetLoggedUser(u);
+                  
                    MainUtil.SetKeyValue<string>("AccessToken", string.Empty);
                    MainUtil.SetKeyValue<string>("AccessTokenSecret", string.Empty);
                    NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));
