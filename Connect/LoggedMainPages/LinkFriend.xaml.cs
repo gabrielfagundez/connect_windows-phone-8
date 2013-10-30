@@ -9,6 +9,7 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using Microsoft.Phone.Tasks;
 using Connect.Classes;
+using System.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -21,5 +22,7 @@ namespace Connect.LoggedMainPages
             this.loginBrowserControl.Navigate(new Uri("http://www.linkedin.com/profile/view?id="+lu.friendInf.LinkedInId, UriKind.Absolute));//aca va el linkedin del nuevo amigo
 
         }
+
+       
     }
 }

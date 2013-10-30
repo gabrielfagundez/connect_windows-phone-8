@@ -178,6 +178,15 @@ namespace Connect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to initialize the camera.
+        /// </summary>
+        public static string CameraProblem {
+            get {
+                return ResourceManager.GetString("CameraProblem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Connecting to server.
         /// </summary>
         public static string ConnectingToServerTitle {
@@ -228,6 +237,15 @@ namespace Connect.Resources {
         public static string DoneTitle {
             get {
                 return ResourceManager.GetString("DoneTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error al tratar de iniciar sesión en facebook..
+        /// </summary>
+        public static string FBLoginError {
+            get {
+                return ResourceManager.GetString("FBLoginError", resourceCulture);
             }
         }
         
@@ -322,6 +340,33 @@ namespace Connect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No internet connection.
+        /// </summary>
+        public static string NoInternetConnection {
+            get {
+                return ResourceManager.GetString("NoInternetConnection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please check your WIFI or cellular data network and try again.
+        /// </summary>
+        public static string NoInternetConnectionMessage {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your registration could not be completed.Please check your WIFI or cellular data network and try again..
+        /// </summary>
+        public static string NoInternetConnectionMessageRegister {
+            get {
+                return ResourceManager.GetString("NoInternetConnectionMessageRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Not authorized!.
         /// </summary>
         public static string notAuth {
@@ -351,9 +396,9 @@ namespace Connect.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Ok.
         /// </summary>
-        public static string ok {
+        public static string OkTitle {
             get {
-                return ResourceManager.GetString("ok", resourceCulture);
+                return ResourceManager.GetString("OkTitle", resourceCulture);
             }
         }
         

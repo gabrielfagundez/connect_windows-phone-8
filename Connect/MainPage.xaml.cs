@@ -15,6 +15,7 @@ using Connect.Classes;
 using Connect;
 using System.Net.NetworkInformation;
 using System.Windows.Media;
+using System.Net.NetworkInformation;
 
 namespace Connect
 {
@@ -52,10 +53,20 @@ namespace Connect
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/Register.xaml", UriKind.Relative));
         }
+        private bool IsNetworkAvailable()
+        {
+            if (App.isDebug)
+                return false;
+            else if (NetworkInterface.GetIsNetworkAvailable())
+                return true;
+            else
+                return false;
+        }
 
         private void Click_check(object sender, EventArgs e)
         {
             //NavigationService.Navigate(new Uri("/LoggedMainPages/Scan.xaml", UriKind.Relative));
+            if (IsNetworkAvailable()){
             try
             {
                 if (MailIngresado.Text == "")
@@ -99,6 +110,38 @@ namespace Connect
                     default:
                         break;
                 }
+            }
+            } 
+            else
+            {
+            SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+            CustomMessageBox messageBox = new CustomMessageBox()
+            {
+                Caption = AppResources.NoInternetConnection,
+                Message = AppResources.NoInternetConnectionMessage,
+                LeftButtonContent = AppResources.OkTitle,
+                Background = mybrush,
+                IsFullScreen = false,
+            };
+
+            
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton:
+                        break;
+                    case CustomMessageBoxResult.None:
+                        // Acción.
+                        break;
+                    default:
+                        break;
+                }
+            };
+
+            messageBox.Show();
+
+
             }
         }
         

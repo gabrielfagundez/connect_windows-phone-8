@@ -257,7 +257,7 @@
   <data name="notFound" xml:space="preserve">
     <value>Not found!</value>
   </data>
-  <data name="ok" xml:space="preserve">
+  <data name="OkTitle" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="user" xml:space="preserve">
@@ -268,5 +268,20 @@
   </data>
   <data name="withoutLink" xml:space="preserve">
     <value>The user is not associated with Linkedin account</value>
+  </data>
+  <data name="CameraProblem" xml:space="preserve">
+    <value>Unable to initialize the camera</value>
+  </data>
+  <data name="FBLoginError" xml:space="preserve">
+    <value>Error al tratar de iniciar sesión en facebook.</value>
+  </data>
+  <data name="NoInternetConnection" xml:space="preserve">
+    <value>No internet connection</value>
+  </data>
+  <data name="NoInternetConnectionMessage" xml:space="preserve">
+    <value>Please check your WIFI or cellular data network and try again</value>
+  </data>
+  <data name="NoInternetConnectionMessageRegister" xml:space="preserve">
+    <value>Your registration could not be completed.Please check your WIFI or cellular data network and try again.</value>
   </data>
 </root>

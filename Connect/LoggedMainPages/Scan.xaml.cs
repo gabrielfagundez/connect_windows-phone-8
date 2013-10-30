@@ -18,6 +18,7 @@ using Newtonsoft.Json;
 using Connect;
 using System.Windows.Media;
 using Connect.Resources;
+using System.Net.NetworkInformation;
 
 namespace ZXLib_Test_WP7
 {
@@ -104,7 +105,7 @@ namespace ZXLib_Test_WP7
             {
                 Dispatcher.BeginInvoke(() =>
                     {
-                        MessageBox.Show("Unable to initialize the camera");
+                        MessageBox.Show(AppResources.CameraProblem);
                     });
             }
         }
@@ -134,43 +135,85 @@ namespace ZXLib_Test_WP7
             _barcodeReader.Decode(_previewBuffer);
 
         }
+        private bool IsNetworkAvailable()
+        {
+            if (App.isDebug)
+                return false;
+            else if (NetworkInterface.GetIsNetworkAvailable())
+                return true;
+            else
+                return false;
+        }
 
-        
-        
+
         private void getInfo2(string id)
         {
             {
                 //NavigationService.Navigate(new Uri("/LoggedMainPages/Scan.xaml", UriKind.Relative));
-                try
+                if (IsNetworkAvailable())
                 {
-
-                    //ProgressB.IsIndeterminate = true;
-                    //ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
-                    //Connecting.Visibility = System.Windows.Visibility.Visible;
-                    var webClient = new WebClient();
-                    webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-                    webClient.UploadStringCompleted += this.sendPostCompleted;
-                    LoggedUser user = LoggedUser.Instance;
-                    UserData _userData = user.GetLoggedUser();
-                    string json = "{\"IdFrom\":\"" + _userData.Id + "\"," +
-                                        "\"IdTo\":\"" + id + "\"}";
-
-                    webClient.UploadStringAsync((new Uri(App.webService + "/api/Friends/AddFriendFromIds")), "POST", json);                        
-
-                }
-                catch (WebException webex)
-                {
-                    HttpWebResponse webResp = (HttpWebResponse)webex.Response;
-
-                    switch (webResp.StatusCode)
+                    try
                     {
-                        case HttpStatusCode.NotFound: // 404
-                            break;
-                        case HttpStatusCode.InternalServerError: // 500
-                            break;
-                        default:
-                            break;
+
+                        //ProgressB.IsIndeterminate = true;
+                        //ErrorBlock.Visibility = System.Windows.Visibility.Collapsed;
+                        //Connecting.Visibility = System.Windows.Visibility.Visible;
+                        var webClient = new WebClient();
+                        webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                        webClient.UploadStringCompleted += this.sendPostCompleted;
+                        LoggedUser user = LoggedUser.Instance;
+                        UserData _userData = user.GetLoggedUser();
+                        string json = "{\"IdFrom\":\"" + _userData.Id + "\"," +
+                                            "\"IdTo\":\"" + id + "\"}";
+
+                        webClient.UploadStringAsync((new Uri(App.webService + "/api/Friends/AddFriendFromIds")), "POST", json);
+
                     }
+                    catch (WebException webex)
+                    {
+                        HttpWebResponse webResp = (HttpWebResponse)webex.Response;
+
+                        switch (webResp.StatusCode)
+                        {
+                            case HttpStatusCode.NotFound: // 404
+                                break;
+                            case HttpStatusCode.InternalServerError: // 500
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+                else
+                {
+                    SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                    CustomMessageBox messageBox = new CustomMessageBox()
+                    {
+                        Caption = AppResources.NoInternetConnection,
+                        Message = AppResources.NoInternetConnectionMessage,
+                        LeftButtonContent = AppResources.OkTitle,
+                        Background = mybrush,
+                        IsFullScreen = false,
+                    };
+
+
+                    messageBox.Dismissed += (s1, e1) =>
+                    {
+                        switch (e1.Result)
+                        {
+                            case CustomMessageBoxResult.LeftButton:
+                                break;
+                            case CustomMessageBoxResult.None:
+                                // Acción.
+                                break;
+                            default:
+                                break;
+                        }
+                    };
+
+                    messageBox.Show();
+
+
                 }
             }
         }
@@ -243,7 +286,7 @@ namespace ZXLib_Test_WP7
             {
                 Caption = "",
                 Message = text,
-                LeftButtonContent = AppResources.ok,
+                LeftButtonContent = AppResources.OkTitle,
 
                 Background = mybrush,
                 IsFullScreen = false

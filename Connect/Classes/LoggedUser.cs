@@ -9,6 +9,7 @@ using Facebook.Client;
 using System.Windows.Threading;
 using System.Windows;
 using Microsoft.Phone.Controls;
+using Connect.Resources;
 
 namespace Connect.Classes
 {
@@ -60,7 +61,7 @@ namespace Connect.Classes
             }
             catch (InvalidOperationException e)
             {
-                message = "Login failed! Exception details: " + e.Message;
+                message = AppResources.FBLoginError;
                 MessageBox.Show(message);
             }
         }

@@ -15,6 +15,7 @@ using Connect.Classes;
 using Connect;
 using System.Text.RegularExpressions;
 using System.Windows.Media;
+using System.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -41,76 +42,122 @@ namespace Connect.LoggedMainPages
 
         }
 
+        private bool IsNetworkAvailable()
+        {
+            if (App.isDebug)
+                return false;
+            else if (NetworkInterface.GetIsNetworkAvailable())
+                return true;
+            else
+                return false;
+        }
+
         private void Click_check(object sender, EventArgs e)
         {
+
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
-            try
-            {                
-                ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
-                var webClient = new WebClient();
-                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-                webClient.UploadStringCompleted += this.sendPostCompleted;
+            if (IsNetworkAvailable())
+            {
+                try
+                {
+                    ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
+                    var webClient = new WebClient();
+                    webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                    webClient.UploadStringCompleted += this.sendPostCompleted;
 
-                string json = "{\"Mail\":\"" + MailIngresado.Text + "\"," +
-                                  "\"Password\":\"" + "est" + "\"}";
+                    string json = "{\"Mail\":\"" + MailIngresado.Text + "\"," +
+                                      "\"Password\":\"" + "est" + "\"}";
 
-                if (NombreIngresado.Text == "")
-                {
-                    ErrorBlockReg.Text = AppResources.invalidName;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                    if (NombreIngresado.Text == "")
+                    {
+                        ErrorBlockReg.Text = AppResources.invalidName;
+                        ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                    }
+                    else
+                        if (MailIngresado.Text == "")
+                        {
+                            ErrorBlockReg.Text = AppResources.invalidMail;
+                            ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                        }
+                        else
+                            if (!IsValidEmail(MailIngresado.Text))
+                            {
+                                ErrorBlockReg.Text = AppResources.WrongMailError;
+                                ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                            }
+                            else
+                                if (PassIngresadoReg.Password == "")
+                                {
+                                    ErrorBlockReg.Text = AppResources.invalidPassword;
+                                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                                }
+                                else
+                                    if (PassIngresadoReg.Password.Length < 6)
+                                    {
+                                        ErrorBlockReg.Text = AppResources.invalidPassword1;
+                                        ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                                    }
+                                    else
+                                        if (PassIngresadoReg.Password != RePassIngresadoReg.Password)
+                                        {
+                                            ErrorBlockReg.Text = AppResources.invalidReType;
+                                            ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
+                                        }
+                                        else
+                                        {
+                                            ProgressB.IsIndeterminate = true;
+                                            Connecting.Visibility = System.Windows.Visibility.Visible;
+                                            webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/Login/")), "POST", json);
+                                        }
                 }
-                else
-                if (MailIngresado.Text == "")
+                catch (WebException webex)
                 {
-                    ErrorBlockReg.Text = AppResources.invalidMail;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                if (!IsValidEmail(MailIngresado.Text))
-                {
-                    ErrorBlockReg.Text = AppResources.WrongMailError;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                if (PassIngresadoReg.Password == "")
-                {
-                    ErrorBlockReg.Text = AppResources.invalidPassword;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                if (PassIngresadoReg.Password.Length < 6 )
-                {
-                    ErrorBlockReg.Text = AppResources.invalidPassword1;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                if (PassIngresadoReg.Password != RePassIngresadoReg.Password)
-                {
-                    ErrorBlockReg.Text = AppResources.invalidReType;
-                    ErrorBlockReg.Visibility = System.Windows.Visibility.Visible;
-                }
-                else
-                {
-                    ProgressB.IsIndeterminate = true;
-                    Connecting.Visibility = System.Windows.Visibility.Visible;
-                    webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/Login/")), "POST", json);
+                    HttpWebResponse webResp = (HttpWebResponse)webex.Response;
+
+                    switch (webResp.StatusCode)
+                    {
+                        case HttpStatusCode.NotFound: // 404
+                            break;
+                        case HttpStatusCode.InternalServerError: // 500
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
-            catch (WebException webex)
+            else
             {
-                HttpWebResponse webResp = (HttpWebResponse)webex.Response;
-
-                switch (webResp.StatusCode)
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                CustomMessageBox messageBox = new CustomMessageBox()
                 {
-                    case HttpStatusCode.NotFound: // 404
-                        break;
-                    case HttpStatusCode.InternalServerError: // 500
-                        break;
-                    default:
-                        break;
-                }
+                    Caption = AppResources.NoInternetConnection,
+                    Message = AppResources.NoInternetConnectionMessageRegister,
+                    LeftButtonContent = AppResources.OkTitle,
+                    Background = mybrush,
+                    IsFullScreen = false,
+                };
+
+
+                messageBox.Dismissed += (s1, e1) =>
+                {
+                    switch (e1.Result)
+                    {
+                        case CustomMessageBoxResult.LeftButton:
+                            break;
+                        case CustomMessageBoxResult.None:
+                            // Acción.
+                            break;
+                        default:
+                            break;
+                    }
+                };
+
+                messageBox.Show();
             }
         }
+
+            
+        
 
     public static bool IsValidEmail(string strIn)
     {

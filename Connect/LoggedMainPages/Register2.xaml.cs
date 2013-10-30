@@ -20,7 +20,7 @@ using Hammock.Web;
 using Hammock;
 using Hammock.Authentication.OAuth;
 using System.Windows.Media;
-using Connect.Resources;
+using System.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -46,9 +46,40 @@ namespace Connect.LoggedMainPages
 
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
-            btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
-            App.registrando = true;
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
+            if (IsNetworkAvailable()){
+                btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
+                App.registrando = true;
+                NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
+            }
+            else
+            {
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = AppResources.NoInternetConnection,
+                    Message = AppResources.NoInternetConnectionMessage,
+                    LeftButtonContent = AppResources.OkTitle,
+                    Background = mybrush,
+                    IsFullScreen = false,
+                };
+
+
+                messageBox.Dismissed += (s1, e1) =>
+                {
+                    switch (e1.Result)
+                    {
+                        case CustomMessageBoxResult.LeftButton:
+                            break;
+                        case CustomMessageBoxResult.None:
+                            // Acción.
+                            break;
+                        default:
+                            break;
+                    }
+                };
+
+                messageBox.Show();
+            }
         }
 
         protected override async void OnNavigatedFrom(NavigationEventArgs e)
@@ -64,41 +95,85 @@ namespace Connect.LoggedMainPages
             }
             
         }
+        
+        private bool IsNetworkAvailable()
+        {
+            if (App.isDebug)
+                return false;
+            else if (NetworkInterface.GetIsNetworkAvailable())
+                return true;
+            else
+                return false;
+        }
+
 
 
 
         private void Click_check(object sender, EventArgs e)
         {
+           
             // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
-            try
-            {                
-                var webClient = new WebClient();
-                webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
-                webClient.UploadStringCompleted += this.sendPostCompleted;
-                LoggedUser user = LoggedUser.Instance;
-                UserData u = user.GetLoggedUser();
-                string json = "{\"Name\":\"" + u.Name + "\"," +
-                                "\"Mail\":\"" + u.Mail + "\"," +
-                                 "\"FacebookId\":\"" + u.FacebookId + "\"," +
-                                  "\"LinkedInId\":\"" + u.LinkedInId + "\"," +
-                                  "\"Password\":\"" + u.Password + "\"}";
-                System.Diagnostics.Debug.WriteLine(json);
-
-                webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/SignUp/")), "POST", json);
-            }
-            catch (WebException webex)
+            if (IsNetworkAvailable())
             {
-                HttpWebResponse webResp = (HttpWebResponse)webex.Response;
-
-                switch (webResp.StatusCode)
+                try
                 {
-                    case HttpStatusCode.NotFound: // 404
-                        break;
-                    case HttpStatusCode.InternalServerError: // 500
-                        break;
-                    default:
-                        break;
+                    var webClient = new WebClient();
+                    webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
+                    webClient.UploadStringCompleted += this.sendPostCompleted;
+                    LoggedUser user = LoggedUser.Instance;
+                    UserData u = user.GetLoggedUser();
+                    string json = "{\"Name\":\"" + u.Name + "\"," +
+                                    "\"Mail\":\"" + u.Mail + "\"," +
+                                     "\"FacebookId\":\"" + u.FacebookId + "\"," +
+                                      "\"LinkedInId\":\"" + u.LinkedInId + "\"," +
+                                      "\"Password\":\"" + u.Password + "\"}";
+                    System.Diagnostics.Debug.WriteLine(json);
+
+                    webClient.UploadStringAsync((new Uri(App.webService + "/api/Users/SignUp/")), "POST", json);
                 }
+                catch (WebException webex)
+                {
+                    HttpWebResponse webResp = (HttpWebResponse)webex.Response;
+
+                    switch (webResp.StatusCode)
+                    {
+                        case HttpStatusCode.NotFound: // 404
+                            break;
+                        case HttpStatusCode.InternalServerError: // 500
+                            break;
+                        default:
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = AppResources.NoInternetConnection,
+                    Message = AppResources.NoInternetConnectionMessageRegister,
+                    LeftButtonContent = AppResources.OkTitle,
+                    Background = mybrush,
+                    IsFullScreen = false,
+                };
+
+
+                messageBox.Dismissed += (s1, e1) =>
+                {
+                    switch (e1.Result)
+                    {
+                        case CustomMessageBoxResult.LeftButton:
+                            break;
+                        case CustomMessageBoxResult.None:
+                            // Acción.
+                            break;
+                        default:
+                            break;
+                    }
+                };
+
+                messageBox.Show();
             }
         }
 
@@ -135,8 +210,39 @@ namespace Connect.LoggedMainPages
 
         private void MenuItemSignIn_Click(object sender, EventArgs e)
         {
-            App.registrando = true;
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
+            if (IsNetworkAvailable()){
+                App.registrando = true;
+                NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
+            }
+            else
+            {
+                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                CustomMessageBox messageBox = new CustomMessageBox()
+                {
+                    Caption = AppResources.NoInternetConnection,
+                    Message = AppResources.NoInternetConnectionMessage,
+                    LeftButtonContent = AppResources.OkTitle,
+                    Background = mybrush,
+                    IsFullScreen = false,
+                };
+
+
+                messageBox.Dismissed += (s1, e1) =>
+                {
+                    switch (e1.Result)
+                    {
+                        case CustomMessageBoxResult.LeftButton:
+                            break;
+                        case CustomMessageBoxResult.None:
+                            // Acción.
+                            break;
+                        default:
+                            break;
+                    }
+                };
+
+                messageBox.Show();
+            }
         }
 
         private void BuildLocalizedApplicationBar()

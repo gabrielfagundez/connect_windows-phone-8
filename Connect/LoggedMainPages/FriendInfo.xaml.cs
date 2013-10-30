@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using Connect.Classes;
 using Connect.Resources;
 using System.Windows.Media;
+using System.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -29,13 +30,56 @@ namespace Connect.LoggedMainPages
         {
             NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
+        private bool IsNetworkAvailable()
+        {
+            if (App.isDebug)
+                return false;
+            else if (NetworkInterface.GetIsNetworkAvailable())
+                return true;
+            else
+                return false;
+        }
 
         private void btnFacebook_Click(object sender, RoutedEventArgs e)
         {
             LoggedUser lu = LoggedUser.Instance;
             if(lu.friendInf.FacebookId!="")
             {
-                NavigationService.Navigate(new Uri("/LoggedMainPages/FaceFriend.xaml", UriKind.Relative));
+                if (IsNetworkAvailable()){
+                     NavigationService.Navigate(new Uri("/LoggedMainPages/FaceFriend.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                    CustomMessageBox messageBox = new CustomMessageBox()
+                    {
+                        Caption = AppResources.NoInternetConnection,
+                        Message = AppResources.NoInternetConnectionMessage,
+                        LeftButtonContent = AppResources.OkTitle,
+                        Background = mybrush,
+                        IsFullScreen = false,
+                    };
+
+
+                    messageBox.Dismissed += (s1, e1) =>
+                    {
+                        switch (e1.Result)
+                        {
+                            case CustomMessageBoxResult.LeftButton:
+                                break;
+                            case CustomMessageBoxResult.None:
+                                // Acción.
+                                break;
+                            default:
+                                break;
+                        }
+                    };
+
+                    messageBox.Show();
+
+
+                }
+
             }
             else
             {
@@ -45,7 +89,7 @@ namespace Connect.LoggedMainPages
                 {
                     Caption = "",
                     Message = AppResources.withoutFace,
-                    LeftButtonContent = "Aceptar",
+                    LeftButtonContent = AppResources.OkTitle,
                     
                     Background = mybrush,
                     IsFullScreen = false
@@ -61,7 +105,41 @@ namespace Connect.LoggedMainPages
             LoggedUser lu = LoggedUser.Instance;
             if (lu.friendInf.FacebookId != "")
             {
-                NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));
+                if (IsNetworkAvailable()){
+                    NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));
+                }
+                else
+                {
+                    SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                    CustomMessageBox messageBox = new CustomMessageBox()
+                    {
+                        Caption = AppResources.NoInternetConnection,
+                        Message = AppResources.NoInternetConnectionMessage,
+                        LeftButtonContent = AppResources.OkTitle,
+                        Background = mybrush,
+                        IsFullScreen = false,
+                    };
+
+
+                    messageBox.Dismissed += (s1, e1) =>
+                    {
+                        switch (e1.Result)
+                        {
+                            case CustomMessageBoxResult.LeftButton:
+                                break;
+                            case CustomMessageBoxResult.None:
+                                // Acción.
+                                break;
+                            default:
+                                break;
+                        }
+                    };
+
+                    messageBox.Show();
+
+
+                }
+
             }
             else
             {
@@ -71,7 +149,7 @@ namespace Connect.LoggedMainPages
                 {
                     Caption = "",
                     Message = AppResources.withoutLink,
-                    LeftButtonContent = "Aceptar",
+                    LeftButtonContent = AppResources.OkTitle,
 
                     Background = mybrush,
                     IsFullScreen = false

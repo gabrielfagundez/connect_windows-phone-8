@@ -26,6 +26,7 @@ namespace Connect
         public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
         public static bool registrando = false;
         public static string webService = "http://testingpis.azurewebsites.net";
+        public static bool isDebug = false;
         //testingpis
         /// <summary>
         /// Constructor for the Application object.
