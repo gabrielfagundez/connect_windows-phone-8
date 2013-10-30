@@ -58,20 +58,7 @@
                        />
             </Grid>
 
-            <Grid x:Name="WelcomeMessageText" Grid.Row="0" Margin="0,0,0,0" Background="#FFF"  >
-
-                <TextBlock Name="UserName"
-                           Text="HOLA"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Top"
-                       Width="auto"
-                       Height="auto"
-                       Margin="0,0,0,0" 
-                       Foreground="#00aff0"
-                       FontFamily="Segoe WP Light" 
-                       FontSize="25" 
-                       />
-            </Grid>
+           
 
         </Grid>
 
@@ -81,7 +68,7 @@
             <TextBlock 
                 Name="PageTitle"
         		HorizontalAlignment="Left"
-        		VerticalAlignment="Bottom"
+        		VerticalAlignment="Top"
         		Margin="0,0,0,0" 
         		Foreground="#00aff0"
                 FontSize="83"
