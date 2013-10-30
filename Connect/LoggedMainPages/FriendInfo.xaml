@@ -34,7 +34,7 @@
             </toolkit:NavigationOutTransition.Forward>
         </toolkit:NavigationOutTransition>
     </toolkit:TransitionService.NavigationOutTransition>
-    
+
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot2" Background="Transparent">
         <Grid.RowDefinitions>
@@ -49,99 +49,28 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,130,12,126" Grid.RowSpan="2">
-            <Button Content="{Binding Path=LocalizedResources.AddToFacebookTitle, Source={StaticResource LocalizedStrings}}"
-                    Height="140"
-                    HorizontalAlignment="Center"
-                    Margin="28,64,28,52" Name="btnFacebook"
-                    VerticalAlignment="Center"
-                    Width="400"
-                    Click="btnFacebook_Click"
-                    
-                    Background="#FF03B0F0" />
-            <Grid x:Name="UserGrid" Margin="2,-155,-6,196">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
 
-                </Grid.RowDefinitions>
-
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="2.5*"/>
-
-                </Grid.ColumnDefinitions>
-
-                <!--Name Text-->
-                <Grid x:Name="Name" Grid.Row="0" Grid.Column="0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="55*"/>
-                        <RowDefinition Height="53*"/>
-                    </Grid.RowDefinitions>
-                    <TextBlock 
-            			Foreground="#00aff0" 
-            			Margin="0,34" 
-            			Text="{Binding Path=LocalizedResources.NameTitle, Source={StaticResource LocalizedStrings}}" 
-            			HorizontalAlignment="Left" 
-            			VerticalAlignment="Center" 
-            			FontSize="30" Grid.RowSpan="2" />
-                </Grid>
-
-                <!--Mail Text-->
-                <Grid x:Name="Mail" Grid.Row="1" Grid.Column="0">
-                    <TextBlock 
-            			Foreground="#00aff0" 
-            			Margin="0,0,0,0" 
-                        Text="{Binding Path=LocalizedResources.MailTitle, Source={StaticResource LocalizedStrings}}"
-            			HorizontalAlignment="Left" 
-            			VerticalAlignment="Center" 
-            			FontSize="30" />
-                </Grid>
-
-                <!--Password Text-->
-
-                <!--Name Input-->
-                <Grid x:Name="NameInput" Grid.Row="0" Grid.Column="1">
-                    <TextBox 
-            			x:Name="NameInputLable"
-            			Foreground="Black" 
-            			Margin="50,0,0,0" 
-            			Text="John Smith" 
-            			HorizontalAlignment="Left" 
-            			VerticalAlignment="Center" 
-            			FontSize="30" />
-                </Grid>
-
-                <!--Mail Input-->
-                <Grid x:Name="MailInput" Grid.Row="1" Grid.Column="1">
-                    <TextBox 
-            			x:Name="MailLable"
-            			Foreground="Black" 
-            			Margin="50,0,0,0" 
-            			Text="johnSmith@." 
-            			HorizontalAlignment="Left" 
-            			VerticalAlignment="Center" 
-            			FontSize="30" />
-                </Grid>
-
-                <!--Password Input-->
-                <Grid x:Name="PasswordInput" Grid.Row="2" Grid.Column="1"/>
-
-                <!--Share Text-->
-                <Grid x:Name="Share" Grid.Row="2" Grid.Column="2"/>
-
-            </Grid>
         </Grid>
 
         <Grid x:Name="ContentPanel2" Grid.Row="2" Margin="12,29,12,42" Grid.RowSpan="2">
             <Button Content="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
                     Height="140"
                     HorizontalAlignment="Center"
-                    Margin="28,141,28,108" Name="btnLinkedin"
+                    Margin="28,173,28,76" Name="btnLinkedin"
                     VerticalAlignment="Center"
                     Width="400"
                     Click="btnLinkedin_Click"
 
                     Background="#FF03B0F0" />
+            <Button Content="{Binding LocalizedResources.AddToFacebookTitle, Source={StaticResource LocalizedStrings}}"
+            	Height="140"
+            	HorizontalAlignment="Center"
+            	Margin="28,21,28,228" x:Name="btnFacebook"
+            	VerticalAlignment="Center"
+            	Width="400"
+            	Click="btnFacebook_Click"
+                    
+            	Background="#FF03B0F0" />
         </Grid>
         <TextBlock 
             Text="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
@@ -154,7 +83,21 @@
         	Height="144" 
         	Width="320" 
         	FontSize="90" Grid.RowSpan="2"/>
+        <TextBlock 
+            x:Name="Done"
+        	Text="[Nombre Apellido], con el email [mail@mail.com] acaba de conectarse contigo!"
+        	HorizontalAlignment="Left"
+        	TextWrapping="Wrap"
+        	VerticalAlignment="Top"
+                       
+        	Margin="12,10,0,0" 
+        	Foreground="Black"
+        	Style="{StaticResource PhoneTextTitle1Style}" 
+        	FontFamily="Segoe WP Light" 
+        	Height="Auto" 
+        	Width="Auto" 
+        	FontSize="33" Grid.RowSpan="2" Grid.Row="1"/>
     </Grid>
     <!--ApplicationBar-->
-  
+
 </phone:PhoneApplicationPage>

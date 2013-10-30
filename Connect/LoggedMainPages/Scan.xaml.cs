@@ -30,7 +30,7 @@ namespace ZXLib_Test_WP7
         {
             InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Start scann:" + DateTime.Now.Second.ToString());
-            getInfo2("6");//sacar!
+            getInfo2("3");//sacar!
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -113,9 +113,10 @@ namespace ZXLib_Test_WP7
             if (!obj.Text.Equals(tbBarcodeData.Text))
             {
                 VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
-                tbBarcodeType.Text = obj.BarcodeFormat.ToString();
-                tbBarcodeData.Text = obj.Text;
-                //getFriendInfo(obj.Text);
+                //tbBarcodeType.Text = obj.BarcodeFormat.ToString();
+                //tbBarcodeData.Text = obj.Text;
+
+                getInfo2(obj.BarcodeFormat.ToString());
 
             }
         }

@@ -69,7 +69,7 @@
             		VerticalAlignment="Center"
             		Height="350" 
             		Margin="0,0,0,0" 
-            		Width="350"/>               
+            		Width="350"/>
             </Grid>
 
             <!--Scann Button-->
@@ -96,7 +96,7 @@
                     VerticalAlignment="Bottom"
                     FontFamily="Segoe WP"
                     FontSize="30" Foreground="#DEFFFFFF" Tap="TextBlock_Tap"/>
-                
+
 
             </Grid>
 
@@ -106,12 +106,12 @@
                    x:Name="UsName"
         	HorizontalAlignment="Left"
         	VerticalAlignment="Center"
-        	Margin="162,110,0,0" 
-        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="268"/>
+        	Margin="10,10,0,10" 
+        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="268" Grid.Row="2"/>
     </Grid>
-    
+
     <!--Application Bar-->
-    
+
 
 
 </phone:PhoneApplicationPage>

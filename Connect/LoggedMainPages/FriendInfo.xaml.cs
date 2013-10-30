@@ -21,8 +21,8 @@ namespace Connect.LoggedMainPages
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
             LoggedUser lu = LoggedUser.Instance;
-            NameInputLable.Text=lu.friendInf.Name;
-            MailLable.Text = lu.friendInf.Mail;
+
+            Done.Text = lu.friendInf.Name + ", con el email " + lu.friendInf.Mail + " acaba de conectarse contigo!";
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
