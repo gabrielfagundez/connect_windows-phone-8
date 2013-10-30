@@ -113,7 +113,8 @@
                     Width="Auto"
                     SelectionBackground="#FFEBEBEB" 
                     BorderBrush="#FFC6C6C6"
-                    Background="#FFEBEBEB"/>
+                    Background="#FFEBEBEB"
+                    KeyDown="MailIngresado_KeyDown"/>
             </Grid>
 
             <!-- #3 -->
@@ -137,7 +138,8 @@
                     BorderBrush="#FFC6C6C6"
                     Height="Auto"
                     Width="Auto"
-                    Margin="0,0,0,0"/>
+                    Margin="0,0,0,0"
+                    KeyDown="PassIngresado_KeyDown"/>
             </Grid>
 
             <!-- #6 -->

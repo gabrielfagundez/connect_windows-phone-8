@@ -281,4 +281,7 @@
   <data name="YesTitle" xml:space="preserve">
     <value>Si</value>
   </data>
+  <data name="scanning" xml:space="preserve">
+    <value>Escaneando</value>
+  </data>
 </root>
