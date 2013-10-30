@@ -73,7 +73,7 @@
             	Background="#FF03B0F0" />
         </Grid>
         <TextBlock 
-            Text="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"
+            Text="{Binding Path=LocalizedResources.AddTitle, Source={StaticResource LocalizedStrings}}"
         	HorizontalAlignment="Left"
         	VerticalAlignment="Center"
         	Margin="12,10,0,154" 
