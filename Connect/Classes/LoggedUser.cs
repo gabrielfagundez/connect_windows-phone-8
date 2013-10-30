@@ -20,16 +20,18 @@ namespace Connect.Classes
         private LoggedUser() { }
         private UserData user;
         public UserData friendInf;
+        public UserData userReg;
 
         public static LoggedUser Instance
         {
+
             get
             {
                 if (instance == null)
-                {
-                    
+                {                    
                     instance = new LoggedUser();
                     Session s = new Session();
+                    instance.userReg = new UserData();
                     if (s.Contains("Id"))
                     {
                         FacebookSession f = FacebookSessionCacheProvider.Current.GetSessionData();
@@ -44,6 +46,7 @@ namespace Connect.Classes
                     else
                     {
                         instance.user = null;
+                        instance.userReg = new UserData();
                     }
                 }
                 return instance;
@@ -81,12 +84,6 @@ namespace Connect.Classes
 
         public UserData GetLoggedUser()
         {
-            return this.user;
-        }
-
-        public UserData RegisterUser()
-        {
-            this.user = new UserData();
             return this.user;
         }
 

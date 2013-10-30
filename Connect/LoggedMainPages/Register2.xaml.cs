@@ -31,10 +31,6 @@ namespace Connect.LoggedMainPages
         string tokenSecret = string.Empty;
         string accessToken = string.Empty;
         string accessTokenSecret = string.Empty;
-
-        XmlSerializer personXerializer;
-        person currentPerson;
-
         
         public Register2()
         {
@@ -47,8 +43,6 @@ namespace Connect.LoggedMainPages
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
             if (IsNetworkAvailable()){
-                btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
-                App.registrando = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
             }
             else
@@ -84,16 +78,9 @@ namespace Connect.LoggedMainPages
 
         protected override async void OnNavigatedFrom(NavigationEventArgs e)
         {
-            if (App.registrando == false)
-            {
-                LoggedUser user = LoggedUser.Instance;
-                await user.LogOut();
-            }
-            else
-            {
-                App.registrando = false;
-            }
             
+                //LoggedUser.Instance.userReg = null;
+           
         }
         
         private bool IsNetworkAvailable()
@@ -120,8 +107,7 @@ namespace Connect.LoggedMainPages
                     var webClient = new WebClient();
                     webClient.Headers[HttpRequestHeader.ContentType] = "text/json";
                     webClient.UploadStringCompleted += this.sendPostCompleted;
-                    LoggedUser user = LoggedUser.Instance;
-                    UserData u = user.GetLoggedUser();
+                    UserData u = LoggedUser.Instance.userReg;
                     string json = "{\"Name\":\"" + u.Name + "\"," +
                                     "\"Mail\":\"" + u.Mail + "\"," +
                                      "\"FacebookId\":\"" + u.FacebookId + "\"," +
@@ -203,7 +189,6 @@ namespace Connect.LoggedMainPages
                 user.SetLoggedUser(JsonConvert.DeserializeObject<UserData>(e.Result));
                 MainUtil.SetKeyValue<string>("AccessToken", string.Empty);
                 MainUtil.SetKeyValue<string>("AccessTokenSecret", string.Empty);
-                App.registrando = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             }
         }
@@ -211,7 +196,6 @@ namespace Connect.LoggedMainPages
         private void MenuItemSignIn_Click(object sender, EventArgs e)
         {
             if (IsNetworkAvailable()){
-                App.registrando = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
             }
             else

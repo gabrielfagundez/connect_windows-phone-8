@@ -103,7 +103,7 @@ namespace Connect.LoggedMainPages
         private void btnLinkedin_Click(object sender, RoutedEventArgs e)
         {
             LoggedUser lu = LoggedUser.Instance;
-            if (lu.friendInf.FacebookId != "")
+            if (lu.friendInf.LinkedInId != "")
             {
                 if (IsNetworkAvailable()){
                     NavigationService.Navigate(new Uri("/LoggedMainPages/LinkFriend.xaml", UriKind.Relative));

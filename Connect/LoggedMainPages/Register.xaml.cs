@@ -28,18 +28,9 @@ namespace Connect.LoggedMainPages
             BuildLocalizedApplicationBar();
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
-        {
-            if (App.registrando == false)
-            {
-                LoggedUser user = LoggedUser.Instance;
-                await user.LogOut();
-            }
-            else
-            {
-                App.registrando = false;
-            }
-
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {           
+                //LoggedUser.Instance.userReg = null ;          
         }
 
         private bool IsNetworkAvailable()
@@ -181,16 +172,13 @@ namespace Connect.LoggedMainPages
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
-                        LoggedUser u= LoggedUser.Instance;
-                        UserData user = u.RegisterUser();
-                        user.Name = NombreIngresado.Text;
-                        user.Mail = MailIngresado.Text;
-                        user.Password = PassIngresadoReg.Password;
-                        user.FacebookId = "not connected";
-                        user.LinkedInId = "not connected";
-                        user.Id = "";
-                        u.SetLoggedUser(user);
-                        App.registrando = true;
+                       
+                        LoggedUser.Instance.userReg.Name = NombreIngresado.Text;
+                        LoggedUser.Instance.userReg.Mail = MailIngresado.Text;
+                        LoggedUser.Instance.userReg.Password = PassIngresadoReg.Password;
+                        LoggedUser.Instance.userReg.FacebookId = "";
+                        LoggedUser.Instance.userReg.LinkedInId = "";
+                        LoggedUser.Instance.userReg.Id = "";
                         NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));          
                         break;
                     case HttpStatusCode.Unauthorized: // 401
