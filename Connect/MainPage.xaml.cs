@@ -32,7 +32,10 @@ namespace Connect
             PassIngresado.Password="password";
             // Código de ejemplo para traducir ApplicationBar
              BuildLocalizedApplicationBar();
-            
+             if (PageTitle.Text == "login")
+             {
+                 PageTitle.FontSize = 90;
+             }
       
         }
 

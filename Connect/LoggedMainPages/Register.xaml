@@ -54,10 +54,8 @@
         		Margin="0,0,0,0" 
         		Foreground="#00aff0"
         		Style="{StaticResource PhoneTextTitle1Style}"
-                FontFamily="Segoe UI Light"
+                FontFamily="Segoe WP Light" 
                 FontSize="90"
-                FontStretch="UltraCondensed"
-                FontWeight="Thin"
                 Width="Auto"
                 Height="Auto"/>
         </Grid>
