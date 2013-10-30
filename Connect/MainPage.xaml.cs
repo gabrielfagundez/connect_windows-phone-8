@@ -16,6 +16,7 @@ using Connect;
 using System.Net.NetworkInformation;
 using System.Windows.Media;
 using System.Net.NetworkInformation;
+using System.Windows.Input;
 
 namespace Connect
 {
@@ -203,6 +204,20 @@ namespace Connect
             ApplicationBar.IsVisible = true;
             ApplicationBar.Opacity = (double)(.99);
             ApplicationBar.Mode = ApplicationBarMode.Default;
+
+        }
+
+        private void MailIngresado_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                PassIngresado.Focus();
+
+        }
+
+        private void PassIngresado_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                this.Focus();
 
         }
 
