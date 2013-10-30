@@ -62,6 +62,15 @@
                     Click="btnLinkedin_Click"
 
                     Background="#FF03B0F0" />
+            <Button Content="{Binding LocalizedResources.AddToFacebookTitle, Source={StaticResource LocalizedStrings}}"
+            	Height="140"
+            	HorizontalAlignment="Center"
+            	Margin="28,10,28,239" x:Name="btnLinkedin_Copy"
+            	VerticalAlignment="Center"
+            	Width="400"
+            	Click="btnFacebook_Click"
+
+            	Background="#FF03B0F0" />
         </Grid>
         <TextBlock 
             Text="{Binding Path=LocalizedResources.AddToLinkedinTitle, Source={StaticResource LocalizedStrings}}"

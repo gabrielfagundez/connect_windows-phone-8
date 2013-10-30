@@ -33,7 +33,7 @@ namespace ZXLib_Test_WP7
         {
             InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Start scann:" + DateTime.Now.Second.ToString());
-            getInfo2("300");//sacar!
+            getInfo2("3");//sacar!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
