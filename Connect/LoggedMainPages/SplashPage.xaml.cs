@@ -9,7 +9,6 @@ using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
 using System.IO;
 using System.Threading;
-using Microsoft.Phone.Controls;
 using System.Windows.Threading;
 using Connect.Classes;
 
@@ -26,7 +25,6 @@ namespace WindowsPhoneSample5
         {
             InitializeComponent();
             // creating timer instance
-
             UserData user = LoggedUser.Instance.GetLoggedUser(); 
             if (user == null)
             {

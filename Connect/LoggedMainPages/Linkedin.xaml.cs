@@ -223,17 +223,15 @@ namespace Connect.LoggedMainPages
             // converting string to stream
             byte[] byteArray = Encoding.UTF8.GetBytes(aRespString);
             MemoryStream personXml = new MemoryStream(byteArray);
-            int startPos = aRespString.LastIndexOf("id=") + "id=".Length + 1;
-            int length = aRespString.IndexOf("&") - startPos;
+            int startPos = aRespString.LastIndexOf("id=") + "id=".Length;
+            int length = aRespString.IndexOf("&amp;trk") - startPos;
             string sub = aRespString.Substring(startPos, length);
-            LoggedUser user = LoggedUser.Instance;
-            UserData u = user.GetLoggedUser();
+            UserData u = LoggedUser.Instance.userReg;
             Session s = new Session();
             s.RemoveStringObject("LinkedInId");
 
             s.SaveStringObject("LinkedInId", sub);
             u.LinkedInId = sub;
-            user.SetLoggedUser(u);
 
             if (personXml != null)
             {

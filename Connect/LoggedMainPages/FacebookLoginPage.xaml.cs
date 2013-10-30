@@ -48,13 +48,11 @@ namespace Connect.LoggedMainPages
                 Dispatcher.BeginInvoke(() =>
                 {
                     LoggedUser user = LoggedUser.Instance;
-                    UserData u = user.GetLoggedUser();
+                    UserData u = LoggedUser.Instance.userReg;
                     Session s = new Session();
                     s.RemoveStringObject("FacebookId");
-
                     s.SaveStringObject("FacebookId", (string)result["username"]);
                     u.FacebookId = (string)result["username"];
-                    user.SetLoggedUser(u);
                 });
             };
 
@@ -79,8 +77,7 @@ namespace Connect.LoggedMainPages
             }
             catch (InvalidOperationException e)
             {
-                message = "Login failed! Exception details: " + e.Message;
-                MessageBox.Show(message);
+                NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));
             }
         }
     }
