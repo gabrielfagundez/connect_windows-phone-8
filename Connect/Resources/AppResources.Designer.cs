@@ -196,6 +196,24 @@ namespace Connect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to whose email is.
+        /// </summary>
+        public static string done1 {
+            get {
+                return ResourceManager.GetString("done1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to just connected with you.
+        /// </summary>
+        public static string done2 {
+            get {
+                return ResourceManager.GetString("done2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tom Jones just shared with you his facebook and email address.  You are now friends in facebook and we&apos;ve sent him an email from you..
         /// </summary>
         public static string DoneMessage {
@@ -304,11 +322,38 @@ namespace Connect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not authorized!.
+        /// </summary>
+        public static string notAuth {
+            get {
+                return ResourceManager.GetString("notAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not found!.
+        /// </summary>
+        public static string notFound {
+            get {
+                return ResourceManager.GetString("notFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string NoTitle {
             get {
                 return ResourceManager.GetString("NoTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string ok {
+            get {
+                return ResourceManager.GetString("ok", resourceCulture);
             }
         }
         
@@ -408,6 +453,33 @@ namespace Connect.Resources {
         public static string ShareTitle {
             get {
                 return ResourceManager.GetString("ShareTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        public static string user {
+            get {
+                return ResourceManager.GetString("user", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user is not associated with Facebook account.
+        /// </summary>
+        public static string withoutFace {
+            get {
+                return ResourceManager.GetString("withoutFace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The user is not associated with Linkedin account.
+        /// </summary>
+        public static string withoutLink {
+            get {
+                return ResourceManager.GetString("withoutLink", resourceCulture);
             }
         }
         

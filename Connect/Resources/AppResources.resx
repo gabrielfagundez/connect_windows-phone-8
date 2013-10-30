@@ -245,4 +245,28 @@
   <data name="YesTitle" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="done1" xml:space="preserve">
+    <value>whose email is</value>
+  </data>
+  <data name="done2" xml:space="preserve">
+    <value>just connected with you</value>
+  </data>
+  <data name="notAuth" xml:space="preserve">
+    <value>Not authorized!</value>
+  </data>
+  <data name="notFound" xml:space="preserve">
+    <value>Not found!</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="withoutFace" xml:space="preserve">
+    <value>The user is not associated with Facebook account</value>
+  </data>
+  <data name="withoutLink" xml:space="preserve">
+    <value>The user is not associated with Linkedin account</value>
+  </data>
 </root>

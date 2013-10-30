@@ -16,6 +16,8 @@ using ZXing.QrCode;
 using Connect.Classes;
 using Newtonsoft.Json;
 using Connect;
+using System.Windows.Media;
+using Connect.Resources;
 
 namespace ZXLib_Test_WP7
 {
@@ -30,7 +32,7 @@ namespace ZXLib_Test_WP7
         {
             InitializeComponent();
             System.Diagnostics.Debug.WriteLine("Start scann:" + DateTime.Now.Second.ToString());
-            getInfo2("3");//sacar!
+            getInfo2("300");//sacar!
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -184,12 +186,15 @@ namespace ZXLib_Test_WP7
 
                     case HttpStatusCode.NotFound: // 404
                         System.Diagnostics.Debug.WriteLine("Not found!");
+                        errorFunc(AppResources.notFound);
                         /*ErrorBlock.Text = AppResources.WrongMailError;
                         ProgressB.IsIndeterminate = false;
                         Connecting.Visibility = System.Windows.Visibility.Collapsed;
                         ErrorBlock.Visibility = System.Windows.Visibility.Visible;*/
+
                         break;
                     case HttpStatusCode.Unauthorized: // 401
+                        errorFunc(AppResources.notAuth);
                         /*System.Diagnostics.Debug.WriteLine("Not authorized!");
                         ErrorBlock.Text = AppResources.WrongPasswordError;
                         ProgressB.IsIndeterminate = false;
@@ -228,9 +233,41 @@ namespace ZXLib_Test_WP7
                 NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
             }
         }
-        
-        
 
+
+
+        private void errorFunc(string text)
+        {
+            SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+            CustomMessageBox messageBox = new CustomMessageBox()
+            {
+                Caption = "",
+                Message = text,
+                LeftButtonContent = AppResources.ok,
+
+                Background = mybrush,
+                IsFullScreen = false
+            };
+            messageBox.Show();
+            messageBox.Dismissed += (s1, e1) =>
+            {
+                switch (e1.Result)
+                {
+                    case CustomMessageBoxResult.LeftButton:
+                        NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
+                        break;
+                    case CustomMessageBoxResult.RightButton:
+                        // Acción.
+                        break;
+                    case CustomMessageBoxResult.None:
+                        // Acción.
+                        break;
+                    default:
+                        break;
+                }
+            };
+            
+        }
 
     }
 }

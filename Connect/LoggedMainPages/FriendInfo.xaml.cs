@@ -22,7 +22,7 @@ namespace Connect.LoggedMainPages
             BuildLocalizedApplicationBar();
             LoggedUser lu = LoggedUser.Instance;
 
-            Done.Text = lu.friendInf.Name + ", con el email " + lu.friendInf.Mail + " acaba de conectarse contigo!";
+            Done.Text = lu.friendInf.Name +", "+ AppResources.done1 + " " +lu.friendInf.Mail +", "+ AppResources.done2+"!";
         }
 
         private void ApplicationBarIconButton_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace Connect.LoggedMainPages
                 CustomMessageBox messageBox = new CustomMessageBox()
                 {
                     Caption = "",
-                    Message = "El usuario no tiene cuenta de Facebook ascociada",
+                    Message = AppResources.withoutFace,
                     LeftButtonContent = "Aceptar",
                     
                     Background = mybrush,
@@ -70,7 +70,7 @@ namespace Connect.LoggedMainPages
                 CustomMessageBox messageBox = new CustomMessageBox()
                 {
                     Caption = "",
-                    Message = "El usuario no tiene cuenta de Linkedin ascociada",
+                    Message = AppResources.withoutLink,
                     LeftButtonContent = "Aceptar",
 
                     Background = mybrush,

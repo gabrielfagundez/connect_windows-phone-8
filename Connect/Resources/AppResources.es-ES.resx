@@ -239,7 +239,28 @@
   <data name="WrongPasswordError" xml:space="preserve">
     <value>La constraseña ingresada no es correcta</value>
   </data>
-  <data name="YesTitle" xml:space="preserve">
-    <value>Si</value>
+  <data name="done1" xml:space="preserve">
+    <value>cuyo mail es</value>
+  </data>
+  <data name="done2" xml:space="preserve">
+    <value>acaba de conectarse contigo</value>
+  </data>
+  <data name="notAuth" xml:space="preserve">
+    <value>No autorizado!</value>
+  </data>
+  <data name="notFound" xml:space="preserve">
+    <value>No encontrado!</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="user" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="withoutFace" xml:space="preserve">
+    <value>El usuario no tiene cuenta de Facebook asociada</value>
+  </data>
+  <data name="withoutLink" xml:space="preserve">
+    <value>El usuario no tiene cuenta de Linkedin asociada</value>
   </data>
 </root>
