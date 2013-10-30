@@ -46,7 +46,7 @@ namespace Connect.LoggedMainPages
 
         private void Click_Settings(object sender, EventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutConfirmation.xaml", UriKind.Relative));
         }
 
         private void Rectangle_Tap(object sender, System.Windows.Input.GestureEventArgs e)
@@ -71,7 +71,7 @@ namespace Connect.LoggedMainPages
             // Create a new button and set the text value to the localized string from AppResources.
             ApplicationBarIconButton appBarButton =
                 new ApplicationBarIconButton(new
-                Uri("/Assets/Images/feature.settings.png", UriKind.Relative));
+                Uri("/Assets/Images/Logout-32.png", UriKind.Relative));
             appBarButton.Text = AppResources.AppBarSettingsButtonText;
             appBarButton.Click += this.Click_Settings;
             ApplicationBar.Buttons.Add(appBarButton);

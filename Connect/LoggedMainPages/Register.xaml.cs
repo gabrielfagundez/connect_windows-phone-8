@@ -15,7 +15,8 @@ using Connect.Classes;
 using Connect;
 using System.Text.RegularExpressions;
 using System.Windows.Media;
-using System.Net.NetworkInformation;
+using Microsoft.Phone.Net.NetworkInformation;
+using Facebook.Client;
 
 namespace Connect.LoggedMainPages
 {
@@ -37,20 +38,23 @@ namespace Connect.LoggedMainPages
         {
             if (App.isDebug)
                 return false;
-            else if (NetworkInterface.GetIsNetworkAvailable())
-                return true;
-            else
+            else if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.None)
                 return false;
+            else
+                return true;
         }
 
         private void Click_check(object sender, EventArgs e)
         {
 
-            // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             if (IsNetworkAvailable())
             {
                 try
                 {
+                    if (App.FacebookSessionClient == null)
+                    {
+                        App.FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
+                    }
                     ErrorBlockReg.Visibility = System.Windows.Visibility.Collapsed;
                     var webClient = new WebClient();
                     webClient.Headers[HttpRequestHeader.ContentType] = "text/json";

@@ -53,21 +53,21 @@ namespace Connect.Classes
             }
         }
         private FacebookSession session;
-        public async Task Authenticate()
-        {
-            string message = String.Empty;
-            try
-            {
-                session = await App.FacebookSessionClient.LoginAsync("user_about_me,read_stream");
-                App.AccessToken = session.AccessToken;
-                App.FacebookId = session.FacebookId;     
-            }
-            catch (InvalidOperationException e)
-            {
-                message = AppResources.FBLoginError;
-                MessageBox.Show(message);
-            }
-        }
+        //public async Task Authenticate()
+        //{
+        //    string message = String.Empty;
+        //    try
+        //    {
+        //        session = await App.FacebookSessionClient.LoginAsync("user_about_me,read_stream");
+        //        App.AccessToken = session.AccessToken;
+        //        App.FacebookId = session.FacebookId;     
+        //    }
+        //    catch (InvalidOperationException e)
+        //    {
+        //        message = AppResources.FBLoginError;
+        //        MessageBox.Show(message);
+        //    }
+        //}
                  
 
         public void SetLoggedUser(UserData u)

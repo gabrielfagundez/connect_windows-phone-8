@@ -10,6 +10,7 @@ using Connect.Resources;
 using System.Windows.Media;
 using Connect.Classes;
 using Facebook.Client;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace Connect
 {
@@ -23,10 +24,11 @@ namespace Connect
         internal static string AccessToken = String.Empty;
         internal static string FacebookId = String.Empty;
         public static bool isAuthenticated = false;
-        public static FacebookSessionClient FacebookSessionClient = new FacebookSessionClient(Constants.FacebookAppId);
+        public static FacebookSessionClient FacebookSessionClient;
         public static bool registrando = false;
         public static string webService = "http://testingpis.azurewebsites.net";
         public static bool isDebug = false;
+       
         //testingpis
         /// <summary>
         /// Constructor for the Application object.
@@ -44,6 +46,8 @@ namespace Connect
 
             // Language display initialization
             InitializeLanguage();
+
+            SetFacebookVariable();
 
             
 
@@ -67,6 +71,12 @@ namespace Connect
                 PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
 
+        }
+        private void SetFacebookVariable()
+        {
+         if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType != NetworkInterfaceType.None){
+            FacebookSessionClient= new FacebookSessionClient(Constants.FacebookAppId);
+       }
         }
 
         // Code to execute when the application is launching (eg, from Start)
