@@ -276,7 +276,7 @@
     <value>Por favor chequee su WIFI o la red de datos de su celular e inténtelo de nuevo.</value>
   </data>
   <data name="NoInternetConnectionMessageRegister" xml:space="preserve">
-    <value>Su registro no pudo ser completado.</value>
+    <value>Su registro no pudo ser completado.Por favor chequee su WIFI o la red de datos de su celular e inténtelo de nuevo.</value>
   </data>
   <data name="YesTitle" xml:space="preserve">
     <value>Si</value>

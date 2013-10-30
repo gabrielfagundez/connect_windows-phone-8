@@ -16,6 +16,7 @@ using Connect;
 using System.Net.NetworkInformation;
 using System.Windows.Media;
 using System.Net.NetworkInformation;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace Connect
 {
@@ -60,15 +61,15 @@ namespace Connect
         {
             if (App.isDebug)
                 return false;
-            else if (NetworkInterface.GetIsNetworkAvailable())
-                return true;
-            else
+            else if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.None)
                 return false;
+            else
+                return true;
         }
 
         private void Click_check(object sender, EventArgs e)
         {
-            //NavigationService.Navigate(new Uri("/LoggedMainPages/Scan.xaml", UriKind.Relative));
+          
             if (IsNetworkAvailable()){
             try
             {
