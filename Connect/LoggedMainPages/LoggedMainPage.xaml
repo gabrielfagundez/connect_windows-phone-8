@@ -38,25 +38,55 @@
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="#FFF" Margin="20,0,20,0">
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="150"/>
             <RowDefinition Height="8*"/>
             <RowDefinition Height="*"/>
 
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
+            <Grid x:Name="AppTitlePanel" Grid.Row="0" Margin="50,0,50,0" Background="#FFF"  >
+            <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="7*"/>
+            </Grid.ColumnDefinitions>
+            <Grid x:Name="WelcomeMessageImage" Grid.Row="0" Grid.Column="0" Margin="0" Background="#FFF"  >
+                <Image Source="/Assets/Images/LogoC!.png"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="0" 
+                       />
+            </Grid>
+            <Grid x:Name="WelcomeMessageText" Grid.Row="0" Grid.Column="1" Margin="0" Background="#FFF"  >
+                <TextBlock Name="UserName"
+                       HorizontalAlignment="Left"
+                       VerticalAlignment="Bottom"
+                       Margin="5,0,0,0" 
+                       Foreground="#00aff0"
+                       FontFamily="Segoe WP Light" 
+                       FontSize="35"
+                       />
+            </Grid>
+
+        </Grid>
+
 
         <!--TitlePanel contains the name of frame-->
-        <Grid x:Name="TitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF">
-            <TextBlock Text="{Binding Path=LocalizedResources.ShareTitle, Source={StaticResource LocalizedStrings}}"
+        <Grid x:Name="TitlePanel" Grid.Row="1" Margin="50,0,50,0" Background="#FFF">
+            <TextBlock 
+                Name="PageTitle"
         		HorizontalAlignment="Left"
-        		VerticalAlignment="Stretch"
-        		Margin="50,0,0,0" 
+        		VerticalAlignment="Top"
+        		Margin="0,0,0,0" 
         		Foreground="#00aff0"
+                FontSize="83"
+                Text="{Binding Path=LocalizedResources.ShareTitle, Source={StaticResource LocalizedStrings}}"
+                FontFamily="Segoe WP Light" 
         		Style="{StaticResource PhoneTextTitle1Style}"/>
         </Grid>
 
         <!--Aca esta el contenido principal -->
-        <Grid x:Name="ZonaQR" Grid.Row="1" Margin="0,0,0,0">
+        <Grid x:Name="ZonaQR" Grid.Row="2" Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="9*"/>
                 <RowDefinition Height="2*"/>
@@ -65,13 +95,15 @@
             <Grid x:Name="LeerQR" Grid.Row="0" Margin="0,0,0,0">
                 <Image
                     x:Name="ImgQR"
-            		Height="350" 
-            		Margin="0,0,0,0" 
-            		Width="350"/>
+                    HorizontalAlignment="Center"
+            		VerticalAlignment="Center"
+            		Height="520"
+                    Width="520"
+            		Margin="0,0,0,0" />
             </Grid>
 
             <!--Scann Button-->
-            <Grid x:Name="ScanQR" Grid.Row="1" Margin="0,0,0,0">
+            <Grid x:Name="ScanQR" Grid.Row="2" Margin="0,0,0,0">
                 <Rectangle
             		Fill="#00aff0"
             		HorizontalAlignment="Stretch"                    
@@ -100,12 +132,14 @@
 
 
         </Grid>
-        <TextBlock Text="User: Name user"
-                   x:Name="UsName"
-        	HorizontalAlignment="Right"
-        	VerticalAlignment="Bottom"
-        	Margin="0,0,0,0" 
-        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="Auto" Grid.Row="2"/>
+        <!--< Text="User: Name user"
+            x:Name="UsName"
+
+        	HorizontalAlignment="Left"
+        	VerticalAlignment="Center"
+        	Margin="10,10,0,10" 
+        	Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30" Width="268" Grid.Row="2"/>-->
+
     </Grid>
 
     <!--Application Bar-->

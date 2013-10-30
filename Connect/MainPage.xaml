@@ -36,7 +36,7 @@
     </toolkit:TransitionService.NavigationOutTransition>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
-    <Grid x:Name="LayoutRoot" Background="#FFF" Margin="20,20,0,0">
+    <Grid x:Name="LayoutRoot" Background="#FFF" Margin="20,0,20,0">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="150"/>
@@ -47,21 +47,24 @@
         <!--AppTitlePanel contains the name of the application-->
         
         <Grid x:Name="AppTitlePanel" Grid.Row="0" Margin="0,0,0,0" Background="#FFF" >
-            <TextBlock Text="Connect!"
+            <Image     Source="/Assets/Images/logoConnect!.png"
                        HorizontalAlignment="Left"
                        VerticalAlignment="Center"
-                       Margin="0,0,0,0" 
-                       Foreground="#00aff0" FontFamily="Segoe WP Light" FontSize="30"/>
+                       Margin="0,0,0,0" />
         </Grid>
 
         <!--TitlePanel contains the name of the application and page title-->
         <Grid x:Name="TitlePanel" Grid.Row="1" Margin="0,0,0,0" Background="#FFF">
-            <TextBlock Text="{Binding Path=LocalizedResources.LoginTitle, Source={StaticResource LocalizedStrings}}"
+            <TextBlock 
+                Name ="PageTitle"
+                Text="{Binding Path=LocalizedResources.LoginTitle, Source={StaticResource LocalizedStrings}}"
         		HorizontalAlignment="Left"
         		VerticalAlignment="Center"
                 Height="Auto"
                 Width="Auto"
+                FontSize="80"
         		Margin="0,0,0,0" 
+                FontFamily="Segoe WP Light" 
         		Foreground="#00aff0"
                 Style="{StaticResource PhoneTextTitle1Style}"/>
         </Grid>
