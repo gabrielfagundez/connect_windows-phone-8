@@ -466,7 +466,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Scanning.
+        ///   Looks up a localized string similar to Processing code.
         /// </summary>
         public static string scanning {
             get {

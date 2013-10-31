@@ -282,7 +282,7 @@
     <value>Si</value>
   </data>
   <data name="scanning" xml:space="preserve">
-    <value>Escaneando</value>
+    <value>Procesando código</value>
   </data>
   <data name="searching" xml:space="preserve">
     <value>Buscando QR</value>

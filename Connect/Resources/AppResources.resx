@@ -285,7 +285,7 @@
     <value>Your registration could not be completed.Please check your WIFI or cellular data network and try again.</value>
   </data>
   <data name="scanning" xml:space="preserve">
-    <value>Scanning</value>
+    <value>Processing code</value>
   </data>
   <data name="searching" xml:space="preserve">
     <value>QR searching</value>
