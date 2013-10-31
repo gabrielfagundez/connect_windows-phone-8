@@ -27,6 +27,13 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
+            //NombreIngresado.Text = "Prueba Perez";
+            //MailIngresado.Text = "prueba@mail.com";                    
+           // PassIngresadoReg.Password = "password";
+            //RePassIngresadoReg.Password = "password";
+                              
+                                  
+            
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)

@@ -20,24 +20,7 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             LoggedUser lu = LoggedUser.Instance;
             string s = lu.friendInf.LinkedInId;
-
-
-            int startPos = 0;
-            int length = s.IndexOf("&amp;authType=") - startPos;
-            string id = s.Substring(startPos, length);
-     
-
-            startPos = s.LastIndexOf("&amp;authType=") + "&amp;authType=".Length;
-            length = s.IndexOf("&amp;authToken=") - startPos;
-            string authType = s.Substring(startPos, length);
-       
-
-            startPos = s.LastIndexOf("&amp;authToken=") + "&amp;authToken=".Length;
-            length = s.Length - startPos;
-            string authToken = s.Substring(startPos, length);
-       
-            this.loginBrowserControl.Navigate(new Uri("http://www.linkedin.com/profile/view?id=" + id + "&authType=" + authType + "NAME_SEARCH&authToken=" + authToken, UriKind.Absolute));//aca va el linkedin del nuevo amigo
-        
+            this.loginBrowserControl.Navigate(new Uri(s, UriKind.Absolute));//aca va el linkedin del nuevo amigo        
         }       
     }
 }

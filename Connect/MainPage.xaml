@@ -152,7 +152,7 @@
                     TextWrapping="Wrap"
                     Text="Invalid mail or password"
                     VerticalAlignment="Top"
-                    Width="290"
+                    Width="auto"
                     Foreground="#DEF30808"/>
             </Grid>
 

@@ -30,6 +30,17 @@ namespace Connect.LoggedMainPages
                 await Authenticate();
               
             }
+           
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+
+            Uri u = new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative);
+            if ((e.Uri == u) && (LoggedUser.Instance.userReg.FacebookId == ""))
+            {
+                App.isAuthenticated = false;
+            }         
         }
 
         private void LoadUserInfo()
