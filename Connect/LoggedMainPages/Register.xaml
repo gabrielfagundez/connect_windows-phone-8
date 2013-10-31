@@ -222,7 +222,7 @@
                 Height="Auto" Margin="0,0,0,0"
                 Grid.Row="2" Visibility="Collapsed"
                 TextWrapping="Wrap"
-                Text="Connecting to server"
+                Text="{Binding Path=LocalizedResources.ConnectingToServerTitle, Source={StaticResource LocalizedStrings}}"
                 VerticalAlignment="Bottom"
                 Width="Auto"
                 Foreground="#FF00AFF0"/>
