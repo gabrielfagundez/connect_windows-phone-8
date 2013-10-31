@@ -97,7 +97,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The email you entered is already being used.
+        ///   Looks up a localized string similar to The email you entered is already in use.
         /// </summary>
         public static string alreadyUsedEmail {
             get {
@@ -250,7 +250,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your email.
+        ///   Looks up a localized string similar to Please enter your email.
         /// </summary>
         public static string invalidMail {
             get {
@@ -259,7 +259,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your name.
+        ///   Looks up a localized string similar to Please enter your name.
         /// </summary>
         public static string invalidName {
             get {
@@ -268,7 +268,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enter your password.
+        ///   Looks up a localized string similar to Please enter your password.
         /// </summary>
         public static string invalidPassword {
             get {
@@ -286,7 +286,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Written passwords are not the same.
+        ///   Looks up a localized string similar to Passwords don&apos;t match.
         /// </summary>
         public static string invalidReType {
             get {

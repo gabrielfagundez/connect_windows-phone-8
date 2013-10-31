@@ -147,7 +147,7 @@
     <value>Agregar a LinkedIn</value>
   </data>
   <data name="alreadyUsedEmail" xml:space="preserve">
-    <value>El mail ingresado ya esta siendo usado</value>
+    <value>El mail ingresado ya esta en uso</value>
   </data>
   <data name="AppBarDoneButtonText" xml:space="preserve">
     <value>hecho</value>
@@ -189,7 +189,7 @@
     <value>La contraseña debe tener al menos 6 digitos</value>
   </data>
   <data name="invalidReType" xml:space="preserve">
-    <value>La contraseña no coincide con su confirmación</value>
+    <value>Las contraseñas no coinciden</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>iniciar sesión</value>
@@ -249,7 +249,7 @@
     <value>No autorizado!</value>
   </data>
   <data name="notFound" xml:space="preserve">
-    <value>No encontrado!</value>
+    <value>El QR escaneado no corresponde con el de ningun usuario de Connect!</value>
   </data>
   <data name="OkTitle" xml:space="preserve">
     <value>Aceptar</value>

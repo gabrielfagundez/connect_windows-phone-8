@@ -147,7 +147,7 @@
     <value>Add to LinkedIn</value>
   </data>
   <data name="alreadyUsedEmail" xml:space="preserve">
-    <value>The email you entered is already being used</value>
+    <value>The email you entered is already in use</value>
   </data>
   <data name="AppBarDoneButtonText" xml:space="preserve">
     <value>done</value>
@@ -177,19 +177,19 @@
     <value>done!</value>
   </data>
   <data name="invalidMail" xml:space="preserve">
-    <value>Enter your email</value>
+    <value>Please enter your email</value>
   </data>
   <data name="invalidName" xml:space="preserve">
-    <value>Enter your name</value>
+    <value>Please enter your name</value>
   </data>
   <data name="invalidPassword" xml:space="preserve">
-    <value>Enter your password</value>
+    <value>Please enter your password</value>
   </data>
   <data name="invalidPassword1" xml:space="preserve">
     <value>The password should be at least 6 characters long</value>
   </data>
   <data name="invalidReType" xml:space="preserve">
-    <value>Written passwords are not the same</value>
+    <value>Passwords don't match</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>login</value>
