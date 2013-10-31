@@ -21,6 +21,7 @@ using Hammock;
 using Hammock.Authentication.OAuth;
 using System.Windows.Media;
 using System.Net.NetworkInformation;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -47,6 +48,7 @@ namespace Connect.LoggedMainPages
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
             if (IsNetworkAvailable()){
+              
                 btnFacebookLogin.Visibility = System.Windows.Visibility.Collapsed;
                 App.registrando = true;
                 NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
@@ -100,10 +102,10 @@ namespace Connect.LoggedMainPages
         {
             if (App.isDebug)
                 return false;
-            else if (NetworkInterface.GetIsNetworkAvailable())
-                return true;
-            else
+            else if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.None)
                 return false;
+            else
+                return true;
         }
 
 
@@ -112,7 +114,6 @@ namespace Connect.LoggedMainPages
         private void Click_check(object sender, EventArgs e)
         {
            
-            // NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
             if (IsNetworkAvailable())
             {
                 try

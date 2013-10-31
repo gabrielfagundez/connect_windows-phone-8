@@ -10,7 +10,7 @@ using Microsoft.Phone.Shell;
 using Connect.Classes;
 using Connect.Resources;
 using System.Windows.Media;
-using System.Net.NetworkInformation;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace Connect.LoggedMainPages
 {
@@ -34,10 +34,10 @@ namespace Connect.LoggedMainPages
         {
             if (App.isDebug)
                 return false;
-            else if (NetworkInterface.GetIsNetworkAvailable())
-                return true;
-            else
+            else if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.None)
                 return false;
+            else
+                return true;
         }
 
         private void btnFacebook_Click(object sender, RoutedEventArgs e)

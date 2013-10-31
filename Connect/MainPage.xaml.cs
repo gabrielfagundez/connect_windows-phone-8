@@ -15,7 +15,6 @@ using Connect.Classes;
 using Connect;
 using System.Net.NetworkInformation;
 using System.Windows.Media;
-using System.Net.NetworkInformation;
 using Microsoft.Phone.Net.NetworkInformation;
 using System.Windows.Input;
 
