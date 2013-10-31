@@ -61,7 +61,9 @@
                     Text="{Binding Path=LocalizedResources.scanning, Source={StaticResource LocalizedStrings}}"
                     VerticalAlignment="Bottom"
                     Width="Auto"
-                    Foreground="#FF00AFF0"/>
+                    Foreground="#FF00AFF0"
+                    FontSize="30"/>
+
         </Grid>
     </Grid>
 

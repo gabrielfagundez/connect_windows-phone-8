@@ -29,17 +29,39 @@ namespace ZXLib_Test_WP7
         private DispatcherTimer _scanTimer;
         private WriteableBitmap _previewBuffer;
 
+
+        DispatcherTimer newTimer = new DispatcherTimer();//sacar, solo para probar sin cel!!!!!!!!!!!!!!!!!!!!!!!
+
         public Scan()
         {
-            InitializeComponent();
-            Connecting.Text = AppResources.searching;
-            ProgressB.IsIndeterminate = true;
-            Connecting.Visibility = System.Windows.Visibility.Visible;
-            
+            InitializeComponent();            
         }
+
+        
+        void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
+        {
+            newTimer.Stop();
+            qrFound("3");
+        }
+
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
         {
+            Connecting.Text = AppResources.searching;
+            ProgressB.IsIndeterminate = false;
+            Connecting.Visibility = System.Windows.Visibility.Visible;
+
+            //***************************sacar, solo para probar sin cel*************************************
+            // timer interval specified as 1 second
+            newTimer.Interval = TimeSpan.FromSeconds(2);
+            // Sub-routine OnTimerTick will be called at every 1 second
+            newTimer.Tick += OnTimerTick;
+            // starting the timer
+            newTimer.Start();
+            //*************************************************************************************
+
+
+
             // Initialize the camera object
             _phoneCamera = new PhotoCamera();
             _phoneCamera.Initialized += cam_Initialized;
@@ -114,41 +136,7 @@ namespace ZXLib_Test_WP7
 
         void _bcReader_ResultFound(Result obj)
         {
-            // If a new barcode is found, vibrate the device and display the barcode details in the UI
-            if (!obj.Text.Equals(tbBarcodeData.Text))
-            {
-                VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
-                //tbBarcodeType.Text = obj.BarcodeFormat.ToString();
-                //tbBarcodeData.Text = obj.Text;
-                
-                //apaga cam y scan******************************************
-                _scanTimer.Stop();
-
-                ProgressB.IsIndeterminate = true;
-                Connecting.Text = AppResources.scanning;
-                Connecting.Visibility = System.Windows.Visibility.Visible;
-                
-
-                if (_phoneCamera != null)
-                {
-                    // Cleanup
-                    _phoneCamera.Dispose();
-                    _phoneCamera.Initialized -= cam_Initialized;
-                    CameraButtons.ShutterKeyHalfPressed -= CameraButtons_ShutterKeyHalfPressed;
-                }
-                //*********************************************************************
-                LoggedUser user = LoggedUser.Instance;
-                UserData _userData = user.GetLoggedUser();
-                if (obj.Text == _userData.Id)
-                {
-                    errorFunc("Mismo id");
-                }
-                else
-                {
-                    getInfo2(obj.Text);
-                }
-                
-            }
+            qrFound(obj.Text);
         }
 
         private void ScanForBarcode()
@@ -173,6 +161,36 @@ namespace ZXLib_Test_WP7
         }
 
 
+
+
+        private void qrFound(string idQR)
+        {
+            VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
+
+            //apaga cam y scan******************************************
+            _scanTimer.Stop();
+            if (_phoneCamera != null)
+            {
+                // Cleanup
+                _phoneCamera.Dispose();
+                _phoneCamera.Initialized -= cam_Initialized;
+                CameraButtons.ShutterKeyHalfPressed -= CameraButtons_ShutterKeyHalfPressed;
+            }
+            //*********************************************************************
+            ProgressB.IsIndeterminate = true;
+            Connecting.Text = AppResources.scanning;
+            Connecting.Visibility = System.Windows.Visibility.Visible;
+            LoggedUser user = LoggedUser.Instance;
+            UserData _userData = user.GetLoggedUser();
+            if (idQR == _userData.Id)
+            {
+                errorFunc(AppResources.sameID);
+            }
+            else
+            {
+                getInfo2(idQR);
+            }
+        }
         private void getInfo2(string id)
         {
             {
