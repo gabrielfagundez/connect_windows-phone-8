@@ -28,6 +28,7 @@ namespace Connect.LoggedMainPages
             {
                 App.isAuthenticated = true;
                 await Authenticate();
+              
             }
         }
 
@@ -76,9 +77,11 @@ namespace Connect.LoggedMainPages
                 Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative)));
             }
             catch (InvalidOperationException e)
-            {
-                NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));
+            {               
+                Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative)));
             }
         }
+
+
     }
 }

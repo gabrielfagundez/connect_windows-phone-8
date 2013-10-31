@@ -10,6 +10,7 @@ using Microsoft.Phone.Shell;
 using Connect.Classes;
 using Connect.Resources;
 using System.Windows.Media;
+using ZXing.Common;
 
 namespace Connect.LoggedMainPages
 {
@@ -21,10 +22,16 @@ namespace Connect.LoggedMainPages
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
             LoggedUser user = LoggedUser.Instance;
-            string codigo = user.GetLoggedUser().Id ; 
-            var writer = new ZXing.BarcodeWriter { Format = ZXing.BarcodeFormat.QR_CODE };
-            var writeableBitmap = writer.Write(codigo);
-            ImgQR.Stretch = System.Windows.Media.Stretch.Fill;
+            string codigo = user.GetLoggedUser().Id ;
+            EncodingOptions options;
+            options = new ZXing.QrCode.QrCodeEncodingOptions
+            {
+                Height = 520,
+                Width = 520
+            };
+           
+            var writer = new ZXing.BarcodeWriter { Format = ZXing.BarcodeFormat.QR_CODE, Options = options };
+            var writeableBitmap = writer.Write(codigo);            
             ImgQR.Source = writeableBitmap;
 
             //UserName.Text =user.GetLoggedUser().Name;

@@ -24,6 +24,7 @@ namespace Connect
         internal static string AccessToken = String.Empty;
         internal static string FacebookId = String.Empty;
         public static bool isAuthenticated = false;
+        public static bool salirFacebook = false;
         public static FacebookSessionClient FacebookSessionClient;
         public static bool registrando = false;
         public static string webService = "http://testingpis.azurewebsites.net";
