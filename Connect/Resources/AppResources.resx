@@ -287,4 +287,7 @@
   <data name="scanning" xml:space="preserve">
     <value>Scanning</value>
   </data>
+  <data name="searching" xml:space="preserve">
+    <value>QR searching</value>
+  </data>
 </root>
