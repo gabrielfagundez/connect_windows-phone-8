@@ -255,7 +255,7 @@
     <value>Not authorized!</value>
   </data>
   <data name="notFound" xml:space="preserve">
-    <value>Not found!</value>
+    <value>The QR code does not correspond with any Connect's user!</value>
   </data>
   <data name="OkTitle" xml:space="preserve">
     <value>Ok</value>
