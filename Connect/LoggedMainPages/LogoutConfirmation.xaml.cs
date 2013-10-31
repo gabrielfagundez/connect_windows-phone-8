@@ -27,7 +27,7 @@ namespace Connect.LoggedMainPages
 
         private void No_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/Settings.xaml", UriKind.Relative));
+            NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
         }
     }
 }
