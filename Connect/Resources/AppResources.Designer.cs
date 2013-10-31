@@ -448,6 +448,15 @@ namespace Connect.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No puedes hacerte amigo de ti mismo.
+        /// </summary>
+        public static string sameID {
+            get {
+                return ResourceManager.GetString("sameID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Scan.
         /// </summary>
         public static string Scan1Title {

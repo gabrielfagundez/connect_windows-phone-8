@@ -287,4 +287,7 @@
   <data name="searching" xml:space="preserve">
     <value>Buscando QR</value>
   </data>
+  <data name="sameID" xml:space="preserve">
+    <value>No puedes hacerte amigo de ti mismo</value>
+  </data>
 </root>
