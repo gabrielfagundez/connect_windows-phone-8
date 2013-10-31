@@ -40,8 +40,9 @@ namespace ZXLib_Test_WP7
         
         void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
         {
+            qrFound("55");
             newTimer.Stop();
-            qrFound("3");
+            
         }
 
 
@@ -160,13 +161,8 @@ namespace ZXLib_Test_WP7
                 return true;
         }
 
-
-
-
-        private void qrFound(string idQR)
+        private void apagarCam()
         {
-            VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
-
             //apaga cam y scan******************************************
             _scanTimer.Stop();
             if (_phoneCamera != null)
@@ -177,6 +173,13 @@ namespace ZXLib_Test_WP7
                 CameraButtons.ShutterKeyHalfPressed -= CameraButtons_ShutterKeyHalfPressed;
             }
             //*********************************************************************
+        }
+
+
+        private void qrFound(string idQR)
+        {
+            VibrateController.Default.Start(TimeSpan.FromMilliseconds(100));
+            apagarCam();
             ProgressB.IsIndeterminate = true;
             Connecting.Text = AppResources.scanning;
             Connecting.Visibility = System.Windows.Visibility.Visible;
@@ -245,6 +248,8 @@ namespace ZXLib_Test_WP7
                         switch (e1.Result)
                         {
                             case CustomMessageBoxResult.LeftButton:
+                                apagarCam();
+                                NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml.xaml", UriKind.Relative));
                                 break;
                             case CustomMessageBoxResult.None:
                                 // Acción.
