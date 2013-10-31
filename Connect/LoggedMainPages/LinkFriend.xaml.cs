@@ -19,7 +19,7 @@ namespace Connect.LoggedMainPages
         {
             InitializeComponent();
             LoggedUser lu = LoggedUser.Instance;
-            string s = lu.friendInf.LinkedInId;
+            string s = lu.friendInf.LinkedInId;       
             this.loginBrowserControl.Navigate(new Uri(s, UriKind.Absolute));//aca va el linkedin del nuevo amigo        
         }       
     }

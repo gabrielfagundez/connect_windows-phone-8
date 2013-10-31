@@ -41,7 +41,7 @@ namespace ZXLib_Test_WP7
         void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
         {
             newTimer.Stop();
-            qrFound("3");
+            qrFound("54");
         }
 
 
