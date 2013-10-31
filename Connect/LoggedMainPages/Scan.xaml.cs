@@ -32,8 +32,10 @@ namespace ZXLib_Test_WP7
         public Scan()
         {
             InitializeComponent();
-            ProgressB.IsIndeterminate = false;
-            Connecting.Visibility = System.Windows.Visibility.Collapsed;
+            Connecting.Text = AppResources.searching;
+            ProgressB.IsIndeterminate = true;
+            Connecting.Visibility = System.Windows.Visibility.Visible;
+            
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
@@ -123,7 +125,9 @@ namespace ZXLib_Test_WP7
                 _scanTimer.Stop();
 
                 ProgressB.IsIndeterminate = true;
+                Connecting.Text = AppResources.scanning;
                 Connecting.Visibility = System.Windows.Visibility.Visible;
+                
 
                 if (_phoneCamera != null)
                 {
