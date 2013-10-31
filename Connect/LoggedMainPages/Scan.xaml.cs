@@ -133,7 +133,17 @@ namespace ZXLib_Test_WP7
                     CameraButtons.ShutterKeyHalfPressed -= CameraButtons_ShutterKeyHalfPressed;
                 }
                 //*********************************************************************
-                getInfo2(obj.Text);
+                LoggedUser user = LoggedUser.Instance;
+                UserData _userData = user.GetLoggedUser();
+                if (obj.Text == _userData.Id)
+                {
+                    errorFunc("Mismo id");
+                }
+                else
+                {
+                    getInfo2(obj.Text);
+                }
+                
             }
         }
 
