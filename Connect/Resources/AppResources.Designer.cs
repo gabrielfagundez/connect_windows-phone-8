@@ -376,7 +376,7 @@ namespace Connect.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Not found!.
+        ///   Looks up a localized string similar to The QR code does not correspond with any Connect&apos;s user!.
         /// </summary>
         public static string notFound {
             get {
@@ -480,6 +480,15 @@ namespace Connect.Resources {
         public static string ScanTitle {
             get {
                 return ResourceManager.GetString("ScanTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to QR searching.
+        /// </summary>
+        public static string searching {
+            get {
+                return ResourceManager.GetString("searching", resourceCulture);
             }
         }
         
