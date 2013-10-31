@@ -34,7 +34,6 @@ namespace ZXLib_Test_WP7
             InitializeComponent();
             ProgressB.IsIndeterminate = false;
             Connecting.Visibility = System.Windows.Visibility.Collapsed;
-            getInfo2("28");
         }
 
         protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
