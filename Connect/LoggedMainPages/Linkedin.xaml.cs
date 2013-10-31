@@ -225,7 +225,23 @@ namespace Connect.LoggedMainPages
             MemoryStream personXml = new MemoryStream(byteArray);
             int startPos = aRespString.LastIndexOf("<url>") + "<url>".Length;
             int length = aRespString.IndexOf("</url>") - startPos;
-            string sub = aRespString.Substring(startPos, length);
+            string s1 = aRespString.Substring(startPos, length);
+
+            startPos = s1.LastIndexOf("id=") + "id=".Length; ;
+            length = s1.IndexOf("&amp;authType=") - startPos;
+            string id = s1.Substring(startPos, length);
+
+
+            startPos = s1.LastIndexOf("&amp;authType=") + "&amp;authType=".Length;
+            length = s1.IndexOf("&amp;authToken=") - startPos;
+            string authType = s1.Substring(startPos, length);
+
+
+            startPos = s1.LastIndexOf("&amp;authToken=") + "&amp;authToken=".Length;
+            length = s1.IndexOf("&amp;trk=") - startPos;
+            string authToken = s1.Substring(startPos, length);
+
+            string sub = "http://www.linkedin.com/profile/view?id=" + id + "&authType=" + authType + "&authToken=" + authToken;
             UserData u = LoggedUser.Instance.userReg;
             Session s = new Session();
             s.RemoveStringObject("LinkedInId");

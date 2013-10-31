@@ -42,7 +42,7 @@ namespace ZXLib_Test_WP7
         {
             qrFound("55");
             newTimer.Stop();
-            
+
         }
 
 
