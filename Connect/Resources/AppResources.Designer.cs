@@ -459,6 +459,15 @@ namespace Connect.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Scanning.
         /// </summary>
+        public static string scanning {
+            get {
+                return ResourceManager.GetString("scanning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Scanning.
+        /// </summary>
         public static string ScanningTitle {
             get {
                 return ResourceManager.GetString("ScanningTitle", resourceCulture);

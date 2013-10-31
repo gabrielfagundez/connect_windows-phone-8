@@ -18,7 +18,7 @@ using Newtonsoft.Json;
 using Connect;
 using System.Windows.Media;
 using Connect.Resources;
-using System.Net.NetworkInformation;
+using Microsoft.Phone.Net.NetworkInformation;
 
 namespace ZXLib_Test_WP7
 {
@@ -153,10 +153,10 @@ namespace ZXLib_Test_WP7
         {
             if (App.isDebug)
                 return false;
-            else if (NetworkInterface.GetIsNetworkAvailable())
-                return true;
-            else
+            else if (Microsoft.Phone.Net.NetworkInformation.NetworkInterface.NetworkInterfaceType == NetworkInterfaceType.None)
                 return false;
+            else
+                return true;
         }
 
 
