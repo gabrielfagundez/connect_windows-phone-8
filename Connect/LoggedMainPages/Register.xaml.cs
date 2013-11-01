@@ -28,7 +28,7 @@ namespace Connect.LoggedMainPages
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
             NombreIngresado.Text = "Prueba Perez";
-            MailIngresado.Text = "prueba@mail.com";                    
+            MailIngresado.Text = "prueba3@mail.com";                    
             PassIngresadoReg.Password = "password";
             RePassIngresadoReg.Password = "password";
                               

@@ -22,6 +22,7 @@ using Hammock.Authentication.OAuth;
 using System.Windows.Media;
 using System.Net.NetworkInformation;
 using Microsoft.Phone.Net.NetworkInformation;
+using Facebook.Client;
 
 namespace Connect.LoggedMainPages
 {
@@ -84,6 +85,19 @@ namespace Connect.LoggedMainPages
                     messageBox.Show();
                 }
             }
+        }
+
+        protected async override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            LoggedUser.Instance.userReg.FacebookId = "";            
+            FacebookSessionCacheProvider.Current.DeleteSessionData();
+            await new WebBrowser().ClearCookiesAsync();
+            App.isAuthenticated = false;
+            LoggedUser.Instance.userReg.LinkedInId = "";
+            MainUtil.SetKeyValue<string>("AccessToken", string.Empty);
+            MainUtil.SetKeyValue<string>("AccessTokenSecret", string.Empty);
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Register.xaml", UriKind.Relative));
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
