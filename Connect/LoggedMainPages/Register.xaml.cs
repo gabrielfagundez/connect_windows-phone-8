@@ -40,7 +40,12 @@ namespace Connect.LoggedMainPages
         {           
                 //LoggedUser.Instance.userReg = null ;          
         }
-
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+            
+            NavigationService.Navigate(new Uri("/MainPage.xaml", UriKind.Relative));
+        }
         private bool IsNetworkAvailable()
         {
             if (App.isDebug)
