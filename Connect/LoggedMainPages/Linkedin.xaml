@@ -45,12 +45,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <TextBlock Grid.Row="0" Grid.Column="0" Text="First Name" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DEC71313"/>
-                <TextBlock Grid.Row="0" Grid.Column="1" x:Name="txtFirstName" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DEDC1616"/>
-                <TextBlock Grid.Row="1" Grid.Column="0" Text="Last Name" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DED42020"/>
-                <TextBlock Grid.Row="1" Grid.Column="1" x:Name="txtLastName" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DEDE1818"/>
-                <TextBlock Grid.Row="2" Grid.Column="0" Text="Headline" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DEF11C1C"/>
-                <TextBlock Grid.Row="2" Grid.Column="1" x:Name="txtHeadline" VerticalAlignment="Center" HorizontalAlignment="Left" TextWrapping="Wrap" FontSize="22" FontFamily="Segoe WP Bold" Foreground="#DECF1E1E"/>
+               
             </Grid>
         </Grid>
     </Grid>

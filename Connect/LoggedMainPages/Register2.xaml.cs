@@ -38,49 +38,65 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
-            btnFacebookLogin.Visibility = System.Windows.Visibility.Visible;
+           
         }
 
         private void btnFacebookLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (IsNetworkAvailable()){
-
-                NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
+            if (LoggedUser.Instance.userReg.FacebookId != "")
+            {
+                NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutFromFacebookConfirmation.xaml", UriKind.Relative));
             }
             else
             {
-                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
-                CustomMessageBox messageBox = new CustomMessageBox()
+                if (IsNetworkAvailable())
                 {
-                    Caption = AppResources.NoInternetConnection,
-                    Message = AppResources.NoInternetConnectionMessage,
-                    LeftButtonContent = AppResources.OkTitle,
-                    Background = mybrush,
-                    IsFullScreen = false,
-                };
 
-
-                messageBox.Dismissed += (s1, e1) =>
+                    NavigationService.Navigate(new Uri("/LoggedMainPages/FacebookLoginPage.xaml", UriKind.Relative));
+                }
+                else
                 {
-                    switch (e1.Result)
+                    SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                    CustomMessageBox messageBox = new CustomMessageBox()
                     {
-                        case CustomMessageBoxResult.LeftButton:
-                            break;
-                        case CustomMessageBoxResult.None:
-                            // Acción.
-                            break;
-                        default:
-                            break;
-                    }
-                };
+                        Caption = AppResources.NoInternetConnection,
+                        Message = AppResources.NoInternetConnectionMessage,
+                        LeftButtonContent = AppResources.OkTitle,
+                        Background = mybrush,
+                        IsFullScreen = false,
+                    };
 
-                messageBox.Show();
+
+                    messageBox.Dismissed += (s1, e1) =>
+                    {
+                        switch (e1.Result)
+                        {
+                            case CustomMessageBoxResult.LeftButton:
+                                break;
+                            case CustomMessageBoxResult.None:
+                                // Acción.
+                                break;
+                            default:
+                                break;
+                        }
+                    };
+
+                    messageBox.Show();
+                }
             }
         }
 
-        protected override async void OnNavigatedFrom(NavigationEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            
+
+            if (LoggedUser.Instance.userReg.FacebookId != "")
+            {
+                btnFacebookLogin.Content = AppResources.LogoutFromFacebookTitle;
+            }
+            if (LoggedUser.Instance.userReg.LinkedInId != "")
+            {
+                btnLinkedinLogin.Content = AppResources.LogoutFromLinkedInTitle;
+            }
                 //LoggedUser.Instance.userReg = null;
            
         }
@@ -194,39 +210,49 @@ namespace Connect.LoggedMainPages
             }
         }
 
+
+
         private void MenuItemSignIn_Click(object sender, EventArgs e)
         {
-            if (IsNetworkAvailable()){
-                NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
+            if (LoggedUser.Instance.userReg.LinkedInId != "")
+            {
+                NavigationService.Navigate(new Uri("/LoggedMainPages/LogoutFromLinkedInConfirmation.xaml", UriKind.Relative));
             }
             else
             {
-                SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
-                CustomMessageBox messageBox = new CustomMessageBox()
+                if (IsNetworkAvailable())
                 {
-                    Caption = AppResources.NoInternetConnection,
-                    Message = AppResources.NoInternetConnectionMessage,
-                    LeftButtonContent = AppResources.OkTitle,
-                    Background = mybrush,
-                    IsFullScreen = false,
-                };
-
-
-                messageBox.Dismissed += (s1, e1) =>
+                    NavigationService.Navigate(new Uri("/LoggedMainPages/Linkedin.xaml", UriKind.Relative));
+                }
+                else
                 {
-                    switch (e1.Result)
+                    SolidColorBrush mybrush = new SolidColorBrush(Color.FromArgb(255, 0, 175, 240));
+                    CustomMessageBox messageBox = new CustomMessageBox()
                     {
-                        case CustomMessageBoxResult.LeftButton:
-                            break;
-                        case CustomMessageBoxResult.None:
-                            // Acción.
-                            break;
-                        default:
-                            break;
-                    }
-                };
+                        Caption = AppResources.NoInternetConnection,
+                        Message = AppResources.NoInternetConnectionMessage,
+                        LeftButtonContent = AppResources.OkTitle,
+                        Background = mybrush,
+                        IsFullScreen = false,
+                    };
 
-                messageBox.Show();
+
+                    messageBox.Dismissed += (s1, e1) =>
+                    {
+                        switch (e1.Result)
+                        {
+                            case CustomMessageBoxResult.LeftButton:
+                                break;
+                            case CustomMessageBoxResult.None:
+                                // Acción.
+                                break;
+                            default:
+                                break;
+                        }
+                    };
+
+                    messageBox.Show();
+                }
             }
         }
 

@@ -263,8 +263,7 @@ namespace Connect.LoggedMainPages
             Deployment.Current.Dispatcher.BeginInvoke(() =>
            {
                if (currentPerson != null)
-               {
-                  
+               {                  
                    MainUtil.SetKeyValue<string>("AccessToken", string.Empty);
                    MainUtil.SetKeyValue<string>("AccessTokenSecret", string.Empty);
                    NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));

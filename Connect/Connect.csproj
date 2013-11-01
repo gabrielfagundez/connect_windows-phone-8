@@ -126,6 +126,12 @@
     <Compile Include="LoggedMainPages\LogoutConfirmation.xaml.cs">
       <DependentUpon>LogoutConfirmation.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LoggedMainPages\LogoutFromFacebookConfirmation.xaml.cs">
+      <DependentUpon>LogoutFromFacebookConfirmation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoggedMainPages\LogoutFromLinkedInConfirmation.xaml.cs">
+      <DependentUpon>LogoutFromLinkedInConfirmation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoggedMainPages\Register2.xaml.cs">
       <DependentUpon>Register2.xaml</DependentUpon>
     </Compile>
@@ -188,6 +194,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="LoggedMainPages\LogoutConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\LogoutFromFacebookConfirmation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoggedMainPages\LogoutFromLinkedInConfirmation.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

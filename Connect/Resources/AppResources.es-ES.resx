@@ -290,4 +290,16 @@
   <data name="sameID" xml:space="preserve">
     <value>No puedes hacerte amigo de ti mismo</value>
   </data>
+  <data name="AreYouSureLogutTitleFacebook" xml:space="preserve">
+    <value>¿Esta seguro que desea cerrar la sesión de Facebook?</value>
+  </data>
+  <data name="AreYouSureLogutTitleLinkedIn" xml:space="preserve">
+    <value>¿Esta seguro que desea cerrar la sesión de LinkedIn?</value>
+  </data>
+  <data name="LogoutFromFacebookTitle" xml:space="preserve">
+    <value>Cierra sesión de Facebook</value>
+  </data>
+  <data name="LogoutFromLinkedInTitle" xml:space="preserve">
+    <value>Cierra sesión de Linkedin</value>
+  </data>
 </root>

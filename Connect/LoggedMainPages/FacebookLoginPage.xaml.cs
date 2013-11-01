@@ -65,6 +65,7 @@ namespace Connect.LoggedMainPages
                     s.RemoveStringObject("FacebookId");
                     s.SaveStringObject("FacebookId", (string)result["username"]);
                     u.FacebookId = (string)result["username"];
+                    NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative));
                 });
             };
 
@@ -85,7 +86,7 @@ namespace Connect.LoggedMainPages
                 s.SaveStringObject("AccessToken", App.AccessToken);
                 s.SaveStringObject("FacebookId", App.FacebookId);
                 LoadUserInfo();
-                Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative)));
+                //Dispatcher.BeginInvoke(() => NavigationService.Navigate(new Uri("/LoggedMainPages/Register2.xaml", UriKind.Relative)));
             }
             catch (InvalidOperationException e)
             {               
