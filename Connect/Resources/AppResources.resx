@@ -291,7 +291,7 @@
     <value>QR searching</value>
   </data>
   <data name="sameID" xml:space="preserve">
-    <value>No puedes hacerte amigo de ti mismo</value>
+    <value>You can not make friends with yourself</value>
   </data>
   <data name="AreYouSureLogutTitleFacebook" xml:space="preserve">
     <value>Are you sure you want to logout from Facebook?</value>
