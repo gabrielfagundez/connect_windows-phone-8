@@ -249,7 +249,7 @@ namespace ZXLib_Test_WP7
                         {
                             case CustomMessageBoxResult.LeftButton:
                                 apagarCam();
-                                NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml.xaml", UriKind.Relative));
+                                NavigationService.Navigate(new Uri("/LoggedMainPages/LoggedMainPage.xaml", UriKind.Relative));
                                 break;
                             case CustomMessageBoxResult.None:
                                 // Acción.
