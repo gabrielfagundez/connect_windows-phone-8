@@ -29,8 +29,8 @@ namespace Connect
         public MainPage()
         {
             InitializeComponent();
-            MailIngresado.Text = "test@mail.com";
-            PassIngresado.Password="password";
+            //MailIngresado.Text = "test@mail.com";
+            //PassIngresado.Password="password";
             // Código de ejemplo para traducir ApplicationBar
              BuildLocalizedApplicationBar();
              if (PageTitle.Text == "login")
