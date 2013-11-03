@@ -138,7 +138,7 @@
     <value>mis cuentas</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
-    <value>agregar</value>
+    <value>listo!</value>
   </data>
   <data name="AddToFacebookTitle" xml:space="preserve">
     <value>Agregar a facebook</value>
@@ -301,5 +301,9 @@
   </data>
   <data name="LogoutFromLinkedInTitle" xml:space="preserve">
     <value>Cierra sesión de Linkedin</value>
+  </data>
+  <data name="LinkedinAmigo" xml:space="preserve">
+    <value>Advertencia: El programa abrira un buscador externo para ingresar a LinkedIn.
+Luego usted debera cerrar el buscador para volver al programa. Desea hacerlo?</value>
   </data>
 </root>

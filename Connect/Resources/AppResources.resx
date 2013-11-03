@@ -138,7 +138,7 @@
     <value>accounts</value>
   </data>
   <data name="AddTitle" xml:space="preserve">
-    <value>add</value>
+    <value>done!</value>
   </data>
   <data name="AddToFacebookTitle" xml:space="preserve">
     <value>Add to Facebook</value>
@@ -264,10 +264,10 @@
     <value>User</value>
   </data>
   <data name="withoutFace" xml:space="preserve">
-    <value>The user is not associated with Facebook account</value>
+    <value>The user is not associated with a Facebook account</value>
   </data>
   <data name="withoutLink" xml:space="preserve">
-    <value>The user is not associated with Linkedin account</value>
+    <value>The user is not associated with a Linkedin account</value>
   </data>
   <data name="CameraProblem" xml:space="preserve">
     <value>Unable to initialize the camera</value>
@@ -304,5 +304,14 @@
   </data>
   <data name="LogoutFromLinkedInTitle" xml:space="preserve">
     <value>Logout from linkedin</value>
+  </data>
+  <data name="LinkedinAmigo" xml:space="preserve">
+    <value>Warning: The program will now open an external browser to reach Linkedin. Afterwards, you will have to close it to get back to the program. Do you wish to do it?</value>
+  </data>
+  <data name="sdf" xml:space="preserve">
+    <value />
+  </data>
+  <data name="String" xml:space="preserve">
+    <value />
   </data>
 </root>

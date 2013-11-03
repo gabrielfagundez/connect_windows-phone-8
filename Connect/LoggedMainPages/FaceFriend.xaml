@@ -20,19 +20,13 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height=".10*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
 
-            <phone:WebBrowser Grid.Row="0" Grid.RowSpan="2" Margin="-6,3,0,1" Name="loginBrowserControl" 
+            <phone:WebBrowser Grid.Row="0" Grid.RowSpan="2" Margin="0,0,0,0" Name="loginBrowserControl" 
                               
                              />
 
         </Grid>
-    </Grid>
+   
 
     <!--Sample code showing usage of ApplicationBar-->
 

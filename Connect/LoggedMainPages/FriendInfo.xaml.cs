@@ -40,6 +40,13 @@ namespace Connect.LoggedMainPages
                 return true;
         }
 
+        protected override void OnBackKeyPress(System.ComponentModel.CancelEventArgs e)
+        {
+            e.Cancel = true;
+
+            NavigationService.Navigate(new Uri("/LoggedMainPages/Scan.xaml", UriKind.Relative));
+        }
+
         private void btnFacebook_Click(object sender, RoutedEventArgs e)
         {
             LoggedUser lu = LoggedUser.Instance;
