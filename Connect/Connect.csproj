@@ -250,6 +250,7 @@
     <Content Include="Assets\Images\Cuadrado.png" />
     <Content Include="Assets\Images\feature.camera.png" />
     <Content Include="Assets\Images\feature.settings.png" />
+    <Content Include="Assets\Images\logoC!Blanco.png" />
     <Content Include="Assets\Images\logoConnect!.png" />
     <Content Include="Assets\Images\Logout-32.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />
