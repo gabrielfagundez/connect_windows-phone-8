@@ -40,7 +40,7 @@ namespace ZXLib_Test_WP7
         
         void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
         {
-            qrFound("66");
+            qrFound("http://pis2013.azurewebsites.net/?id=1");
             newTimer.Stop();
 
         }
@@ -58,7 +58,7 @@ namespace ZXLib_Test_WP7
             // Sub-routine OnTimerTick will be called at every 1 second
             newTimer.Tick += OnTimerTick;
             // starting the timer
-            //newTimer.Start();
+            newTimer.Start();
             //*************************************************************************************
 
 
@@ -185,6 +185,12 @@ namespace ZXLib_Test_WP7
             Connecting.Visibility = System.Windows.Visibility.Visible;
             LoggedUser user = LoggedUser.Instance;
             UserData _userData = user.GetLoggedUser();
+            string s1 = idQR;
+            int startPos = s1.LastIndexOf("/?id=") + "/?id=".Length;
+            int length = s1.Length - startPos;
+            idQR = s1.Substring(startPos, length);
+            string url = s1.Substring(0, startPos);
+
             if (idQR == _userData.Id)
             {
                 errorFunc(AppResources.sameID);

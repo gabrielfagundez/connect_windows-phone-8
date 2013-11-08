@@ -22,12 +22,12 @@ namespace Connect.LoggedMainPages
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
             LoggedUser user = LoggedUser.Instance;
-            string codigo = user.GetLoggedUser().Id ;
+            string codigo = "http://pis2013.azurewebsites.net/?id=" + user.GetLoggedUser().Id ;
             EncodingOptions options;
             options = new ZXing.QrCode.QrCodeEncodingOptions
             {
-                Height = 520,
-                Width = 520
+                Height = 500,
+                Width =500
             };
            
             var writer = new ZXing.BarcodeWriter { Format = ZXing.BarcodeFormat.QR_CODE, Options = options };
