@@ -58,7 +58,7 @@ namespace ZXLib_Test_WP7
             // Sub-routine OnTimerTick will be called at every 1 second
             newTimer.Tick += OnTimerTick;
             // starting the timer
-            newTimer.Start();
+            //newTimer.Start();
             //*************************************************************************************
 
 
