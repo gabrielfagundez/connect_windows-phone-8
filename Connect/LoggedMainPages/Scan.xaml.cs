@@ -40,7 +40,7 @@ namespace ZXLib_Test_WP7
         
         void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
         {
-            qrFound("http://pis2013.azurewebsites.net/?id=1");
+            qrFound("http://pis2013.azurewebsites.net/?id=4");
             newTimer.Stop();
 
         }
