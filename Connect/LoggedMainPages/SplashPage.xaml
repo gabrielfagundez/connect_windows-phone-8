@@ -51,10 +51,20 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="AppTitlePanel" Grid.Row="1" Margin="0,0,0,0" >
-            <Image Source="/Assets/Images/logoSplash.png"
+            <!--<Image Source="/Assets/Images/logoSplash.png"
         		HorizontalAlignment="Center"
+                VerticalAlignment="Center" />-->
+            <TextBlock 
+                Text="C!"
+                HorizontalAlignment="Center"
                 VerticalAlignment="Center"
- />
+                Margin="0,0,20,0" 
+                Foreground="White"
+                Style="{StaticResource PhoneTextTitle1Style}" 
+                FontFamily="Segoe WP Light" 
+                Height="Auto" 
+                Width="Auto" 
+                FontSize="300" FontWeight="Bold"/>
         </Grid>
 
 
