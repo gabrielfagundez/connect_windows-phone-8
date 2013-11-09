@@ -1,11 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Deployment xmlns="http://schemas.microsoft.com/windowsphone/2012/deployment" AppPlatformVersion="8.0">
-  <DefaultLanguage xmlns="" code="en-US" />
+  <DefaultLanguage xmlns="" code="en" />
   <Languages xmlns="">
     <Language code="es-ES" />
+    <Language code="en" />
+    <Language code="es" />
   </Languages>
   <App xmlns="" ProductID="{1843feed-b8d4-461f-ba2b-357d0b848113}" Title="Connect" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="Connect author" Description="Sample description" Publisher="Connect" PublisherID="{2de09ed2-e7fa-429c-bb0d-350489fc31c7}">
-    <IconPath IsRelative="true" IsResource="false">Assets\Images\logoC!Blanco.png</IconPath>
+    <IconPath IsRelative="true" IsResource="false">Assets\Images\iconoC!.png</IconPath>
     <Capabilities>
       <Capability Name="ID_CAP_ISV_CAMERA" />
       <Capability Name="ID_CAP_NETWORKING" />
