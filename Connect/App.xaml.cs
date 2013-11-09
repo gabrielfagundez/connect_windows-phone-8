@@ -27,7 +27,7 @@ namespace Connect
         public static bool salirFacebook = false;
         public static FacebookSessionClient FacebookSessionClient;
         public static bool registrando = false;
-        public static string webService = "http://testingpis.azurewebsites.net";
+        public static string webService = "http://serverdevelopmentpis.azurewebsites.net";
         public static bool isDebug = false;
        
         //testingpis

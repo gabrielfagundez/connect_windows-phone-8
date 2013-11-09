@@ -17,10 +17,11 @@ namespace Connect.LoggedMainPages
     {
         public LinkFriend()
         {
-            InitializeComponent();            
-        }       
+            InitializeComponent();
+            this.Loaded += LinkedinPage_Loaded;
+        }
 
-        private void Yes_Click(object sender, RoutedEventArgs e)
+        async void LinkedinPage_Loaded(object sender, RoutedEventArgs e)
         {
             LoggedUser lu = LoggedUser.Instance;
             string s = lu.friendInf.LinkedInId;
@@ -28,12 +29,7 @@ namespace Connect.LoggedMainPages
             webBrowserTask.Uri = new Uri(s);
             webBrowserTask.Show();
             NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
-        }
-
-        private void No_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
-        }
+        }    
          
     }
 }
