@@ -253,6 +253,7 @@
     <Content Include="Assets\Images\iconoC!.png" />
     <Content Include="Assets\Images\logoC!Blanco.png" />
     <Content Include="Assets\Images\logoConnect!.png" />
+    <Content Include="Assets\Images\logoC_Blanco_vectorized.png" />
     <Content Include="Assets\Images\Logout-32.png" />
     <Content Include="Assets\Images\logoSplash.png" />
     <Content Include="Assets\QR\codigo-qr.jpg" />
