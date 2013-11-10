@@ -40,7 +40,7 @@ namespace ZXLib_Test_WP7
         
         void OnTimerTick(Object sender, EventArgs args)//sacar, solo para probar sin cel
         {
-            qrFound("http://pis2013.azurewebsites.net/?id=4");
+            qrFound("http://pis2013.azurewebsites.net/?id=5");
             newTimer.Stop();
 
         }
@@ -58,7 +58,7 @@ namespace ZXLib_Test_WP7
             // Sub-routine OnTimerTick will be called at every 1 second
             newTimer.Tick += OnTimerTick;
             // starting the timer
-            //newTimer.Start();
+            newTimer.Start();
             //*************************************************************************************
 
 

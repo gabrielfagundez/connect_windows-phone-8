@@ -79,7 +79,7 @@ namespace Connect.LoggedMainPages
             ApplicationBarIconButton appBarButton =
                 new ApplicationBarIconButton(new
                 Uri("/Assets/Images/Logout-32.png", UriKind.Relative));
-            appBarButton.Text = AppResources.AppBarSettingsButtonText;
+            appBarButton.Text = AppResources.AppBarLogoutButtonText;
             appBarButton.Click += this.Click_Settings;
             ApplicationBar.Buttons.Add(appBarButton);
             ApplicationBar.BackgroundColor = Color.FromArgb(255, 0, 175, 240);
