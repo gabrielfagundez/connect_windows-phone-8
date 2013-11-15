@@ -82,6 +82,41 @@ namespace Connect.Classes
             session.SaveStringObject("Password", u.Password);
         }
 
+        public void GetFriend()
+        {
+            UserData u = new UserData();
+            Session s = new Session();
+            u.Mail = (string)s.GetStringObject("MailFriend");
+            u.Id = (string)s.GetStringObject("IdFriend");
+            u.FacebookId = (string)s.GetStringObject("FacebookIdFriend");
+            u.LinkedInId = (string)s.GetStringObject("LinkedInIdFriend");
+            u.Name = (string)s.GetStringObject("NameFriend");
+            this.friendInf = u;
+        }
+
+
+        public void SetFriend (UserData u)
+        {
+            this.friendInf = u;
+            Session session = new Session();
+            session.SaveStringObject("MailFriend", u.Mail);
+            session.SaveStringObject("FacebookIdFriend", u.FacebookId);
+            session.SaveStringObject("IdFriend", u.Id);
+            session.SaveStringObject("LinkedInIdFriend", u.LinkedInId);
+            session.SaveStringObject("NameFriend", u.Name);
+        }
+
+        public void RemoveFriend()
+        {
+            this.friendInf = null;
+            Session session = new Session();
+            session.RemoveStringObject("MailFriend");
+            session.RemoveStringObject("FacebookIdFriend");
+            session.RemoveStringObject("IdFriend");
+            session.RemoveStringObject("LinkedInIdFriend");
+            session.RemoveStringObject("NameFriend");
+        }
+
         public UserData GetLoggedUser()
         {
             return this.user;

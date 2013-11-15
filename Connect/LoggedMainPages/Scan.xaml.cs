@@ -34,7 +34,8 @@ namespace ZXLib_Test_WP7
 
         public Scan()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            LoggedUser.Instance.RemoveFriend();
         }
 
         
@@ -58,7 +59,7 @@ namespace ZXLib_Test_WP7
             // Sub-routine OnTimerTick will be called at every 1 second
             newTimer.Tick += OnTimerTick;
             // starting the timer
-            newTimer.Start();
+            //newTimer.Start();
             //*************************************************************************************
 
 
@@ -319,6 +320,7 @@ namespace ZXLib_Test_WP7
                 {
                     lu.friendInf.LinkedInId = "";
                 }
+                lu.SetFriend(lu.friendInf);
                 System.Diagnostics.Debug.WriteLine("Finish scann:" + DateTime.Now.Second.ToString());
                 NavigationService.Navigate(new Uri("/LoggedMainPages/FriendInfo.xaml", UriKind.Relative));
             }

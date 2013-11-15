@@ -21,8 +21,8 @@ namespace Connect.LoggedMainPages
             InitializeComponent();
             // Código de ejemplo para traducir ApplicationBar
             BuildLocalizedApplicationBar();
+            LoggedUser.Instance.GetFriend();
             LoggedUser lu = LoggedUser.Instance;
-
             Done.Text = lu.friendInf.Name +", "+ AppResources.done1 + " " +lu.friendInf.Mail +", "+ AppResources.done2+"!";
         }
 
