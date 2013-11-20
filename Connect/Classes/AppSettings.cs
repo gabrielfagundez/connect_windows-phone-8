@@ -20,8 +20,8 @@ namespace Connect.Classes
         public static string AccessTokenUri = "https://api.linkedin.com/uas/oauth/accessToken";     
  
         public static string CallbackUri = "http://localhost";
-        public static string consumerKey = "ou9xvx3lni8k";
-        public static string consumerKeySecret = "TkhemWQTIziYMAPZ";
+        public static string consumerKey = "75hx9owol1n86e";
+        public static string consumerKeySecret = "jjMhOknOf1Fl3lBB";
 
         public static string oAuthVersion = "1.0";
 

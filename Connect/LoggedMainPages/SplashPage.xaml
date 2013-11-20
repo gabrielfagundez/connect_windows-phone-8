@@ -38,33 +38,18 @@
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Margin="0,0,0,0">
-        <Grid.Background>
-            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                <GradientStop Color="#FF73CAEA" Offset="0"/>
-                <GradientStop Color="#FF00AFF0" Offset="0.378"/>
-            </LinearGradientBrush>
-        </Grid.Background>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="300"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+       
 
         <Grid x:Name="AppTitlePanel" Grid.Row="1" Margin="0,0,0,0" >
             <!--<Image Source="/Assets/Images/logoSplash.png"
         		HorizontalAlignment="Center"
                 VerticalAlignment="Center" />-->
-            <TextBlock 
-                Text="C!"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center"
-                Margin="0,0,20,0" 
-                Foreground="White"
-                Style="{StaticResource PhoneTextTitle1Style}" 
-                FontFamily="Segoe WP Light" 
-                Height="Auto" 
-                Width="Auto" 
-                FontSize="300" FontWeight="Bold"/>
+            <Image x:Name="Connect"
+                   Height="auto"
+                   Width="auto"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch"
+                   Source="/Assets/Images/wp-splash-connect.png"></Image>
         </Grid>
 
 

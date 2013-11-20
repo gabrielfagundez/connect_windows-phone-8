@@ -8,6 +8,6 @@ namespace Connect.Classes
 {
     class Constants
     {
-        public static readonly string FacebookAppId = "663262323691920";
+        public static readonly string FacebookAppId = "180128835524231";
     }
 }
